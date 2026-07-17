@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, daveDelaneyPersonSchema } from '../data/schema.js';
+---
+<BaseLayout
+  title="Communication Expert, Leadership Coach, Keynote Speaker in Nashville and beyond. It's Futureforth. - Futureforth"
+  description="Looking for keynote speakers in Nashville? Are you seeking a communication expert who brings humor, heart, and wisdom to his work? Futureforth presents former Google Speaker, Dave Delaney, an award-winning communication consultant, coach, and expert in networking, connection, community, and communication skills."
+  path="/about"
+  image="/images/about-dave.jpg"
+  jsonLd={[organizationSchema, daveDelaneyPersonSchema]}
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--color-accent);">Our Story</p>
+      <h1>About Futureforth</h1>
+      <p class="lede" style="color:#dbe3ee;">
+        At Futureforth, we believe that clear communication and professional development aren't just
+        skills &mdash; they're game-changers. Whether you're an executive feeling stuck, a founder
+        figuring out your next move, a freelancer ready to grow, or a mid-career professional overwhelmed
+        and unclear, you're not alone.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p>Futureforth is here to help you gain <strong>clarity, confidence, and momentum</strong>.</p>
+      <h2>What We Do</h2>
+      <p>Futureforth is a coaching and communication consultancy that supports those who are ready to take the next step, even if they're not yet sure what that step is.</p>
+      <p>We offer:</p>
+      <ul>
+        <li><strong>1:1 coaching</strong> to help you clarify your direction and communicate it powerfully</li>
+        <li><strong>Keynote presentations and workshops</strong> for conferences and organizations that want to elevate connection, creativity, and leadership</li>
+        <li><strong>Fractional and contract engagements</strong> to transform your company's communication &mdash; internally and externally</li>
+      </ul>
+      <p>
+        Our approach is built on action, not fluff. You'll walk away with new strategies, renewed energy,
+        and the confidence to speak up, stand out, and reach the success you've been striving for.
+        <a href="/contact">Schedule a quick call to learn more</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="dave">
+    <div class="container">
+      <div class="hero__grid hero__grid--split">
+        <div>
+          <img src="/images/about-dave.jpg" alt="Dave Delaney, communication expert, leadership coach, and keynote speaker" width="640" height="640" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);" />
+        </div>
+        <div>
+          <p class="eyebrow">Who's Behind Futureforth?</p>
+          <h2>About Dave Delaney</h2>
+          <p>
+            <strong>Dave Delaney</strong>, founder of Futureforth, is a communication strategist, coach,
+            and acclaimed keynote speaker. Delaney helps professionals and teams enhance their
+            connection, leadership, and growth. Known for his blend of humor, heart, experience, and
+            actionable insights, Dave teaches communication and leadership through keynote presentations,
+            workshops, coaching, and as a fractional strategic communication director.
+          </p>
+          <p>
+            With an extensive background in marketing, digital content creation, technology, performance,
+            networking, and even improv comedy, Dave is recognized for his ability to engage audiences,
+            teams, and individuals and drive real results. Delaney is a recognized leader, published
+            author of <a href="/new-business-networking">New Business Networking</a>, and the host and
+            producer of the ADHD Wise Squirrels podcast.
+          </p>
+          <p>
+            A trusted voice on communication and connection, Dave has worked with top organizations like
+            Google, LinkedIn, FedEx, and UPS. His expertise has been featured in USA Today, Forbes,
+            Entrepreneur, BBC, CBC, and multiple books.
+          </p>
+          <p>
+            If you're looking for a communication expert to <strong>enlighten</strong>,
+            <strong>empower</strong>, and <strong>entertain</strong> your audience or team while
+            delivering practical takeaways, they don't call him the <em>nice</em> guy for nothing.
+            <a href="/contact">Check Dave's availability</a>.
+          </p>
+        </div>
+      </div>
+
+      <details style="margin-top: var(--space-xl);">
+        <summary style="cursor: pointer; font-weight: 700; font-family: var(--font-display); font-size: var(--step-1);">More about Dave&hellip;</summary>
+        <div style="margin-top: var(--space-sm); max-width: 60ch;">
+          <p>
+            Dave Delaney is a natural communicator whose real strength lies in how easily he builds trust
+            with others. People consistently describe him as someone who listens well, tells meaningful
+            stories, and makes genuine connections with just about anyone &mdash; regardless of their
+            background or status.
+          </p>
+          <p>
+            Colleagues and friends often mention that Dave brings energy, warmth, and humor into every
+            interaction. He's known for being generous with his time and ideas, always offering help
+            without expecting anything in return.
+          </p>
+          <p>
+            His ability to share enthusiasm, connect across differences, and communicate clearly &mdash;
+            both in person and online &mdash; comes up again and again. At the core, Dave's
+            &ldquo;superpower&rdquo; is a mix of authenticity, curiosity, and kindness that helps others
+            feel more confident, connected, and understood.
+          </p>
+          <p>
+            In his work, Dave uses these qualities to teach communication in a way that's practical and
+            human. His keynotes and workshops are known for being engaging and full of real-life
+            takeaways &mdash; whether he's talking about team communication, retention, neurodiversity,
+            or leadership.
+          </p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section text-center">
+    <div class="container">
+      <h2>Why &ldquo;Futureforth&rdquo;?</h2>
+      <p class="lede" style="margin-inline: auto;">
+        Because that's what we're doing here &mdash; looking ahead, getting unstuck, and moving forward
+        with purpose. In the wise words of Joey Ramone, with his clenched fist held proudly in the air,
+        &ldquo;Hey ho, let's go!&rdquo;
+      </p>
+      <a href="/contact" class="btn btn-primary">Contact Us</a>
+    </div>
+  </section>
+</BaseLayout>

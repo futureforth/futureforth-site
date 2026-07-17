@@ -1,0 +1,14 @@
+---
+const logos = [
+  { src: '/images/trust/fedex.png', alt: 'FedEx logo' },
+  { src: '/images/trust/silicon-ranch.png', alt: 'Silicon Ranch logo' },
+  { src: '/images/trust/stratasan.png', alt: 'Stratasan logo' },
+  { src: '/images/trust/healthstream.png', alt: 'HealthStream logo' },
+  { src: '/images/trust/ntca.png', alt: 'NTCA logo' },
+];
+---
+<div class="trust-logos">
+  {logos.map((logo) => (
+    <img src={logo.src} alt={logo.alt} width="150" height="60" loading="lazy" />
+  ))}
+</div>
