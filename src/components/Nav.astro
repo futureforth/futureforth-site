@@ -1,0 +1,100 @@
+---
+// Primary site navigation — mirrors the original Squarespace nav structure exactly,
+// including the "Workshops" and "More" dropdown groups.
+const workshopsLinks = [
+  { href: '/workshops', label: 'Communication Workshops' },
+  { href: '/corporate-improv-training-in-nashville', label: 'Corporate Improv Training in Nashville' },
+  { href: '/grow-your-business-with-ai', label: 'Grow Your Business with AI' },
+];
+
+const moreLinks = [
+  { href: '/virtual-testimonials', label: 'Virtual Testimonials' },
+  { href: '/freetools', label: 'Free Tools' },
+  { href: '/about', label: 'About Futureforth' },
+  { href: '/about#dave', label: 'About Dave Delaney' },
+  { href: '/10x', label: '10X Conference Coaching' },
+  { href: '/for-conference-planners', label: '10X For Conference Planners' },
+  { href: '/new-business-networking', label: 'New Business Networking by Dave Delaney' },
+];
+
+// Sibling brands under the Futureforth umbrella — each lives on its own site.
+const familyLinks = [
+  { href: 'https://www.davedelaney.me', label: 'Dave Delaney — Keynote Speaker' },
+  { href: 'https://wisesquirrels.com', label: 'Wise Squirrels — ADHD Podcast' },
+];
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-logo" aria-label="Futureforth home">
+      <img src="/images/logo.png" alt="Futureforth logo" width="160" height="40" />
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul>
+        <li class="has-dropdown">
+          <button type="button" aria-expanded="false">Workshops</button>
+          <ul class="dropdown-menu">
+            {workshopsLinks.map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a href="/dave-delaney-coaching">Coaching</a></li>
+        <li><a href="/communication-presentations">Presentations</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li class="has-dropdown">
+          <button type="button" aria-expanded="false">More</button>
+          <ul class="dropdown-menu">
+            {moreLinks.map((l) => (
+              <li><a href={l.href}>{l.label}</a></li>
+            ))}
+            <li role="separator" class="dropdown-menu__divider" aria-hidden="true"></li>
+            <li class="dropdown-menu__label" aria-hidden="true">Our Family of Brands</li>
+            {familyLinks.map((l) => (
+              <li>
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label} <span aria-hidden="true">↗</span>
+                  <span class="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+      <div class="header-cta">
+        <a href="/book-dave-delaney" class="btn btn-primary">Keynote Speaker, Dave Delaney</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('primary-nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+
+  document.querySelectorAll('.has-dropdown > button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.has-dropdown');
+      const isOpen = parent?.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(!!isOpen));
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.has-dropdown')) {
+      document.querySelectorAll('.has-dropdown.is-open').forEach((el) => el.classList.remove('is-open'));
+    }
+  });
+</script>

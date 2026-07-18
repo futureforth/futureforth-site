@@ -1,0 +1,36 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+  image?: string;
+  imageAlt?: string;
+}
+const { eyebrow, title, subtitle, ctaHref, ctaLabel, secondaryHref, secondaryLabel, image, imageAlt } = Astro.props as Props;
+---
+<section class="hero">
+  <div class="container">
+    <div class:list={["hero__grid", { 'hero__grid--split': !!image }]}>
+      <div>
+        {eyebrow && <p class="eyebrow" style="color: var(--color-accent);">{eyebrow}</p>}
+        <h1>{title}</h1>
+        {subtitle && <p class="lede" style="color: #dbe3ee;">{subtitle}</p>}
+        {(ctaHref || secondaryHref) && (
+          <div class="hero__actions">
+            {ctaHref && <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>}
+            {secondaryHref && <a href={secondaryHref} class="btn btn-outline">{secondaryLabel}</a>}
+          </div>
+        )}
+      </div>
+      {image && (
+        <div class="hero__media">
+          <img src={image} alt={imageAlt || ''} width="640" height="480" loading="eager" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+interface Props {
+  images: GalleryImage[];
+}
+const { images } = Astro.props as Props;
+---
+<div class="gallery">
+  {images.map((img) => (
+    <img src={img.src} alt={img.alt} loading="lazy" width="400" height="300" />
+  ))}
+</div>
