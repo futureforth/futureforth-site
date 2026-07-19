@@ -86,8 +86,17 @@ const familyLinks = [
   document.querySelectorAll('.has-dropdown > button').forEach((btn) => {
     btn.addEventListener('click', () => {
       const parent = btn.closest('.has-dropdown');
-      const isOpen = parent?.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(!!isOpen));
+      const willOpen = !parent?.classList.contains('is-open');
+
+      document.querySelectorAll('.has-dropdown.is-open').forEach((el) => {
+        el.classList.remove('is-open');
+        el.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen) {
+        parent?.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
