@@ -5,14 +5,14 @@
    ========================================================================== */
 
 :root {
-  /* ---- Brand colors (PLACEHOLDER — swap with real Futureforth brand hex) --- */
-  --color-navy-900: #0c1c33;
-  --color-navy-800: #122542;
-  --color-navy-700: #1d3a63;
-  --color-navy-600: #2c4d7d;
-  --color-accent-500: #e2823c;
-  --color-accent-600: #c96a28;
-  --color-accent-100: #fbe6d3;
+  /* ---- Brand colors (sampled from Dave's real logo/favicon — verify against brand guide) --- */
+  --color-navy-900: #4a1650;
+  --color-navy-800: #6c1f78;
+  --color-navy-700: #7b2382;
+  --color-navy-600: #93348f;
+  --color-accent-500: #f0801e;
+  --color-accent-600: #d66c12;
+  --color-accent-100: #fce4cc;
   --color-cream-50: #f9f6f0;
   --color-cream-100: #f3ede1;
   --color-charcoal-900: #201f1d;
@@ -701,6 +701,13 @@ select:focus-visible,
 
 .site-footer a:hover {
   color: var(--color-accent);
+}
+
+.site-footer__logo {
+  display: block;
+  height: 72px;
+  width: auto;
+  margin: 0 auto var(--space-md);
 }
 
 .site-footer__quote {
