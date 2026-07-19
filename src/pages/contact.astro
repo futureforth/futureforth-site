@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact Us, Don't Be Shy. - Futureforth"
+  description="Nobody likes pushy sales types. That's not how we roll. Let us have a quick chat with you to determine your needs to see if we're a fit."
+  path="/contact"
+  image="/images/og-default.jpg"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--color-accent);">Get In Touch</p>
+      <h1>Thanks for taking the first step.</h1>
+      <p class="lede" style="color:#dbe3ee;">
+        Not a fan of forms? Give us a shout at <a href="tel:6158231608" style="color:#fff;">615-823-1608</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container" style="max-width: 40rem;">
+      <script is:inline src="https://js-na2.hsforms.net/forms/embed/246796291.js" defer></script>
+      <div class="hs-form-frame" data-region="na2" data-form-id="7f0acc7b-63a9-4fd7-a889-0be9da0f4c8c" data-portal-id="246796291"></div>
+
+      <p class="form-note" style="margin-top: var(--space-lg);">
+        Not a fan of forms? You can reach Dave directly:
+        <a href="mailto:info@futureforth.com">info@futureforth.com</a> or
+        <a href="tel:6158231608">615-823-1608</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
