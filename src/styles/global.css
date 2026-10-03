@@ -402,7 +402,8 @@ select:focus-visible,
   margin: 0;
 }
 
-.primary-nav a {
+/* :not(.btn) keeps these link rules off the header button, which has its own padding and hover colors */
+.primary-nav a:not(.btn) {
   color: var(--color-navy-900);
   text-decoration: none;
   font-weight: 600;
@@ -412,8 +413,8 @@ select:focus-visible,
   padding: var(--space-2xs) 0;
 }
 
-.primary-nav a:hover,
-.primary-nav a:focus-visible {
+.primary-nav a:not(.btn):hover,
+.primary-nav a:not(.btn):focus-visible {
   color: var(--color-accent-strong);
 }
 
@@ -449,6 +450,17 @@ select:focus-visible,
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Invisible bridge across the 10px gap between the menu button and its dropdown,
+   so the pointer does not leave the hover area on the way down. */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
 }
 
 /* Keep the last menu ("More") inside the viewport */
@@ -549,11 +561,15 @@ select:focus-visible,
     border-bottom: 1px solid var(--color-border);
   }
 
-  .primary-nav a,
+  .primary-nav a:not(.btn),
   .has-dropdown > button {
     padding: var(--space-sm) 0;
     width: 100%;
     text-align: left;
+  }
+
+  .dropdown-menu::before {
+    display: none;
   }
 
   .dropdown-menu {
