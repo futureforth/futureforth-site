@@ -37,20 +37,26 @@ function feedItems() {
   return cache;
 }
 
-export function pickAudio(slug, items, fallback = seed) {
-  const number = slug.match(/^nice(\d+)-/)?.[1];
+// The episode number comes from the title ("NICE26 - ..."), not the URL: one episode's
+// URL says nice25 although it is episode 26.
+export function episodeNumber(episode) {
+  return (episode.title.match(/^\s*NICE\s*(\d+)/i) ?? episode.slug.match(/^nice(\d+)-/))?.[1] ?? null;
+}
+
+export function pickAudio(episode, items, fallback = seed) {
+  const number = episodeNumber(episode);
   if (!number) return null;
   const matches = items.filter((i) => i.number === number);
   if (matches.length === 1) return matches[0].url;
   if (matches.length > 1) {
-    // Two episodes share a number: pick the one whose title mentions the guest in the slug.
-    const words = slug.replace(/^nice\d+-/, '').split('-').filter((w) => w.length > 2);
+    // Two feed items share a number: pick the one whose title mentions the guest in the URL.
+    const words = episode.slug.replace(/^nice\d+-/, '').split('-').filter((w) => w.length > 2);
     const hit = matches.find((i) => words.some((w) => i.title.toLowerCase().includes(w)));
     return hit?.url ?? null;
   }
   return fallback[number] ?? null;
 }
 
-export async function audioFor(slug) {
-  return pickAudio(slug, await feedItems());
+export async function audioFor(episode) {
+  return pickAudio(episode, await feedItems());
 }

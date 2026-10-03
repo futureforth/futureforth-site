@@ -4,12 +4,15 @@ import episodes from '../../data/podcast.json';
 import { audioFor } from '../../lib/podcast-audio.js';
 
 export async function getStaticPaths() {
-  return Promise.all(
+  const paths = await Promise.all(
     episodes.map(async (episode, i) => ({
       params: { slug: episode.slug },
-      props: { episode, audio: await audioFor(episode.slug), newer: episodes[i - 1], older: episodes[i + 1] },
+      props: { episode, audio: await audioFor(episode), newer: episodes[i - 1], older: episodes[i + 1] },
     }))
   );
+  const silent = paths.filter((p) => !p.props.audio).map((p) => p.params.slug);
+  if (silent.length) console.warn(`[podcast] ${silent.length} of ${paths.length} episodes have no audio: ${silent.join(', ')}`);
+  return paths;
 }
 const { episode, audio, newer, older } = Astro.props;
 const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
