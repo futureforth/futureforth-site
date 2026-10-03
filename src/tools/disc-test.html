@@ -1,0 +1,141 @@
+<style>
+  #disc-quiz-wrapper { max-width: 40rem; margin: 0 auto; }
+  #disc-quiz-wrapper h2 { text-align: center; }
+  #disc-quiz-wrapper .hidden { display: none; }
+  #disc-quiz-wrapper .question p { font-weight: 600; font-size: 1.15rem; }
+  #disc-quiz-wrapper .question button {
+    display: block; width: 100%; text-align: left; margin: 0 0 0.6rem; padding: 0.85rem 1rem;
+    font: inherit; background: #fff; color: inherit; border: 2px solid #801c80; border-radius: 8px; cursor: pointer;
+  }
+  #disc-quiz-wrapper .question button:hover,
+  #disc-quiz-wrapper .question button:focus-visible { background: #801c80; color: #fff; }
+  #disc-quiz-wrapper .progress { font-size: 0.9rem; color: #4b4944; }
+  #disc-quiz-wrapper .result { padding: 1.25rem; border-radius: 12px; background: #f9f6f0; border: 1px solid #e4ddce; }
+  #disc-quiz-wrapper .cta { text-align: center; margin-top: 1.25rem; }
+  #disc-quiz-wrapper .cta a {
+    display: inline-block; padding: 0.85rem 1.5rem; background: #f0801e; color: #201f1d; font-weight: 700;
+    border-radius: 8px; text-decoration: none;
+  }
+</style>
+<div id="disc-quiz-wrapper">
+  <h2>Quick DISC Assessment</h2>
+  <p class="progress" id="disc-progress" aria-live="polite">Question 1 of 10</p>
+  <div id="disc-quiz">
+    <div class="question" id="dq0">
+      <p>1. When facing a new challenge at work, I usually...</p>
+      <button onclick="discAnswer('D')">Take charge and decide quickly</button>
+      <button onclick="discAnswer('I')">Talk it through with my team</button>
+      <button onclick="discAnswer('S')">Wait to see how others respond</button>
+      <button onclick="discAnswer('C')">Research it thoroughly before acting</button>
+    </div>
+    <div class="question hidden" id="dq1">
+      <p>2. In team meetings, I tend to...</p>
+      <button onclick="discAnswer('D')">Lead the conversation and push for action</button>
+      <button onclick="discAnswer('I')">Tell stories and get people excited</button>
+      <button onclick="discAnswer('S')">Listen and support quieter voices</button>
+      <button onclick="discAnswer('C')">Stay quiet unless I have detailed data</button>
+    </div>
+    <div class="question hidden" id="dq2">
+      <p>3. I’m most frustrated by coworkers who...</p>
+      <button onclick="discAnswer('D')">Waste time with indecision</button>
+      <button onclick="discAnswer('I')">Don’t engage or connect with others</button>
+      <button onclick="discAnswer('S')">Are too aggressive or confrontational</button>
+      <button onclick="discAnswer('C')">Don’t pay attention to the details</button>
+    </div>
+    <div class="question hidden" id="dq3">
+      <p>4. Others would describe me as...</p>
+      <button onclick="discAnswer('D')">Assertive and results-focused</button>
+      <button onclick="discAnswer('I')">Friendly and enthusiastic</button>
+      <button onclick="discAnswer('S')">Kind and dependable</button>
+      <button onclick="discAnswer('C')">Organized and thorough</button>
+    </div>
+    <div class="question hidden" id="dq4">
+      <p>5. I make decisions based on...</p>
+      <button onclick="discAnswer('D')">Gut instinct and urgency</button>
+      <button onclick="discAnswer('I')">How people will react</button>
+      <button onclick="discAnswer('S')">What’s fair and considerate</button>
+      <button onclick="discAnswer('C')">Facts and data</button>
+    </div>
+    <div class="question hidden" id="dq5">
+      <p>6. Under pressure, I tend to...</p>
+      <button onclick="discAnswer('D')">Get demanding or impatient</button>
+      <button onclick="discAnswer('I')">Get distracted or overly optimistic</button>
+      <button onclick="discAnswer('S')">Avoid confrontation and withdraw</button>
+      <button onclick="discAnswer('C')">Overanalyze and freeze up</button>
+    </div>
+    <div class="question hidden" id="dq6">
+      <p>7. My work style is best described as...</p>
+      <button onclick="discAnswer('D')">Fast and focused</button>
+      <button onclick="discAnswer('I')">Energetic and people-centered</button>
+      <button onclick="discAnswer('S')">Steady and reliable</button>
+      <button onclick="discAnswer('C')">Precise and structured</button>
+    </div>
+    <div class="question hidden" id="dq7">
+      <p>8. What motivates me most?</p>
+      <button onclick="discAnswer('D')">Winning or achieving goals</button>
+      <button onclick="discAnswer('I')">Being liked and appreciated</button>
+      <button onclick="discAnswer('S')">Helping others succeed</button>
+      <button onclick="discAnswer('C')">Solving complex problems</button>
+    </div>
+    <div class="question hidden" id="dq8">
+      <p>9. When someone disagrees with me, I usually...</p>
+      <button onclick="discAnswer('D')">Challenge them directly</button>
+      <button onclick="discAnswer('I')">Use humor to diffuse the tension</button>
+      <button onclick="discAnswer('S')">Stay quiet or avoid the issue</button>
+      <button onclick="discAnswer('C')">Look for supporting data</button>
+    </div>
+    <div class="question hidden" id="dq9">
+      <p>10. I prefer to work in environments that are...</p>
+      <button onclick="discAnswer('D')">Fast-paced and competitive</button>
+      <button onclick="discAnswer('I')">Collaborative and upbeat</button>
+      <button onclick="discAnswer('S')">Calm and cooperative</button>
+      <button onclick="discAnswer('C')">Structured and analytical</button>
+    </div>
+  </div>
+
+  <div id="disc-result" class="hidden result" tabindex="-1"></div>
+
+  <div class="hidden cta" id="disc-cta">
+    <p>Let’s Dig Deeper Together.</p>
+    <a href="/contact">Get Your Type Summary &amp; Book a Free Call</a>
+  </div>
+</div>
+<script>
+  // Scoring rewritten for the new site: the original Squarespace script was not available.
+  // RESULT TEXT BELOW IS NEW WORDING, pending Dave's original copy.
+  (function () {
+    var TOTAL = 10;
+    var current = 0;
+    var scores = { D: 0, I: 0, S: 0, C: 0 };
+    var TYPES = {
+      D: { name: 'Dominance', text: 'You are direct, decisive and driven by results. You move fast and like a challenge.' },
+      I: { name: 'Influence', text: 'You are outgoing, enthusiastic and energized by people. You persuade through connection.' },
+      S: { name: 'Steadiness', text: 'You are patient, dependable and supportive. You bring calm and consistency to a team.' },
+      C: { name: 'Conscientiousness', text: 'You are analytical, precise and quality-minded. You want the facts before you act.' }
+    };
+    window.discAnswer = function (type) {
+      scores[type] += 1;
+      document.getElementById('dq' + current).classList.add('hidden');
+      current += 1;
+      if (current < TOTAL) {
+        document.getElementById('dq' + current).classList.remove('hidden');
+        document.getElementById('disc-progress').textContent = 'Question ' + (current + 1) + ' of ' + TOTAL;
+        return;
+      }
+      var order = ['D', 'I', 'S', 'C'].sort(function (a, b) { return scores[b] - scores[a]; });
+      var top = order.filter(function (t) { return scores[t] === scores[order[0]]; });
+      var result = document.getElementById('disc-result');
+      var heading = top.length > 1
+        ? 'Your styles are tied: ' + top.map(function (t) { return t + ' (' + TYPES[t].name + ')'; }).join(' and ')
+        : 'Your primary style: ' + top[0] + ' (' + TYPES[top[0]].name + ')';
+      var html = '<h3>' + heading + '</h3>';
+      top.forEach(function (t) { html += '<p>' + TYPES[t].text + '</p>'; });
+      html += '<p>Your scores: ' + ['D', 'I', 'S', 'C'].map(function (t) { return t + ' ' + scores[t]; }).join(' · ') + '</p>';
+      result.innerHTML = html;
+      document.getElementById('disc-progress').classList.add('hidden');
+      result.classList.remove('hidden');
+      document.getElementById('disc-cta').classList.remove('hidden');
+      result.focus();
+    };
+  })();
+</script>

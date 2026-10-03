@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import pages from '../data/pages.json';
+import tool from '../tools/conference-calculator.html?raw';
+const page = pages['conference-calculator'];
+---
+<BaseLayout
+  title="Conference Sponsorship Calculator - Futureforth"
+  description="Estimate the total cost of your next conference, tradeshow or summit sponsorship with this free calculator."
+  path="/conference-calculator"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--color-accent);">Free Tool</p>
+      <h1>Conference Sponsorship Calculator</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <Fragment set:html={page.html} />
+    </div>
+  </section>
+  <section class="section section--alt" id="tool">
+    <div class="container">
+      <Fragment set:html={tool} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p><a href="/freetools">&larr; All free tools</a></p>
+    </div>
+  </section>
+</BaseLayout>

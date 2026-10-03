@@ -2,10 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const tools = [
-  { href: 'https://futureforth.com/conference-calculator', title: 'Conference Sponsorship Calculator', desc: 'Discover how much a conference or tradeshow sponsorship actually costs.' },
-  { href: 'https://futureforth.com/churn-calculator', title: 'Employee Churn Calculator', desc: "Understand the true cost of losing employees. It's much more than you think." },
-  { href: 'https://futureforth.com/ai-quiz', title: 'AI Skills Assessment', desc: "Discover your team's readiness for the AI-powered future. This quick quiz helps identify current strengths and gaps in applying artificial intelligence at work." },
-  { href: 'https://futureforth.com/disc-test', title: 'DISC Strengths Assessment', desc: 'Uncover your communication and leadership style. This classic personality tool helps individuals and teams improve how they collaborate and connect.' },
+  { href: '/conference-calculator', title: 'Conference Sponsorship Calculator', desc: 'Discover how much a conference or tradeshow sponsorship actually costs.' },
+  { href: '/churn-calculator', title: 'Employee Churn Calculator', desc: "Understand the true cost of losing employees. It's much more than you think." },
+  { href: '/disc-test', title: 'DISC Strengths Assessment', desc: 'Uncover your communication and leadership style. This classic personality tool helps individuals and teams improve how they collaborate and connect.' },
 ];
 ---
 <BaseLayout
@@ -37,11 +36,6 @@ const tools = [
         <a href={`mailto:?subject=Check%20out%20these%20free%20business%20tools&body=I%20thought%20you%20might%20like%20these%20free%20tools%20from%20Futureforth%3A%20https%3A%2F%2Ffutureforth.com%2Ffreetools`}>Send to a colleague</a>
         &nbsp;|&nbsp;
         <a href="https://www.linkedin.com/feed/update/urn:li:share:7347991326459658240">Share on LinkedIn</a>
-      </p>
-      <p class="form-note" style="margin-top: var(--space-lg);">
-        Note: these interactive calculators and quizzes lived on Squarespace's built-in tools platform.
-        They are linked here to their original URLs for now; rebuilding them as native Astro/JS tools is
-        a good Phase 3 candidate once the core site is live.
       </p>
     </div>
   </section>
