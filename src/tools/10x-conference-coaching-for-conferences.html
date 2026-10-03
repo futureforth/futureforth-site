@@ -1,0 +1,369 @@
+
+<!-- ============================================================
+     For Conference Planners — Futureforth
+     Original Squarespace code block, now served at
+     /10x-conference-coaching-for-conferences. Styled to match the 10X
+     Conference Coaching page (#ff-10x). Scoped under #ff-fcp so
+     the two blocks never collide if they're ever on the same page.
+============================================================ -->
+<div id="ff-fcp">
+<style>
+  #ff-fcp{
+    /* Futureforth brand palette — matches #ff-10x */
+    --purple:#801C80;
+    --purple-dark:#5A1360;
+    --orange:#F26621;
+    --orange-dark:#D8551A;
+    --black:#000000;
+    --ink:#1A1A1A;
+    --muted:#5C5C5C;
+    --line:#E6E1E6;
+    --paper:#FFFFFF;
+    --cloud:#F8F4F8;
+    font-family:'Titillium Web',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  #ff-fcp *{box-sizing:border-box;}
+  #ff-fcp img{max-width:100%;display:block;}
+  #ff-fcp a{text-decoration:none;}
+  #ff-fcp .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  #ff-fcp section{padding:72px 0;}
+  #ff-fcp h1,#ff-fcp h2,#ff-fcp h3{color:var(--purple);font-weight:700;line-height:1.2;margin:0;}
+  #ff-fcp h1{font-size:44px;letter-spacing:-0.5px;}
+  #ff-fcp h2{font-size:32px;letter-spacing:-0.3px;}
+  #ff-fcp h3{font-size:19px;}
+  #ff-fcp p{margin:0;color:var(--muted);}
+  #ff-fcp .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;
+  }
+  #ff-fcp .btn{
+    display:inline-block;background:var(--orange);color:#fff!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+    box-shadow:0 6px 16px rgba(242,102,33,0.28);
+    transition:background .15s ease, transform .15s ease;
+    border:none;cursor:pointer;font-family:inherit;
+  }
+  #ff-fcp .btn:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  #ff-fcp .btn-ghost{
+    display:inline-block;background:transparent;color:var(--purple)!important;
+    font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;
+    border:1.5px solid var(--line);
+  }
+  #ff-fcp .btn-ghost:hover{border-color:var(--purple);}
+  /* HERO */
+  #ff-fcp .hero{
+    background:linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+    padding:88px 0 80px;
+  }
+  #ff-fcp .hero .eyebrow{color:#FBC08A;}
+  #ff-fcp .hero h1{color:#fff;max-width:760px;}
+  #ff-fcp .hero h1 span{color:#FBC08A;}
+  #ff-fcp .hero p.lead{color:#E7D6E9;font-size:19px;max-width:640px;margin-top:18px;}
+  #ff-fcp .hero .cta-row{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  #ff-fcp .hero .cta-note{color:#C7A9CA;font-size:13px;margin-top:14px;}
+  #ff-fcp .hero .btn-ghost{border-color:rgba(255,255,255,0.25);color:#fff!important;}
+  #ff-fcp .hero .btn-ghost:hover{border-color:#fff;}
+  /* STAT BAR */
+  #ff-fcp .statbar{background:var(--cloud);border-bottom:1px solid var(--line);padding:28px 0;}
+  #ff-fcp .statbar .wrap{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;}
+  #ff-fcp .stat{flex:1;min-width:200px;}
+  #ff-fcp .stat .num{font-size:26px;font-weight:800;color:var(--purple);}
+  #ff-fcp .stat .lbl{font-size:13.5px;color:var(--muted);margin-top:2px;}
+  /* PROBLEM */
+  #ff-fcp .problem .wrap{max-width:780px;text-align:center;}
+  #ff-fcp .problem h2{margin-bottom:18px;}
+  #ff-fcp .problem p{font-size:17px;}
+  #ff-fcp .problem p+p{margin-top:14px;}
+  #ff-fcp .problem strong{color:var(--ink);}
+  /* INCLUDED / CHECKLIST */
+  #ff-fcp .included{background:var(--cloud);}
+  #ff-fcp .included .head{max-width:640px;margin:0 auto 40px;text-align:center;}
+  #ff-fcp .checklist{
+    display:grid;grid-template-columns:1fr 1fr;gap:0 40px;
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 32px;
+  }
+  #ff-fcp .checklist li{
+    display:flex;gap:10px;font-size:15px;color:var(--ink);padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  #ff-fcp .checklist li:nth-child(1),
+  #ff-fcp .checklist li:nth-child(2){border-top:none;}
+  #ff-fcp .checklist .dot{color:var(--orange);font-weight:800;flex:0 0 auto;}
+  /* PROOF (Who is Dave Delaney) */
+  #ff-fcp .proof{}
+  #ff-fcp .proof .head{max-width:640px;margin:0 auto 8px;text-align:center;}
+  #ff-fcp .proof .head h2{font-style:italic;}
+  #ff-fcp .proof .head p{margin-top:14px;font-size:16px;}
+  #ff-fcp .proof-block{
+    display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center;
+    padding:44px 0;border-top:1px solid var(--line);
+  }
+  #ff-fcp .proof-block:first-of-type{border-top:none;}
+  #ff-fcp .proof-block.flip{grid-template-columns:380px 1fr;}
+  #ff-fcp .proof-block.flip .proof-media{order:1;}
+  #ff-fcp .proof-block.flip .proof-text{order:2;}
+  #ff-fcp .proof-text h3{margin-bottom:10px;}
+  #ff-fcp .proof-text p{font-size:15.5px;}
+  #ff-fcp .proof-text a{color:var(--orange-dark);font-weight:700;text-decoration:underline;}
+  #ff-fcp .proof-text blockquote{
+    margin:18px 0 0;padding-left:16px;border-left:3px solid var(--orange);
+    font-size:15.5px;color:var(--ink);font-style:italic;
+  }
+  #ff-fcp .proof-text .who{margin-top:10px;font-size:13px;color:var(--muted);font-weight:600;font-style:normal;}
+  #ff-fcp .proof-media{position:relative;border-radius:10px;overflow:hidden;box-shadow:0 12px 30px rgba(90,19,96,0.14);background:#000;}
+  #ff-fcp .proof-media .ratio{position:relative;width:100%;padding-top:56.25%;}
+  #ff-fcp .proof-media iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  #ff-fcp .proof-media img{border-radius:10px;}
+  /* SPONSOR DIRECT */
+  #ff-fcp .direct{background:var(--cloud);}
+  #ff-fcp .direct .grid{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:center;}
+  #ff-fcp .direct img{border-radius:10px;}
+  #ff-fcp .direct .eyebrow{margin-bottom:12px;}
+  #ff-fcp .direct p{font-size:16px;margin-top:12px;}
+  #ff-fcp .direct p+p{margin-top:14px;}
+  #ff-fcp .direct .btn{margin-top:24px;}
+  /* COPY TOOL */
+  #ff-fcp .copytool .head{max-width:680px;margin:0 auto 32px;text-align:center;}
+  #ff-fcp .copytool .head p{margin-top:12px;font-size:16px;}
+  #ff-fcp .copytool .head a{color:var(--orange-dark);font-weight:700;text-decoration:underline;}
+  #ff-fcp .copy-card{
+    max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:32px;box-shadow:0 16px 40px rgba(90,19,96,0.08);
+  }
+  #ff-fcp .copy-card .subject{font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+  #ff-fcp .copy-card .body-text{font-size:15px;color:var(--ink);white-space:pre-wrap;}
+  #ff-fcp .copy-card .body-text a{color:var(--orange-dark);font-weight:600;text-decoration:underline;}
+  #ff-fcp .copy-actions{margin-top:22px;text-align:center;}
+  #ff-fcp .copy-note{margin-top:14px;font-size:13px;color:var(--muted);text-align:center;}
+  #ff-fcp .copy-status{margin-top:10px;font-size:13.5px;color:var(--orange-dark);font-weight:700;text-align:center;min-height:18px;}
+  /* FINAL CTA */
+  #ff-fcp .final{background:linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);}
+  #ff-fcp .final .wrap{max-width:680px;text-align:center;}
+  #ff-fcp .final .eyebrow{color:#FFE4D1;}
+  #ff-fcp .final h2{color:#fff;}
+  #ff-fcp .final p{color:#FFEDE1;font-size:17px;margin-top:14px;}
+  #ff-fcp .final .cta-row{margin-top:26px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  #ff-fcp .final .btn{background:#fff;color:var(--orange-dark)!important;}
+  #ff-fcp .final .btn:hover{background:#FFF3EA;}
+  #ff-fcp .final .btn-ghost{border-color:rgba(255,255,255,0.4);color:#fff!important;}
+  #ff-fcp .final .btn-ghost:hover{border-color:#fff;}
+  @media (max-width:860px){
+    #ff-fcp h1{font-size:32px;}
+    #ff-fcp h2{font-size:26px;}
+    #ff-fcp .checklist{grid-template-columns:1fr;padding:8px 24px;}
+    #ff-fcp .checklist li:nth-child(2){border-top:1px solid var(--line);}
+    #ff-fcp .proof-block,#ff-fcp .proof-block.flip{grid-template-columns:1fr;}
+    #ff-fcp .proof-block.flip .proof-media{order:0;}
+    #ff-fcp .proof-block.flip .proof-text{order:1;}
+    #ff-fcp .direct .grid{grid-template-columns:1fr;text-align:center;}
+    #ff-fcp .direct img{margin:0 auto;max-width:160px;}
+    #ff-fcp .copy-card{padding:22px;}
+    #ff-fcp section{padding:52px 0;}
+  }
+</style>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Futureforth · For Conference &amp; Event Planners</div>
+      <h1>Ensure your sponsors succeed. <span>And come back next year.</span></h1>
+      <p class="lead">Acquiring a new sponsor or exhibitor costs 5&ndash;25x more than keeping one you already have. 10X Conference Coaching gets your sponsors fully prepared before, during, and after your event, so they see a real return and want to sign on again.</p>
+      <div class="cta-row">
+        <a class="btn" href="#included">What Sponsors Receive</a>
+        <a class="btn-ghost" href="#email-template">Get the Sponsor Email</a>
+      </div>
+      <div class="cta-note">It costs you and your conference nothing. Zero. Zilch.</div>
+    </div>
+  </section>
+
+  <!-- STAT BAR -->
+  <div class="statbar">
+    <div class="wrap">
+      <div class="stat"><div class="num">5&ndash;25x</div><div class="lbl">More expensive to win a new sponsor than to keep one</div></div>
+      <div class="stat"><div class="num">$0</div><div class="lbl">Cost to you and your conference, ever</div></div>
+      <div class="stat"><div class="num">Free</div><div class="lbl">Complimentary intro coaching session for every sponsor</div></div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="eyebrow">Why this matters</div>
+      <h2>Reduce churn by making sure sponsors actually see results</h2>
+      <p>To keep a sponsor or exhibitor coming back, they need to be fully prepared to get a substantial ROI from your event, not just a booth and a stack of business cards. <strong>10X Conference Coaching</strong> costs you, the event planner, and your conference nothing, zero, zilch.</p>
+      <p>Your sponsors also receive a complimentary introduction coaching session, leaving them better prepared to be successful. If they decide to continue, we get them fully prepared for everything that follows.</p>
+    </div>
+  </section>
+
+  <!-- INCLUDED / CHECKLIST -->
+  <section class="included" id="included">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">What 10X clients receive</div>
+        <h2>Everything your sponsors need to justify the spend next year</h2>
+      </div>
+      <ul class="checklist">
+        <li><span class="dot">✓</span> Networking best practices</li>
+        <li><span class="dot">✓</span> How to follow up and catch up</li>
+        <li><span class="dot">✓</span> Preparing for meetings before the conference</li>
+        <li><span class="dot">✓</span> Attracting people to your booth</li>
+        <li><span class="dot">✓</span> Using LLMs and applying ethical AI skills to enhance communication</li>
+        <li><span class="dot">✓</span> Measuring positive results, so they plan to return next year</li>
+        <li><span class="dot">✓</span> Public speaking training</li>
+        <li><span class="dot">✓</span> Presentation design best practices</li>
+        <li><span class="dot">✓</span> Using social media to research and connect</li>
+        <li><span class="dot">✓</span> Full coaching before, during, and after the conference</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROOF: WHO IS DAVE DELANEY -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Credentials</div>
+        <h2>Who is Dave Delaney?</h2>
+        <p>Recommend 10X Conference Coaching to your sponsors for a complimentary strategy session, and remind them to let us know you sent them. Sessions are designed to help them maximize their return on investment, leaving them happier than ever with your event and planning to return each year while singing your praises.</p>
+      </div>
+
+      <div class="proof-block">
+        <div class="proof-text">
+          <h3>A Trusted Speaker for Google</h3>
+          <p><a href="/workshops" target="_blank" rel="noopener">Learn more</a> about how I delivered hundreds of trainings to thousands of people across the US and Canada, representing Google for over five years.</p>
+          <blockquote>"He knows his stuff... If you have an opportunity to work together, it will be worth it."<div class="who">— Anastasia Kudrez, Google</div></blockquote>
+        </div>
+        <div class="proof-media">
+          <div class="ratio">
+            <iframe src="https://www.youtube.com/embed/bkKhaAhlOHw" title="Dave Delaney, trusted speaker for Google" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-block flip">
+        <div class="proof-text">
+          <h3>An Acclaimed Keynote Speaker</h3>
+          <p><a href="https://davedelaney.me/speaking" target="_blank" rel="noopener">Learn more</a> and read testimonials from LinkedIn, UPS, FedEx, Google, MPI, and SHRM about how I empower, enlighten, and entertain audiences with keynote presentations on communication, leadership, and networking.</p>
+          <blockquote>"Dave exceeded our expectations… Being a business owner, he was able to empathize with the audience and offer them real tips and advice they can use... authentic, informative and very well received."<div class="who">— Nicole (Belt) Cox, The UPS Store</div></blockquote>
+        </div>
+        <div class="proof-media">
+          <div class="ratio">
+            <iframe src="https://www.youtube.com/embed/4Gff9X-_sew?start=1" title="Dave Delaney, acclaimed keynote speaker" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-block">
+        <div class="proof-text">
+          <h3>A Seasoned Workshop Facilitator</h3>
+          <p><a href="/workshops" target="_blank" rel="noopener">Learn more</a> about my work teaching teams how to connect with one another while using strategies to improve their communication, public speaking, and leadership skills.</p>
+          <blockquote>"Dave is the Real Deal! His approach and knowledge made the time and investment pay off immediately. Yes, we give Dave as many 'Thumbs Up' as we possibly can."<div class="who">— Ginger Hardage, Former SVP of Culture &amp; Communications, Southwest Airlines</div></blockquote>
+        </div>
+        <div class="proof-media">
+          <div class="ratio">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLCAjIt1oPvVGpLyOQ79txPZSc5MuisDJe" title="Dave Delaney workshop facilitation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-block flip">
+        <div class="proof-text">
+          <h3>A Published Author and Networking Expert</h3>
+          <p><a href="/new-business-networking" target="_blank" rel="noopener">Learn more</a> about my acclaimed book, <em>New Business Networking</em>, which helps readers use online and offline techniques to improve their professional networking, an especially important topic for your exhibitors and sponsors.</p>
+          <blockquote>"⭐⭐⭐⭐⭐ 4.8 out of 5!"<div class="who">— Amazon Customer Reviews</div></blockquote>
+        </div>
+        <div class="proof-media" style="background:var(--cloud);">
+          <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/c987000b-2def-400a-9a2f-393a5c0d47a4/nbn+book.png" alt="New Business Networking, book by Dave Delaney">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSOR DIRECT -->
+  <section class="direct">
+    <div class="wrap">
+      <div class="grid">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1702465673423-CSXK993LNBP8LCOR9QHR/10X+Conference+Coaching+by+Futureforth.png" alt="10X Conference Coaching by Futureforth">
+        <div>
+          <div class="eyebrow">Send them here</div>
+          <p>Simply direct your sponsors and exhibitors to book their free <strong>10X Conference Coaching session</strong> using the button below.</p>
+          <p>Be sure to remind them to include your name in the "How did you hear about 10X Conference Coaching?" field. We'll follow up and let you know who signs up.</p>
+          <a class="btn" href="/10xcc" target="_blank" rel="noopener">About 10X Conference Coaching</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COPY TOOL -->
+  <section class="copytool" id="email-template">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Make it easy</div>
+        <h2>You have enough to manage. Let us help your sponsors see success.</h2>
+        <p>Copy the text below and paste it into your email marketing platform to send to your sponsors. Or <a href="mailto:?subject=Bonus%3A%2010X%20Your%20Sponsorship&amp;body=As%20a%20bonus%20for%20becoming%20a%20sponsor%2C%20we're%20offering%20you%20a%20complimentary%2010X%20Conference%20Coaching%20session%20with%20Dave%20Delaney%2C%20a%20former%20Google%20speaker%2C%20published%20author%2C%20and%20keynote%20speaker.%0D%0A%0D%0AVisit%20https%3A%2F%2Ffutureforth.com%2F10x%20now%20to%20claim%20your%20session%20before%20they%20fill%20up%20and%20discover%20precisely%20what%20to%20do%20before%2C%20during%2C%20and%20after%20the%20conference%20to%20increase%20your%20sponsorship%20ROI.">click here to compose an email</a> now if you prefer.</p>
+      </div>
+      <div class="copy-card">
+        <div class="subject">Subject: Bonus: 10X Your Sponsorship</div>
+        <div class="body-text" id="ff-fcp-copy-text">As a bonus for becoming a sponsor, we're offering you a complimentary 10X Conference Coaching session with Dave Delaney, a former Google speaker, published author, and keynote speaker.
+
+Visit https://futureforth.com/10x now to claim your session before they fill up and discover precisely what to do before, during, and after the conference to increase your sponsorship ROI.</div>
+        <div class="copy-actions">
+          <button type="button" class="btn" id="ff-fcp-copy-btn">Copy Text</button>
+        </div>
+        <div class="copy-status" id="ff-fcp-copy-status"></div>
+        <div class="copy-note">Copy Text not working? Refresh this page and try again.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <div class="eyebrow">Ready when you are</div>
+      <h2>Give your sponsors a reason to sign on again next year</h2>
+      <p>Send them the email above, or point them straight to 10X Conference Coaching. Either way, it costs your conference nothing.</p>
+      <div class="cta-row">
+        <a class="btn" href="#email-template">Copy the Sponsor Email</a>
+        <a class="btn-ghost" href="/10xcc" target="_blank" rel="noopener">See 10X Conference Coaching</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var root = document.getElementById('ff-fcp');
+    if(!root) return;
+    var $ = function(id){ return document.getElementById(id); };
+    var btn = $('ff-fcp-copy-btn');
+    if(btn){
+      btn.addEventListener('click', function(){
+        var textEl = $('ff-fcp-copy-text');
+        var status = $('ff-fcp-copy-status');
+        var text = textEl ? textEl.innerText : '';
+        function done(ok){
+          if(status) status.textContent = ok ? 'Copied! Paste it into your email platform.' : 'Copy failed — select the text above and copy it manually.';
+        }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){ done(true); }).catch(function(){ done(false); });
+        } else {
+          try{
+            var range = document.createRange();
+            range.selectNode(textEl);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            var ok = document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            done(ok);
+          }catch(e){
+            done(false);
+          }
+        }
+      });
+    }
+  })();
+  </script>
+</div>
+<!-- ============================================================ END For Conference Planners block ============================================================ -->

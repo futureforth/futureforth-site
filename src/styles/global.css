@@ -871,3 +871,11 @@ select:focus-visible,
 @media (max-width: 30rem) {
   h1 { font-size: 2.25rem; }
 }
+
+/* Original Squarespace code blocks (#ff-home, #ff-fcp, ...) carry their own scoped styles.
+   Stop the site-wide button and list styling leaking into them. */
+[id^="ff-"] .btn,
+[id^="ff-"] .btn-ghost,
+[id^="ff-"] .btn-white { text-transform: none; letter-spacing: normal; }
+[id^="ff-"] ul { list-style: none; }
+[id^="ff-"] blockquote { all: revert; }

@@ -10,8 +10,4 @@ import body from '../tools/linkedin-audit.html?raw';
 >
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" />
   <Fragment set:html={body} />
-  <!-- Stop the site-wide button style (uppercase, wide tracking) leaking into the original block -->
-  <style is:global>
-    #ff-home .btn, #ff-home .btn-ghost, #ff-home .btn-white { text-transform: none; letter-spacing: normal; }
-  </style>
 </BaseLayout>
