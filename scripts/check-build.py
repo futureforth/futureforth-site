@@ -31,6 +31,21 @@ for root, _, files in os.walk('dist'):
             images |= set(re.findall(r'src="(/[^"]+\.(?:png|jpe?g|gif|svg|webp))"', h))
 problems['broken internal links'] = broken
 problems['missing local images'] = sorted(i for i in images if not os.path.exists('dist' + i))
+# Code-block pages must not pick up site styles through shared class names.
+css = open('src/styles/global.css', encoding='utf-8').read()
+reset = re.search(r'\[id\^="ff-"\] :is\(([^)]*)\)', css)
+reset_classes = {c.strip().lstrip('.') for c in reset.group(1).split(',')} if reset else set()
+site_classes = set(re.findall(r'(?m)^\.([A-Za-z][\w-]*)', css))
+leaks = {}
+for f in sorted(os.listdir('src/tools')):
+    html = open(os.path.join('src/tools', f), encoding='utf-8').read()
+    if not re.search(r'id="ff-', html):
+        continue
+    used = {c for group in re.findall(r'class="([^"]+)"', html) for c in group.split()}
+    clash = sorted((used & site_classes) - reset_classes)
+    if clash:
+        leaks[f] = clash
+problems['site styles leaking into code-block pages'] = leaks
 print(f'{len(built)} built files, {len(rules)} redirects ({len(static)} static, {len(srcs) - len(static)} patterns)')
 bad = {k: v for k, v in problems.items() if v}
 for k, v in bad.items():

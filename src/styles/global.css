@@ -898,14 +898,14 @@ select:focus-visible,
   h1 { font-size: 2.25rem; }
 }
 
-/* Original Squarespace code blocks (#ff-home, #ff-fcp, ...) carry their own scoped styles.
-   Stop the site-wide button and list styling leaking into them. */
-[id^="ff-"] .btn,
-[id^="ff-"] .btn-ghost,
-[id^="ff-"] .btn-white { text-transform: none; letter-spacing: normal; }
+/* Original Squarespace code blocks (#ff-home, #ff-fcp, #ff-10x, ...) carry their own scoped
+   styles, but reuse class names this stylesheet also defines. Reset those classes inside the
+   blocks so only the block's own rules apply. The blocks' rules start with an id, so they
+   outrank this reset. scripts/check-build.py fails if a block uses a shared class not listed here. */
+[id^="ff-"] :is(.btn, .btn-ghost, .eyebrow, .hero, .card, .gallery, .gallery img, blockquote) {
+  all: revert;
+}
 [id^="ff-"] ul { list-style: none; }
-[id^="ff-"] blockquote { all: revert; }
-[id^="ff-"] .card { box-shadow: none; }
 
 /* Keep anchor targets clear of the sticky header */
 html { scroll-padding-top: 5rem; }
