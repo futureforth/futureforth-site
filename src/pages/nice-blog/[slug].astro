@@ -18,7 +18,7 @@ const jsonLd = {
   datePublished: post.date,
   author: { '@type': 'Person', name: 'Dave Delaney', url: 'https://davedelaney.me' },
   publisher: { '@type': 'Organization', name: 'Futureforth', url: 'https://futureforth.com' },
-  ...(post.image ? { image: post.image } : {}),
+  ...(post.image ? { image: new URL(img(post.image), 'https://futureforth.com').toString() } : {}),
 };
 ---
 <BaseLayout
