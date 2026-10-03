@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Testimonial from '../components/Testimonial.astro';
+// The talent loss calculator from the live page (same tool as /churn-calculator).
+import calculator from '../tools/churn-calculator.html?raw';
 
 const testimonials = [
   { quote: "People love his workshop facilitation. He knows his stuff... If you have an opportunity to work together, it will be worth it.", name: 'Anastasia Kudrez', role: 'Lead Educator for Grow with Google' },
@@ -55,7 +57,7 @@ const testimonials = [
   <section class="section section--alt">
     <div class="container">
       <p class="eyebrow">Workshops to Improve Communication Skills</p>
-      <h2>NEW in 2026: Grow Your Business with AI &amp; Improve with Improv</h2>
+      <h2>NEW in 2026: <a href="/grow-your-business-with-ai">Grow Your Business with AI</a> &amp; <a href="/corporate-improv-training-in-nashville">Improve with Improv</a></h2>
 
       <div class="card-grid" style="margin-top: var(--space-lg);">
         <div class="card">
@@ -103,8 +105,8 @@ const testimonials = [
   <section class="section">
     <div class="container">
       <div class="hero__grid hero__grid--split">
-        <div>
-          <img src="/images/workshop-5.jpg" alt="Leveraging AI for Small Business Growth workshop session" width="640" height="480" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);" />
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/CYRdgut2ePY" title="Leveraging AI for Small Business Growth workshop with Dave Delaney" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div>
           <h2>Leveraging AI for Small Business Growth: Content Creation &amp; Strategy</h2>
@@ -128,10 +130,19 @@ const testimonials = [
     </div>
   </section>
 
+  <section class="section" id="calculator">
+    <div class="container" style="max-width: 46rem;">
+      <Fragment set:html={calculator} />
+    </div>
+  </section>
+
   <section class="section section--alt">
     <div class="container">
       <p class="eyebrow">Featured</p>
       <h2>What clients say</h2>
+      <div class="video" style="max-width: 46rem; margin-bottom: var(--space-lg);">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLCAjIt1oPvVGpLyOQ79txPZSc5MuisDJe" title="Futureforth workshop testimonials" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
       <div class="card-grid">
         {testimonials.map((t) => <Testimonial {...t} />)}
       </div>
