@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import posts from '../../data/blog.json';
+
+export function getStaticPaths() {
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: { post, newer: posts[i - 1], older: posts[i + 1] },
+  }));
+}
+const { post, newer, older } = Astro.props;
+const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  datePublished: post.date,
+  author: { '@type': 'Person', name: 'Dave Delaney', url: 'https://davedelaney.me' },
+  publisher: { '@type': 'Organization', name: 'Futureforth', url: 'https://futureforth.com' },
+  ...(post.image ? { image: post.image } : {}),
+};
+---
+<BaseLayout
+  title={`${post.title} - Futureforth`}
+  description={post.excerpt}
+  path={`/nice-blog/${post.slug}`}
+  image={post.image ?? undefined}
+  jsonLd={jsonLd}
+>
+  <article class="section">
+    <div class="container prose">
+      <p class="eyebrow"><a href="/nice-blog">Bring the Nice</a> &middot; {fmt(post.date)} &middot; Dave Delaney</p>
+      <h1>{post.title}</h1>
+      <Fragment set:html={post.html} />
+      <nav class="post-nav" aria-label="More articles">
+        {older ? <a href={`/nice-blog/${older.slug}`}>&larr; {older.title}</a> : <span />}
+        {newer ? <a href={`/nice-blog/${newer.slug}`}>{newer.title} &rarr;</a> : <span />}
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

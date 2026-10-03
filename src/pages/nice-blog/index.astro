@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import posts from '../../data/blog.json';
+const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout
+  title="Bring the Nice Blog - Futureforth"
+  description="Articles from Dave Delaney on communication, leadership, culture and employee retention."
+  path="/nice-blog"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--color-accent);">{posts.length} articles</p>
+      <h1>Bring the Nice</h1>
+      <p class="lede" style="color:#dbe3ee;">Articles on communication, leadership, culture and employee retention.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <ul class="post-list">
+        {posts.map((p) => (
+          <li class="post-list__item">
+            {p.image && <a href={`/nice-blog/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.image.replace('1500w', '300w')} alt="" loading="lazy" width="120" height="120" /></a>}
+            <div>
+              <p class="post-list__date">{fmt(p.date)}</p>
+              <h2><a href={`/nice-blog/${p.slug}`}>{p.title}</a></h2>
+              <p>{p.excerpt}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
