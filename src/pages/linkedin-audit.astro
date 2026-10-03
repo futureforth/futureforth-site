@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+// The page body is the original Squarespace code block, kept as-is (its styles are scoped to #ff-home).
+import body from '../tools/linkedin-audit.html?raw';
+---
+<BaseLayout
+  title="Dave Delaney's LinkedIn Live Profile Audit - Futureforth"
+  description="A private, one-hour, recorded LinkedIn profile audit with Dave Delaney. Optimize your profile to win clients, grow your network and be found by recruiters."
+  path="/linkedin-audit"
+>
+  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" />
+  <Fragment set:html={body} />
+  <!-- Stop the site-wide button style (uppercase, wide tracking) leaking into the original block -->
+  <style is:global>
+    #ff-home .btn, #ff-home .btn-ghost, #ff-home .btn-white { text-transform: none; letter-spacing: normal; }
+  </style>
+</BaseLayout>

@@ -1,0 +1,439 @@
+
+<div id="ff-home">
+<style>
+  #ff-home{
+    /* Futureforth brand palette */
+    --purple:#801C80;
+    --purple-dark:#5A1360;
+    --orange:#F26621;
+    --orange-dark:#D8551A;
+    --black:#000000;
+    --ink:#1A1A1A;
+    --muted:#5C5C5C;
+    --line:#E6E1E6;
+    --paper:#FFFFFF;
+    --cloud:#F8F4F8;
+    font-family:'Titillium Web',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  #ff-home *{box-sizing:border-box;}
+  #ff-home img{max-width:100%;display:block;}
+  #ff-home a{text-decoration:none;}
+  #ff-home .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  #ff-home section{padding:76px 0;}
+  #ff-home h1,#ff-home h2,#ff-home h3{color:var(--purple);font-weight:700;line-height:1.2;margin:0;}
+  #ff-home h1{font-size:46px;letter-spacing:-0.5px;}
+  #ff-home h2{font-size:32px;letter-spacing:-0.3px;}
+  #ff-home h3{font-size:20px;}
+  #ff-home p{margin:0;color:var(--muted);}
+  #ff-home .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;
+  }
+  #ff-home .btn{
+    display:inline-block;background:var(--orange);color:#fff!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+    box-shadow:0 6px 16px rgba(242,102,33,0.28);
+    transition:background .15s ease, transform .15s ease;
+    border:none;cursor:pointer;
+  }
+  #ff-home .btn:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  #ff-home .btn-ghost{
+    display:inline-block;background:transparent;color:var(--purple)!important;
+    font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;
+    border:1.5px solid var(--line);
+  }
+  #ff-home .btn-ghost:hover{border-color:var(--purple);}
+  #ff-home .btn-white{
+    display:inline-block;background:#fff;color:var(--purple-dark)!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+  }
+  #ff-home .btn-white:hover{background:#F3E9F4;}
+
+  /* HERO */
+  #ff-home .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+    padding:64px 0 76px;
+    text-align:center;
+  }
+  #ff-home .hero .back-badge{
+    display:block;font-size:12px;font-weight:800;letter-spacing:1.8px;
+    text-transform:uppercase;color:#F2C9F1;margin-bottom:14px;
+  }
+  #ff-home .hero .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.28);
+    color:#fff;font-weight:700;font-size:13px;letter-spacing:0.4px;
+    padding:9px 20px;border-radius:999px;margin-bottom:20px;
+  }
+  #ff-home .hero .eyebrow{color:#F2C9F1;}
+  #ff-home .hero h1{color:#fff;max-width:780px;margin:0 auto;}
+  #ff-home .hero p.lead{color:#EAD9EB;font-size:19px;max-width:660px;margin:20px auto 0;}
+  #ff-home .hero .cta-row{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;}
+  #ff-home .hero .btn-ghost{border-color:rgba(255,255,255,0.28);color:#fff!important;}
+  #ff-home .hero .btn-ghost:hover{border-color:#fff;}
+
+  /* REAL RECOMMENDATIONS CAROUSEL */
+  #ff-home .recs{background:var(--cloud);border-bottom:1px solid var(--line);padding:64px 0;}
+  #ff-home .recs .head{text-align:center;max-width:640px;margin:0 auto 40px;}
+  #ff-home .recs .eyebrow{color:var(--orange-dark);}
+  #ff-home .recs h2{font-size:28px;}
+  #ff-home .recs .head .sub{margin-top:10px;font-size:14.5px;color:var(--muted);}
+  #ff-home .rec-carousel{
+    position:relative;max-width:760px;margin:0 auto;overflow:hidden;
+    transition:height .3s ease;
+  }
+  #ff-home .rec-slide{
+    position:absolute;top:0;left:0;right:0;
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:40px 44px;text-align:center;
+    opacity:0;transform:translateX(50px);
+    transition:opacity .6s ease, transform .6s ease;
+    pointer-events:none;
+  }
+  #ff-home .rec-slide.active{
+    position:relative;
+    opacity:1;transform:translateX(0);
+    pointer-events:auto;
+  }
+  #ff-home .rec-slide .quote-mark{font-size:40px;color:var(--orange);font-weight:900;line-height:1;margin-bottom:10px;font-family:Georgia,serif;}
+  #ff-home .rec-slide .quote{font-size:16.5px;color:var(--ink);line-height:1.65;}
+  #ff-home .rec-slide .who{margin-top:18px;font-size:14px;font-weight:700;color:var(--purple);}
+  #ff-home .rec-dots{display:flex;justify-content:center;gap:8px;margin-top:26px;}
+  #ff-home .rec-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:background .2s ease,transform .2s ease;}
+  #ff-home .rec-dot.active{background:var(--orange);transform:scale(1.25);}
+  @media (max-width:640px){
+    #ff-home .rec-slide{padding:30px 22px;}
+    #ff-home .rec-slide .quote{font-size:15px;}
+  }
+
+  /* OFFER (what you get) */
+  #ff-home .offer .head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  #ff-home .offer-grid{display:grid;grid-template-columns:1.3fr 0.8fr;gap:24px;align-items:stretch;}
+  @media (max-width:860px){#ff-home .offer-grid{grid-template-columns:1fr;}}
+  #ff-home .offer-list{
+    background:var(--cloud);border:1px solid var(--line);border-radius:12px;padding:34px;
+    list-style:none;margin:0;
+  }
+  #ff-home .offer-list li{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;font-size:15px;color:var(--ink);}
+  #ff-home .offer-list li:last-child{margin-bottom:0;}
+  #ff-home .offer-list .check{
+    flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:#fff;border:1.5px solid var(--orange);
+    color:var(--orange-dark);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;
+  }
+  #ff-home .guarantee{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:34px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;
+  }
+  #ff-home .guarantee .badge-circle{
+    width:96px;height:96px;border-radius:50%;border:3px solid var(--orange);
+    display:flex;align-items:center;justify-content:center;color:var(--orange-dark);
+    font-weight:900;font-size:22px;margin-bottom:6px;
+  }
+  #ff-home .guarantee h3{color:var(--ink);font-size:17px;}
+  #ff-home .guarantee p{font-size:13.5px;}
+
+  /* BANNER */
+  #ff-home .banner{background:linear-gradient(120deg,var(--purple) 0%,var(--purple-dark) 100%);padding:44px 0;text-align:center;}
+  #ff-home .banner h2{color:#fff;font-size:28px;letter-spacing:0.3px;}
+
+  /* FEATURED (dark, About Dave) */
+  #ff-home .featured{background:var(--black);}
+  #ff-home .featured .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
+  @media (max-width:900px){#ff-home .featured .grid{grid-template-columns:1fr;}}
+  #ff-home .featured .eyebrow{color:var(--orange);}
+  #ff-home .featured h2{color:#fff;max-width:520px;}
+  #ff-home .featured p{color:#C9C9C9;margin-top:16px;font-size:16px;max-width:520px;}
+  #ff-home .featured .steps{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+  #ff-home .featured .steps li{display:flex;gap:10px;font-size:14.5px;color:#E4E4E4;align-items:flex-start;}
+  #ff-home .featured .steps li .dot{color:var(--orange);font-weight:900;flex:0 0 auto;}
+  #ff-home .featured .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+  #ff-home .featured .btn-ghost{border-color:rgba(255,255,255,0.28);color:#fff!important;}
+  #ff-home .featured .btn-ghost:hover{border-color:#fff;}
+  #ff-home .featured .visual{
+    background:linear-gradient(135deg,var(--purple) 0%,var(--purple-dark) 100%);
+    border-radius:14px;padding:36px;display:flex;flex-direction:column;gap:22px;
+  }
+  #ff-home .featured .visual .stat .n{font-size:30px;font-weight:800;color:#fff;}
+  #ff-home .featured .visual .stat .l{font-size:13px;color:#E7D0E8;margin-top:2px;}
+
+  /* TESTIMONIALS */
+  #ff-home .testimonials .head{max-width:600px;margin:0 auto 44px;text-align:center;}
+  #ff-home .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){#ff-home .t-grid{grid-template-columns:1fr;}}
+  #ff-home .t-card{background:var(--cloud);border-radius:10px;padding:26px;border:1px solid var(--line);}
+  #ff-home .t-card .quote{font-size:14.5px;color:var(--ink);}
+  #ff-home .t-card .who{margin-top:14px;font-size:13px;color:var(--muted);font-weight:600;}
+
+  /* PRICING (final CTA, orange) */
+  #ff-home .pricing{background:linear-gradient(135deg,var(--orange) 0%,var(--orange-dark) 100%);}
+  #ff-home .pricing .wrap{max-width:680px;text-align:center;}
+  #ff-home .pricing .eyebrow{color:#FFE4D1;}
+  #ff-home .pricing h2{color:#fff;}
+  #ff-home .pricing .price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:22px 0 6px;}
+  #ff-home .pricing .price-old{font-size:22px;color:#FFDCC5;text-decoration:line-through;}
+  #ff-home .pricing .price-new{font-size:44px;font-weight:900;color:#fff;}
+  #ff-home .pricing .note{color:#FFEDE1;font-size:14.5px;}
+  #ff-home .pricing .cta-row{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  #ff-home .pricing .btn-ghost{border-color:rgba(255,255,255,0.4);color:#fff!important;}
+  #ff-home .pricing .btn-ghost:hover{border-color:#fff;}
+
+  @media (max-width:900px){
+    #ff-home h1{font-size:32px;}
+    #ff-home h2{font-size:26px;}
+    #ff-home section{padding:52px 0;}
+    #ff-home .pricing .price-new{font-size:36px;}
+  }
+</style>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="back-badge">Back By Popular Demand</div>
+      <span class="pill">Limited Time Offer</span>
+      <br>
+      <div class="eyebrow">Dave Delaney's LinkedIn Live Audit</div>
+      <h1>Fully Optimize Your LinkedIn Profile&hellip;</h1>
+      <p class="lead">So you can close new clients, grow your professional network, improve your personal brand, and be discoverable by recruiters and prospects. LinkedIn is the most important social network for professionals like you, and your profile needs to be fully optimized to increase the odds of being discovered.</p>
+      <div class="cta-row">
+        <a class="btn" href="#pricing">Book The LinkedIn Live Audit</a>
+        <a class="btn-ghost" href="#offer">See What's Included</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- REAL LINKEDIN RECOMMENDATIONS -->
+  <section class="recs">
+    <div class="wrap">
+      <div class="head">
+        <h2>Real LinkedIn Recommendations From Real People</h2>
+        <p class="sub">Just a few from nearly 150 recommendations.</p>
+      </div>
+      <div class="rec-carousel" id="recCarousel">
+        <div class="rec-slide active">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Dave did a fantastic job speaking at the NTC's LinkedIn Live event. His insights on how to use LinkedIn to network, grow your brand and drive results were perfect for the audience and attendees. His investment in starting events over the last 10 years makes him a true leader to the Nashville creative community.</p>
+          <div class="who">&mdash; Bryan Huddleston</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">In a sea of self-proclaimed &ldquo;experts&rdquo;, Dave is a walking encyclopedia of social media. A highly informed and engaging speaker, Dave demonstrates a finely detailed understanding of the technology, as well as the human and marketing elements that lead to effectiveness with social media. I was very happy to have him meet with our top sales professionals recently, and would recommend him highly for your next event.</p>
+          <div class="who">&mdash; Steven Light, AMP</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">In one hour's time, Dave provided invaluable strategies for me to increase the impact my LinkedIn profile has on customers and potential customers. His suggestions were straight forward and easy to implement.</p>
+          <div class="who">&mdash; Rebecca Baker, BSN, RN, BS Ed, ACHE</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">I spent an hour with Dave working on my positioning and improving my LinkedIn profile. Very helpful. Dave knows his stuff and this was time and money well spent. Highly recommended.</p>
+          <div class="who">&mdash; Jeff Trotman</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">One hour with Dave = 18 actionable recommendations related to my LinkedIn profile and web site. What I appreciate most is his candor and experience. There's no doubt in my mind that I'll get a high return from our work together; it was well worth my time.</p>
+          <div class="who">&mdash; Lesley Antoun, GCB.D, MBA, B. Eng.</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Dave's one the greatest guys I know, and how lucky for me that he's also a LinkedIn coach! Though I've had a LinkedIn account for years, I haven't really known what to do with it. After an hour's session, I now understand the basics and how to use it to drive business. Dave is also chock full of tips, suggestions and next-level stuff. For now, I have a lot of homework to do. Once I have my LinkedIn account ship-shape, I'll certainly order another hour of Dave's excellent LinkedIn advice.</p>
+          <div class="who">&mdash; Rick Sanders</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Dave was instrumental in helping gain a greater understanding of LinkedIn and communicating through the platform. He made it easy to make happen and gave me the confidence to move forward with integrating LinkedIn into my workflow. Dave is a tremendous communicator with an ability to inspire people to action, as I've seen firsthand when he's delivered talks onstage. Dave has a great skillset that has helped me convey my message in an informative and relatable way. If you have a chance to work with Dave, make it happen.</p>
+          <div class="who">&mdash; Mike Vardy</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">I had the chance to work with Dave on my LinkedIn profile recently. He went through each section and gave me detailed feedback to make each section better so I can reach my goals for LinkedIn. If you have the chance, I highly recommend you spend an hour with Dave and go over your LinkedIn profile to make it the best it can be.</p>
+          <div class="who">&mdash; Mike Baker</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">I reached out to Dave for one of his one-hour LinkedIn profile review sessions, and quite frankly it's one of the best investments of time and money I've made in a long time. Dave takes care to understand how your LinkedIn profile provides value for your particular profession, and his review session offered up a series of powerful and actionable recommendations that ranged from simple one-time tweaks to longer-term strategies that will provide a payoff for years to come. Anyone looking to raise their professional visibility would be wise to tap into Dave's insight and expertise!</p>
+          <div class="who">&mdash; Dirk Hoag</div>
+        </div>
+        <div class="rec-slide">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote">Dave is an exceptional communicator that practices what he preaches. I have had the privilege of learning from Dave in multiple settings. He has an amazing ability to: 1) provide clear, useable information that can be used right away 2) incorporate authenticity and candor to make learning fun, and 3) create dynamic and relevant interaction to elevate a leader's game. I highly recommend Dave, and am grateful for the opportunity to work with him and know him.</p>
+          <div class="who">&mdash; Beth Racine</div>
+        </div>
+      </div>
+      <div class="rec-dots" id="recDots"></div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var track = document.getElementById('recCarousel');
+    if(!track) return;
+    var slides = track.querySelectorAll('.rec-slide');
+    var dotsWrap = document.getElementById('recDots');
+    var index = 0, timer = null;
+
+    slides.forEach(function(s, i){
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'rec-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Show recommendation ' + (i + 1));
+      dot.addEventListener('click', function(){ goTo(i); startTimer(); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = dotsWrap.querySelectorAll('.rec-dot');
+
+    function lockHeight(){
+      // Measure every slide (they're all rendered, just opacity:0 when inactive)
+      // and lock the box to the tallest one so the page never bounces.
+      var max = 0;
+      slides.forEach(function(s){
+        if(s.offsetHeight > max){ max = s.offsetHeight; }
+      });
+      if(max){ track.style.height = max + 'px'; }
+    }
+
+    function goTo(i){
+      slides[index].classList.remove('active');
+      dots[index].classList.remove('active');
+      index = (i + slides.length) % slides.length;
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function next(){ goTo(index + 1); }
+
+    function startTimer(){
+      stopTimer();
+      timer = setInterval(next, 10000);
+    }
+    function stopTimer(){
+      if(timer){ clearInterval(timer); timer = null; }
+    }
+
+    track.addEventListener('mouseenter', stopTimer);
+    track.addEventListener('mouseleave', startTimer);
+
+    var resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(lockHeight, 150);
+    });
+
+    setTimeout(lockHeight, 50);
+    startTimer();
+  })();
+  </script>
+
+  <!-- OFFER -->
+  <section class="offer" id="offer">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">What you'll get</div>
+        <h2>Join Dave Delaney live for a one-hour deep dive into your LinkedIn profile</h2>
+        <p style="margin-top:14px;">When we work together to power up your profile, here's everything included:</p>
+      </div>
+      <div class="offer-grid">
+        <ul class="offer-list">
+          <li><span class="check">&#10003;</span> A "LinkedIn Goals" assessment that will help you prioritize your professional goals</li>
+          <li><span class="check">&#10003;</span> Tailored personal branding guidance so you can use LinkedIn to grow your personal brand without depending on sketchy software or AI-automated slop</li>
+          <li><span class="check">&#10003;</span> A private, one-hour, recorded video session &mdash; download and re-watch the recording any time you'd like</li>
+          <li><span class="check">&#10003;</span> A front-row seat as Dave reviews your profile in real time and shares detailed feedback so it's found in searches by top recruiters and prospects</li>
+          <li><span class="check">&#10003;</span> A link to schedule your live session at a time that's convenient for you</li>
+        </ul>
+        <div class="guarantee">
+          <div class="badge-circle">100%</div>
+          <h3>Satisfaction Guarantee</h3>
+          <p>If you're unsatisfied, we will issue a 100% refund at the end of the session.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <h2>Land That Job. Get That Client. Grow Your Brand.</h2>
+  </div>
+
+  <!-- FEATURED: ABOUT DAVE -->
+  <section class="featured">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">About Dave Delaney</div>
+          <h2>A trusted coach and advisor from keynote stages and Fortune 500 teams alike</h2>
+          <p>Deep digital marketing communications knowledge and expertise from over twenty-five years, a published author of New Business Networking &mdash; an acclaimed book about using social networks (with a chapter on LinkedIn) and offline, in-person events to improve your career and business.</p>
+          <ul class="steps">
+            <li><span class="dot">&#9679;</span> Hired as a keynote speaker for the LinkedIn Live Conference &mdash; "Dave blew me away, as well as the audience."</li>
+            <li><span class="dot">&#9679;</span> Featured as a LinkedIn expert in articles in Entrepreneur Magazine and the BBC.</li>
+            <li><span class="dot">&#9679;</span> Trusted as a speaker for Google's Grow with Google program for six years.</li>
+            <li><span class="dot">&#9679;</span> Advised Refresh Inc., which was acquired by LinkedIn.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="#pricing">What Are You Waiting For? Book Your Time Now</a>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="stat">
+            <div class="n">140+</div>
+            <div class="l">Recommendations on Dave Delaney's LinkedIn profile</div>
+          </div>
+          <div class="stat">
+            <div class="n">20+ years</div>
+            <div class="l">As a LinkedIn user with LinkedIn "All-Star" status</div>
+          </div>
+          <div class="stat">
+            <div class="n">25+ years</div>
+            <div class="l">As a trusted advisor and communication expert</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">What clients say</div>
+        <h2>Land that job. Get that client. Grow your brand.</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card">
+          <div class="quote">"Dave is the Real Deal! He recently met with the Unstoppable Cultures team and vaulted our LinkedIn outreach in one amazing session. His approach and knowledge made the time and investment pay off immediately. Yes, we give Dave as many &ldquo;Thumbs Up&rdquo; as we possibly can."</div>
+          <div class="who">Ginger Hardage &mdash; Former SVP of Culture and Communications, Southwest</div>
+        </div>
+        <div class="t-card">
+          <div class="quote">"Dave Delaney did a wonderful job of presenting networking and LinkedIn usage best practices to our employees. He was easy to work with from concept to delivery and our learners appreciated his easy-to-understand delivery style."</div>
+          <div class="who">Stephanie Bowman &mdash; Director of Education / Training Solutions, Hospital Corporation of America</div>
+        </div>
+        <div class="t-card">
+          <div class="quote">"In a sea of self-proclaimed &ldquo;experts&rdquo;, Dave is a walking encyclopedia of social media. A highly informed and engaging speaker who demonstrates a finely detailed understanding of the technology, as well as the human and marketing elements that lead to effectiveness."</div>
+          <div class="who">Steven Light &mdash; Executive Vice President, Chief Production Officer at LeaderOne Financial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING / FINAL CTA (purchase placement) -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="eyebrow">Consider the value of your next client or job</div>
+      <h2>Save 25% on the LinkedIn Live Audit</h2>
+      <div class="price-row">
+        <span class="price-old">$250</span>
+        <span class="price-new">$187</span>
+      </div>
+      <p class="note">Limited Time Discount.</p>
+      <div class="cta-row">
+        <a class="btn-white" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DFPZWHD3C2XA6">Just $187 &mdash; Book Now</a>
+        <a class="btn-ghost" href="#testimonials">Read All Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+</div>

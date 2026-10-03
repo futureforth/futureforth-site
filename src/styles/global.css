@@ -723,6 +723,10 @@ select:focus-visible,
   padding-block: var(--space-2xl) var(--space-lg);
 }
 
+.site-footer p {
+  color: inherit; /* the global p color is dark, which was unreadable on the purple footer */
+}
+
 .site-footer a {
   color: var(--color-cream-100);
 }

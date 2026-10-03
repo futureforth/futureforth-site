@@ -64,6 +64,8 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
       rel="stylesheet"
     />
 
+    <slot name="head" />
+
     {jsonLdArray.map((entry) => (
       <script type="application/ld+json" set:html={JSON.stringify(entry)} />
     ))}
