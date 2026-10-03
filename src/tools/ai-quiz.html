@@ -1,0 +1,88 @@
+<style>
+  #ai-quiz-container { font-family: Arial, sans-serif; max-width: 800px; margin: auto; }
+  #ai-quiz-container .ai-quiz-btn {
+    margin: 10px 0; display: block; width: 100%; padding: 14px; font-size: 1em; font-weight: 600;
+    border: none; background: #801c80; color: white; border-radius: 6px; cursor: pointer;
+    transition: background 0.3s ease; text-align: center;
+  }
+  #ai-quiz-container .ai-quiz-btn:hover { background: #f26621; }
+  #ai-quiz-container .hidden { display: none; }
+</style>
+<div id="ai-quiz-container">
+  <h2 style="text-align:center;">How AI Savvy Are You?</h2>
+  <div id="ai-quiz"></div>
+  <div id="ai-quiz-result" class="hidden" style="font-weight: bold; font-size: 1.2em; margin-top: 20px;" aria-live="polite"></div>
+</div>
+<script>
+  // Original quiz from the Squarespace site: same questions, answers, scoring and result messages.
+  // Changes: element ids are prefixed so they cannot clash with other tools, and the result link
+  // goes to the AI workshop page (the old target, /communication-revolution, is being retired).
+  (function () {
+      const questions = [
+        { q: "Which of the following is the most common use of AI in marketing today?", a: "Predictive analytics and personalization", o: ["Web development", "Predictive analytics and personalization", "Financial auditing", "Legal contract drafting"] },
+        { q: "What does GPT in ChatGPT stand for?", a: "Generative Pre-trained Transformer", o: ["General Purpose Tool", "Generative Pre-trained Transformer", "Graphical Programming Technology", "General Pattern Tracker"] },
+        { q: "You're writing a blog post and want AI help. What’s the best prompt?", a: "Write a 1,000-word blog post on how small businesses can use email marketing, with subheadings and examples.", o: ["Write something cool.", "Tell me a story.", "Write a 1,000-word blog post on how small businesses can use email marketing, with subheadings and examples.", "Marketing stuff."] },
+        { q: "Which of these tasks is AI least suited for (as of today)?", a: "Replacing all human decision-making in HR", o: ["Writing ad copy", "Replacing all human decision-making in HR", "Summarizing meeting notes", "Analyzing customer sentiment"] },
+        { q: "What is prompt engineering?", a: "Designing precise inputs to get better AI outputs", o: ["Coding in AI-specific languages", "Training new AI models", "Designing precise inputs to get better AI outputs", "Building chatbots from scratch"] },
+        { q: "How would you use AI to improve customer service?", a: "Use AI chatbots to handle common questions and escalate complex issues to humans", o: ["Replace all humans with bots", "Automatically delete angry emails", "Use AI chatbots to handle common questions and escalate complex issues to humans", "Set all responses to “We’ll get back to you shortly.”"] },
+        { q: "Which of these tools uses AI to generate images from text?", a: "Midjourney", o: ["Notion", "Midjourney", "Trello", "Zoom"] },
+        { q: "What’s a good rule for checking AI-generated content?", a: "Always fact-check and edit before publishing", o: ["Just publish it—it’s usually right", "Always fact-check and edit before publishing", "Ask your friends if it sounds smart", "Only use AI-generated memes"] },
+        { q: "AI can help your business uncover patterns in customer data. What is this called?", a: "Predictive modeling", o: ["Predictive modeling", "Storyboarding", "Pattern smashing", "Branding"] },
+        { q: "Which of the following reflects a responsible use of AI in business?", a: "Disclosing AI usage in client work when relevant", o: ["Using AI-generated resumes to trick systems", "Disclosing AI usage in client work when relevant", "Training AI on copyrighted material without permission", "Using AI to create fake testimonials"] },
+        { q: "What is a “hallucination” in AI?", a: "When it generates false or made-up information", o: ["When it tells jokes", "When it generates false or made-up information", "When it becomes sentient", "When it repeats your prompt"] },
+        { q: "How can small businesses use AI affordably?", a: "Use freemium tools like ChatGPT, Canva, or Zapier AI", o: ["Build their own models from scratch", "License enterprise-only tools", "Use freemium tools like ChatGPT, Canva, or Zapier AI", "Hire a full-time AI scientist"] },
+        { q: "How do large language models like ChatGPT learn?", a: "From training on massive datasets of text", o: ["From direct user conversations only", "From browsing the internet live", "From training on massive datasets of text", "From watching TV"] },
+        { q: "You want to use AI for lead generation. What’s a smart first step?", a: "Use AI to research your ideal client personas and draft personalized outreach", o: ["Send random AI-generated messages to everyone", "Use AI to research your ideal client personas and draft personalized outreach", "Set AI to “auto-dial” every contact", "Ask ChatGPT to sell your product"] },
+        { q: "Why is it important to stay updated on AI tools in business?", a: "So you don’t fall behind competitors", o: ["So you don’t fall behind competitors", "Because AI will do everything for you", "To replace your whole team", "To impress your friends"] }
+      ];
+
+      let score = 0;
+      let currentQ = 0;
+
+      function showQuestion() {
+        const quizDiv = document.getElementById("ai-quiz");
+        if (currentQ >= questions.length) {
+          return showResult();
+        }
+
+        const q = questions[currentQ];
+        quizDiv.innerHTML = `
+          <div class="question-block" style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); margin-bottom:20px;">
+            <h3>${currentQ + 1}. ${q.q}</h3>
+            ${q.o.map(opt => `<button class="ai-quiz-btn" onclick="handleAnswer('${opt.replace(/'/g, "\\'")}')">${opt}</button>`).join("")}
+          </div>
+        `;
+      }
+
+      window.handleAnswer = function (selected) {
+        if (selected === questions[currentQ].a) {
+          score++;
+        }
+        currentQ++;
+        showQuestion();
+      };
+
+      function showResult() {
+        const resultDiv = document.getElementById("ai-quiz-result");
+        const quizDiv = document.getElementById("ai-quiz");
+        quizDiv.innerHTML = "";
+        resultDiv.classList.remove("hidden");
+
+        const link = "/grow-your-business-with-ai";
+        const linkStyle = 'style="color:#f26621; text-decoration: underline;" target="_blank"';
+
+        let message = "";
+        if (score >= 13) {
+          message = `You scored ${score} out of ${questions.length}.<br>Your AI savvy level is: <strong>Advanced</strong>. <a href="${link}" ${linkStyle}>Nice job! Let's get your whole team ready for what's coming before your competitors do.</a>`;
+        } else if (score >= 8) {
+          message = `You scored ${score} out of ${questions.length}.<br>Your AI savvy level is: <strong>Intermediate</strong>. <a href="${link}" ${linkStyle}>Good, now let's get you to the next level.</a>`;
+        } else {
+          message = `You scored ${score} out of ${questions.length}.<br>Your AI savvy level is: <strong>Beginner</strong>. <a href="${link}" ${linkStyle}>This will help you and your team.</a>`;
+        }
+
+        resultDiv.innerHTML = message;
+      }
+
+      showQuestion();
+  })();
+</script>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localize } from '../lib/images.js';
+import pages from '../data/pages.json';
+import tool from '../tools/ai-quiz.html?raw';
+const page = pages['ai-quiz'];
+---
+<BaseLayout
+  title="AI Skills Assessment - Futureforth"
+  description="Test your team's AI knowledge with this free 15-question quiz and see whether you are a beginner, intermediate or advanced."
+  path="/ai-quiz"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--color-accent);">Free Tool</p>
+      <h1>AI Skills Assessment</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <Fragment set:html={localize(page.html)} />
+    </div>
+  </section>
+  <section class="section section--alt" id="tool">
+    <div class="container">
+      <Fragment set:html={localize(tool)} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      <p><a href="/freetools">&larr; All free tools</a></p>
+    </div>
+  </section>
+</BaseLayout>

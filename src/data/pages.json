@@ -14,5 +14,9 @@
  "thanks": {
   "title": "Thank You for Contacting Us",
   "html": "<h2>Thank You</h2><p>We are looking forward to speaking with you soon. In the meantime, check out Dave Delaney’s Substack newsletters. </p>"
+ },
+ "ai-quiz": {
+  "title": "Test Your Team's AI Knowledge.",
+  "html": "<h2>Is your team prepared for the AI revolution?</h2><p>Now is the time to test and hone your skills… before your competitors do.</p>"
  }
 }

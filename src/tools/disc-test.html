@@ -1,21 +1,21 @@
 <style>
-  #disc-quiz-wrapper { max-width: 40rem; margin: 0 auto; }
+  /* Look taken from the original Squarespace styles: purple buttons that turn orange on hover. */
+  #disc-quiz-wrapper { max-width: 700px; margin: 0 auto; padding: 20px; }
   #disc-quiz-wrapper h2 { text-align: center; }
   #disc-quiz-wrapper .hidden { display: none; }
+  #disc-quiz-wrapper .question { margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
   #disc-quiz-wrapper .question p { font-weight: 600; font-size: 1.15rem; }
   #disc-quiz-wrapper .question button {
-    display: block; width: 100%; text-align: left; margin: 0 0 0.6rem; padding: 0.85rem 1rem;
-    font: inherit; background: #fff; color: inherit; border: 2px solid #801c80; border-radius: 8px; cursor: pointer;
+    margin: 10px 0; display: block; width: 100%; padding: 14px; font-size: 1em; font-weight: 600;
+    border: none; background: #801c80; color: white; border-radius: 6px; cursor: pointer; transition: background 0.3s ease;
   }
   #disc-quiz-wrapper .question button:hover,
-  #disc-quiz-wrapper .question button:focus-visible { background: #801c80; color: #fff; }
-  #disc-quiz-wrapper .progress { font-size: 0.9rem; color: #4b4944; }
-  #disc-quiz-wrapper .result { padding: 1.25rem; border-radius: 12px; background: #f9f6f0; border: 1px solid #e4ddce; }
-  #disc-quiz-wrapper .cta { text-align: center; margin-top: 1.25rem; }
-  #disc-quiz-wrapper .cta a {
-    display: inline-block; padding: 0.85rem 1.5rem; background: #f0801e; color: #201f1d; font-weight: 700;
-    border-radius: 8px; text-decoration: none;
-  }
+  #disc-quiz-wrapper .question button:focus-visible { background: #f26621; }
+  #disc-quiz-wrapper .progress { font-size: 0.9rem; color: #4b4944; text-align: center; }
+  #disc-quiz-wrapper .result { font-size: 1.2em; font-weight: bold; margin-top: 20px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  #disc-quiz-wrapper .cta { text-align: center; margin-top: 30px; }
+  #disc-quiz-wrapper .cta a { display: inline-block; background: #f26621; color: white; padding: 12px 24px; font-size: 1em; border-radius: 5px; text-decoration: none; }
+  #disc-quiz-wrapper .cta a:hover { background: #801c80; }
 </style>
 <div id="disc-quiz-wrapper">
   <h2>Quick DISC Assessment</h2>
@@ -101,38 +101,32 @@
   </div>
 </div>
 <script>
-  // Scoring rewritten for the new site: the original Squarespace script was not available.
-  // RESULT TEXT BELOW IS NEW WORDING, pending Dave's original copy.
+  // Original scoring and result text from the Squarespace site.
   (function () {
-    var TOTAL = 10;
-    var current = 0;
     var scores = { D: 0, I: 0, S: 0, C: 0 };
-    var TYPES = {
-      D: { name: 'Dominance', text: 'You are direct, decisive and driven by results. You move fast and like a challenge.' },
-      I: { name: 'Influence', text: 'You are outgoing, enthusiastic and energized by people. You persuade through connection.' },
-      S: { name: 'Steadiness', text: 'You are patient, dependable and supportive. You bring calm and consistency to a team.' },
-      C: { name: 'Conscientiousness', text: 'You are analytical, precise and quality-minded. You want the facts before you act.' }
+    var currentQ = 0;
+    var totalQuestions = 10;
+    var descriptions = {
+      D: "You're most likely a High 'D' – Dominant. You’re confident, direct, and thrive on results.",
+      I: "You're most likely a High 'I' – Influential. You’re outgoing, optimistic, and energize teams.",
+      S: "You're most likely a High 'S' – Steady. You’re dependable, calm, and supportive of others.",
+      C: "You're most likely a High 'C' – Conscientious. You’re analytical, precise, and value accuracy."
     };
-    window.discAnswer = function (type) {
-      scores[type] += 1;
-      document.getElementById('dq' + current).classList.add('hidden');
-      current += 1;
-      if (current < TOTAL) {
-        document.getElementById('dq' + current).classList.remove('hidden');
-        document.getElementById('disc-progress').textContent = 'Question ' + (current + 1) + ' of ' + TOTAL;
+    window.discAnswer = function (letter) {
+      scores[letter]++;
+      document.getElementById('dq' + currentQ).classList.add('hidden');
+      currentQ++;
+      var next = document.getElementById('dq' + currentQ);
+      var progress = document.getElementById('disc-progress');
+      if (next) {
+        next.classList.remove('hidden');
+        progress.textContent = 'Question ' + (currentQ + 1) + ' of ' + totalQuestions;
         return;
       }
-      var order = ['D', 'I', 'S', 'C'].sort(function (a, b) { return scores[b] - scores[a]; });
-      var top = order.filter(function (t) { return scores[t] === scores[order[0]]; });
+      var max = Object.keys(scores).reduce(function (a, b) { return scores[a] > scores[b] ? a : b; });
       var result = document.getElementById('disc-result');
-      var heading = top.length > 1
-        ? 'Your styles are tied: ' + top.map(function (t) { return t + ' (' + TYPES[t].name + ')'; }).join(' and ')
-        : 'Your primary style: ' + top[0] + ' (' + TYPES[top[0]].name + ')';
-      var html = '<h3>' + heading + '</h3>';
-      top.forEach(function (t) { html += '<p>' + TYPES[t].text + '</p>'; });
-      html += '<p>Your scores: ' + ['D', 'I', 'S', 'C'].map(function (t) { return t + ' ' + scores[t]; }).join(' · ') + '</p>';
-      result.innerHTML = html;
-      document.getElementById('disc-progress').classList.add('hidden');
+      result.textContent = descriptions[max];
+      progress.classList.add('hidden');
       result.classList.remove('hidden');
       document.getElementById('disc-cta').classList.remove('hidden');
       result.focus();
