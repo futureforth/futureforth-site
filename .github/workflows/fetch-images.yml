@@ -1,0 +1,41 @@
+name: Fetch Squarespace images
+
+# Downloads the images listed in scripts/image-urls.txt into public/images/sq/ and commits them.
+# Runs when the list or the script changes on the migration branch, or on demand.
+on:
+  workflow_dispatch:
+  push:
+    branches: [migration]
+    paths:
+      - scripts/image-urls.txt
+      - scripts/fetch-images.mjs
+      - .github/workflows/fetch-images.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-images
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/fetch-images.mjs
+      - name: Commit downloaded images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/sq src/data/image-map.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+          else
+            git commit -m "Add images copied from Squarespace"
+            git pull --rebase
+            git push
+          fi
