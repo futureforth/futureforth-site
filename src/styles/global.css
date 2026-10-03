@@ -879,3 +879,7 @@ select:focus-visible,
 [id^="ff-"] .btn-white { text-transform: none; letter-spacing: normal; }
 [id^="ff-"] ul { list-style: none; }
 [id^="ff-"] blockquote { all: revert; }
+[id^="ff-"] .card { box-shadow: none; }
+
+/* Keep anchor targets clear of the sticky header */
+html { scroll-padding-top: 5rem; }
