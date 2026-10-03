@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/titillium.css';
 import { localize } from '../lib/images.js';
 import { organizationSchema, daveDelaneyPersonSchema } from '../data/schema.js';
 // The page body is the original Squarespace code block (its styles are scoped to #ff-home).
@@ -13,6 +14,5 @@ import body from '../tools/home.html?raw';
   image="/images/og-default.jpg"
   jsonLd={[organizationSchema, daveDelaneyPersonSchema]}
 >
-  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;800;900&display=swap" />
   <Fragment set:html={localize(body)} />
 </BaseLayout>

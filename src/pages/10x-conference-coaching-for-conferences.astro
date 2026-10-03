@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/titillium.css';
 import { localize } from '../lib/images.js';
 // The page body is the original Squarespace code block (its styles are scoped to #ff-fcp).
 import body from '../tools/10x-conference-coaching-for-conferences.html?raw';
@@ -9,6 +10,5 @@ import body from '../tools/10x-conference-coaching-for-conferences.html?raw';
   description="Help your sponsors and exhibitors see a real return so they come back next year. 10X Conference Coaching costs your conference nothing."
   path="/10x-conference-coaching-for-conferences"
 >
-  <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" />
   <Fragment set:html={localize(body)} />
 </BaseLayout>

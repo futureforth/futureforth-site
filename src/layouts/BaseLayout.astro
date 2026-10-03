@@ -1,6 +1,14 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+// Fonts are served from this site (no request to Google), latin subset only.
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+import '@fontsource/sora/latin-600.css';
+import '@fontsource/sora/latin-700.css';
+import '@fontsource/sora/latin-800.css';
 import '../styles/global.css';
 
 interface Props {
@@ -55,14 +63,6 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- Fonts: self-hosted-friendly Google Fonts load with font-display swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
 
     <slot name="head" />
 

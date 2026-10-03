@@ -27,12 +27,14 @@
 /podcast /nice-podcast 301
 /reel https://davedelaney.me/speaking#video 301
 /rootdown https://wisesquirrels.com/rootdown 301
-/rootdown-uni /s/The-Root-Down-Colleges.pdf 301
+/rootdown-uni https://wisesquirrels.com/rootdown 301
 /w /workshops 301
 
-# Files (re-host at the target path)
+# Retired downloads
 /s/2024-Futureforth-Workshop-Catalog-nah3.pdf /workshops 301
-/s/dave-delaney-bio-headshot.zip /s/dave-delaney-bio-headshot-a3kn.zip 301
+/s/The-Root-Down-Colleges.pdf https://wisesquirrels.com/rootdown 301
+/s/dave-delaney-bio-headshot.zip https://davedelaney.me/planners 301
+/s/dave-delaney-bio-headshot-a3kn.zip https://davedelaney.me/planners 301
 
 # Speaking pages -> davedelaney.me
 /book-dave-delaney https://davedelaney.me/speaking 301

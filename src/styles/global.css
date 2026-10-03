@@ -916,6 +916,8 @@ select:focus-visible,
   all: revert;
 }
 [id^="ff-"] ul { list-style: none; }
+/* The site sets a display font on all headings; the blocks expect their own font throughout. */
+[id^="ff-"] :is(h1, h2, h3, h4, h5, h6) { font-family: inherit; }
 
 /* Keep anchor targets clear of the sticky header */
 html { scroll-padding-top: 5rem; }

@@ -25,7 +25,7 @@ const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year
       <ul class="post-list">
         {episodes.map((e) => (
           <li class="post-list__item">
-            {e.image && <a href={`/nice-podcast/${e.slug}`} tabindex="-1" aria-hidden="true"><img src={img(e.image)} alt="" loading="lazy" width="120" height="120" /></a>}
+            {e.image && <a href={`/nice-podcast/${e.slug}`} tabindex="-1" aria-hidden="true"><img src={img(e.image)} alt="" loading="lazy" width="120" height="120" sizes="120px" /></a>}
             <div>
               <p class="post-list__date">{fmt(e.date)}</p>
               <h2><a href={`/nice-podcast/${e.slug}`}>{e.title}</a></h2>

@@ -9,7 +9,7 @@ interface Props {
 const { quote, name, role, logo, logoAlt = '' } = Astro.props as Props;
 ---
 <div class="testimonial">
-  {logo && <img class="testimonial__logo" src={logo} alt={logoAlt} loading="lazy" />}
+  {logo && <img class="testimonial__logo" src={logo} alt={logoAlt} loading="lazy" sizes="220px" />}
   <blockquote>&ldquo;{quote}&rdquo;</blockquote>
   <cite>{name}{role && `, ${role}`}</cite>
 </div>
