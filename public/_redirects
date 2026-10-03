@@ -31,6 +31,7 @@
 /w /workshops 301
 
 # Files (re-host at the target path)
+/s/2024-Futureforth-Workshop-Catalog-nah3.pdf /workshops 301
 /s/dave-delaney-bio-headshot.zip /s/dave-delaney-bio-headshot-a3kn.zip 301
 
 # Speaking pages -> davedelaney.me
