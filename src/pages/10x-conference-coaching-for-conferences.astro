@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { localize } from '../lib/images.js';
 // The page body is the original Squarespace code block (its styles are scoped to #ff-fcp).
 import body from '../tools/10x-conference-coaching-for-conferences.html?raw';
 ---
@@ -9,5 +10,5 @@ import body from '../tools/10x-conference-coaching-for-conferences.html?raw';
   path="/10x-conference-coaching-for-conferences"
 >
   <link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" />
-  <Fragment set:html={body} />
+  <Fragment set:html={localize(body)} />
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { img } from '../../lib/images.js';
 import posts from '../../data/blog.json';
 const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -20,7 +21,7 @@ const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year
       <ul class="post-list">
         {posts.map((p) => (
           <li class="post-list__item">
-            {p.image && <a href={`/nice-blog/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.image.replace('1500w', '300w')} alt="" loading="lazy" width="120" height="120" /></a>}
+            {p.image && <a href={`/nice-blog/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={img(p.image)} alt="" loading="lazy" width="120" height="120" /></a>}
             <div>
               <p class="post-list__date">{fmt(p.date)}</p>
               <h2><a href={`/nice-blog/${p.slug}`}>{p.title}</a></h2>

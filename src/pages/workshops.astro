@@ -3,21 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Testimonial from '../components/Testimonial.astro';
 // The talent loss calculator from the live page (same tool as /churn-calculator).
 import calculator from '../tools/churn-calculator.html?raw';
+import workshopTestimonials from '../data/workshop-testimonials.json';
+import { img, localize } from '../lib/images.js';
 
-const testimonials = [
-  { quote: "People love his workshop facilitation. He knows his stuff... If you have an opportunity to work together, it will be worth it.", name: 'Anastasia Kudrez', role: 'Lead Educator for Grow with Google' },
-  { quote: 'Dave is the Real Deal! His approach and knowledge made the time and investment pay off immediately. Yes, we give Dave as many "Thumbs Up" as we possibly can.', name: 'Ginger Hardage', role: 'Former SVP of Culture & Communications at Southwest Airlines' },
-  { quote: 'Dave’s style is confident, funny and direct...one of the best five hours I have spent professionally.', name: 'Katie Owens', role: 'Vice President, HealthStream Engagement Institute' },
-  { quote: 'My team truly enjoyed the event and have taken the tools provided to be able to improve both communication internally and externally. I would highly recommend Dave for any of your corporate communication needs.', name: 'Carla Dodd', role: 'Silicon Ranch' },
-  { quote: "\"... really relatable and down-to-earth. He is humble, while confident, and he has a lot of hands-on knowledge... He really knows what he's talking about.\"", name: 'Barb Braud', role: 'Lamar Advertising' },
-  { quote: 'Dave recently provided speaker training for our team… His training was not only informative, we had tons of fun and laughed a lot! We each learned valuable take-aways that we plan to apply to our future presentations.', name: 'Melanie Jore', role: 'Vice President of Member Relations at NTCA' },
-];
+// All ten workshop testimonials from the live site, with each client's logo.
+const testimonials = workshopTestimonials.map((t) => ({ quote: t.quote, name: t.who, logo: img(t.logo), logoAlt: `${t.company} logo` }));
 ---
 <BaseLayout
   title="Futureforth - Professional Development &amp; Leadership Training."
   description="Futureforth is a leadership and professional development training firm serving fast-growing technology companies that seek ways to increase employee retention, strengthen company culture, retain clients, and improve communication."
   path="/workshops"
-  image="/images/workshop-2.jpg"
+  image="/images/sq/dbad8e2d45-ncs42024-02016.webp"
 >
   <section class="hero">
     <div class="container">
@@ -61,7 +57,7 @@ const testimonials = [
 
       <div class="card-grid" style="margin-top: var(--space-lg);">
         <div class="card">
-          <img src="/images/workshop-2.jpg" alt="Nice Method Secret Weapon workshop in progress" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
+          <img src="/images/sq/5fb5a13d20-screenshot-2023-07-15-at-6-22-35-pm.webp" alt="Nice Method Secret Weapon workshop in progress" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
           <h3>Nice Method &ldquo;Secret Weapon&rdquo; Workshop</h3>
           <p>
             Audiences love Dave Delaney's <a href="https://davedelaney.me/speaking">Master Communicator's Secret Weapon keynote presentation</a>.
@@ -74,7 +70,7 @@ const testimonials = [
           </p>
         </div>
         <div class="card">
-          <img src="/images/workshop-3.jpg" alt="Storytelling and presentation planning workshop" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
+          <img src="/images/sq/bc63be6866-ntca1.webp" alt="Storytelling and presentation planning workshop" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
           <h3>Nice Method Storytelling &amp; Presentation Planning</h3>
           <p>
             Delve into the history and power of storytelling and its vital role in human communication.
@@ -88,7 +84,7 @@ const testimonials = [
           </p>
         </div>
         <div class="card">
-          <img src="/images/workshop-4.jpg" alt="Nice Method conflict resolution and mediation workshop" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
+          <img src="/images/sq/dbad8e2d45-ncs42024-02016.webp" alt="Nice Method conflict resolution and mediation workshop" width="400" height="280" loading="lazy" style="border-radius: var(--radius-sm); margin-bottom: var(--space-sm);" />
           <h3>Nice Method for Conflict Resolution &amp; Mediation</h3>
           <p>
             This team-building and conflict-resolution workshop is designed to help participants develop
@@ -132,7 +128,7 @@ const testimonials = [
 
   <section class="section" id="calculator">
     <div class="container" style="max-width: 46rem;">
-      <Fragment set:html={calculator} />
+      <Fragment set:html={localize(calculator)} />
     </div>
   </section>
 
@@ -141,7 +137,7 @@ const testimonials = [
       <p class="eyebrow">Featured</p>
       <h2>What clients say</h2>
       <div class="video" style="max-width: 46rem; margin-bottom: var(--space-lg);">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLCAjIt1oPvVGpLyOQ79txPZSc5MuisDJe" title="Futureforth workshop testimonials" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/P8swin7Ivkc?list=PLCAjIt1oPvVGpLyOQ79txPZSc5MuisDJe" title="Futureforth workshop testimonials" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="card-grid">
         {testimonials.map((t) => <Testimonial {...t} />)}

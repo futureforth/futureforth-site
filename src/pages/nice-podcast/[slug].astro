@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { img, localize } from '../../lib/images.js';
 import episodes from '../../data/podcast.json';
 import { audioFor } from '../../lib/podcast-audio.js';
 
@@ -21,7 +22,7 @@ const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year
   title={`${episode.title} - Nice Podcast`}
   description={episode.excerpt}
   path={`/nice-podcast/${episode.slug}`}
-  image={episode.image ?? undefined}
+  image={episode.image ? img(episode.image) : undefined}
 >
   <article class="section">
     <div class="container prose">
@@ -32,7 +33,7 @@ const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year
           <a href={audio}>Download this episode</a>
         </audio>
       )}
-      <Fragment set:html={episode.html} />
+      <Fragment set:html={localize(episode.html)} />
       <nav class="post-nav" aria-label="More episodes">
         {older ? <a href={`/nice-podcast/${older.slug}`}>&larr; {older.title}</a> : <span />}
         {newer ? <a href={`/nice-podcast/${newer.slug}`}>{newer.title} &rarr;</a> : <span />}

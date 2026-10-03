@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { img, localize } from '../../lib/images.js';
 import posts from '../../data/blog.json';
 
 export function getStaticPaths() {
@@ -24,14 +25,14 @@ const jsonLd = {
   title={`${post.title} - Futureforth`}
   description={post.excerpt}
   path={`/nice-blog/${post.slug}`}
-  image={post.image ?? undefined}
+  image={post.image ? img(post.image) : undefined}
   jsonLd={jsonLd}
 >
   <article class="section">
     <div class="container prose">
       <p class="eyebrow"><a href="/nice-blog">Bring the Nice</a> &middot; {fmt(post.date)} &middot; Dave Delaney</p>
       <h1>{post.title}</h1>
-      <Fragment set:html={post.html} />
+      <Fragment set:html={localize(post.html)} />
       <nav class="post-nav" aria-label="More articles">
         {older ? <a href={`/nice-blog/${older.slug}`}>&larr; {older.title}</a> : <span />}
         {newer ? <a href={`/nice-blog/${newer.slug}`}>{newer.title} &rarr;</a> : <span />}

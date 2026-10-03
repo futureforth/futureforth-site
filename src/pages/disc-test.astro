@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { localize } from '../lib/images.js';
 import pages from '../data/pages.json';
 import tool from '../tools/disc-test.html?raw';
 const page = pages['disc-test'];
@@ -17,12 +18,12 @@ const page = pages['disc-test'];
   </section>
   <section class="section">
     <div class="container prose">
-      <Fragment set:html={page.html} />
+      <Fragment set:html={localize(page.html)} />
     </div>
   </section>
   <section class="section section--alt" id="tool">
     <div class="container">
-      <Fragment set:html={tool} />
+      <Fragment set:html={localize(tool)} />
     </div>
   </section>
   <section class="section">

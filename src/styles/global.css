@@ -678,6 +678,16 @@ select:focus-visible,
   height: 100%;
 }
 
+.testimonial__logo {
+  display: block;
+  height: 3rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: var(--space-sm);
+}
+
 .testimonial blockquote {
   border: none;
   background: none;
