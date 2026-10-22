@@ -3,10 +3,10 @@
 # Every rule goes straight to its final target (no chains). Specific rules sit above the patterns.
 
 # Short links
-/15 https://calendar.app.google/eRji8Bfz4gGc5nkH6 301
-/30 https://calendar.app.google/3Yzbki3hGzWYLMedA 301
-/45 https://calendar.app.google/Va4q4fyCKpZKTRnp8 301
-/60 https://calendar.app.google/hSBxAuDMSPepuHBS8 301
+/15 /contact 301
+/30 /contact 301
+/45 /contact 301
+/60 /contact 301
 /add /conference-calculator 301
 /ai / 301
 /bio /about#dave 301
