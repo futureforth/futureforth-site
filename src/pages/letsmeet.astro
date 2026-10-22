@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { img } from '../lib/images.js';
+const photo = img('https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/12d7274f-3341-447d-93b4-1b3e62d16f58/1734283800920+Background+Removed.png');
+---
+<BaseLayout
+  title="Let's Book a Meeting - Futureforth"
+  description="Book a 15, 30 or 45 minute call with Dave Delaney."
+  path="/letsmeet"
+>
+  <section class="section">
+    <div class="container prose" style="max-width: 46rem; text-align: center;">
+      <h1>Let&rsquo;s book a meeting&hellip;</h1>
+      <p>
+        To make scheduling easy, select a duration for our call using the buttons below. Please
+        <a href="/contact">suggest a few convenient times</a> if time zones or your availability
+        aren&rsquo;t on our side. Looking forward to speaking soon.
+      </p>
+      <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; margin: var(--space-lg) 0;">
+        <a class="btn btn-primary" href="https://calendar.app.google/eRji8Bfz4gGc5nkH6">15 minute</a>
+        <a class="btn btn-primary" href="https://calendar.app.google/3Yzbki3hGzWYLMedA">30 minute</a>
+        <a class="btn btn-primary" href="https://calendar.app.google/D2c8tMCiAmeSfH4j9">45 minute</a>
+      </div>
+      <img src={photo} alt="Dave Delaney" width="480" height="480" loading="lazy" style="margin: 0 auto; max-width: 20rem;" />
+      <p style="margin-top: var(--space-md);">Don&rsquo;t be shy, operators are standing by.</p>
+    </div>
+  </section>
+</BaseLayout>

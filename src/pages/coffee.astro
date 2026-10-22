@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { img } from '../lib/images.js';
+const photo = img('https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/b8a42b72-ef73-4b38-b265-88296e257edd/Copy+of+Untitled+Design.jpg');
+---
+<BaseLayout
+  title="Let's Do That Coffee - Futureforth"
+  description="Book a coffee chat with Dave Delaney, in person in Nashville or virtually."
+  path="/coffee"
+>
+  <section class="section">
+    <div class="container prose" style="max-width: 46rem; text-align: center;">
+      <img src={photo} alt="Coffee with Dave Delaney" width="720" height="480" loading="eager" style="margin: 0 auto var(--space-lg); border-radius: var(--radius-lg);" />
+      <blockquote>
+        &ldquo;If it weren't for the coffee, I'd have no identifiable personality whatsoever.&rdquo;
+        <footer>&mdash; David Letterman</footer>
+      </blockquote>
+      <h1>Let&rsquo;s do that coffee. &#9749;</h1>
+      <p>Prefer a virtual cuppa sooner? <a href="/letsmeet">Click here</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2px85X9u3EdbNLdBk3tTm4dPK4-Pqfo3dWo00x70hxzC1OaVkHhj06rqWMhimgwAFxI0BJjfqD?gv=true"
+        title="Book a coffee with Dave Delaney"
+        style="border: 0; width: 100%; height: 720px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>
