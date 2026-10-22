@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CoachingContent from '../components/CoachingContent.astro';
+import '../styles/titillium.css';
+import { localize } from '../lib/images.js';
+// The page body is the live Squarespace code block for the coaching page (October 2026 redesign).
+// Its styles are scoped to #ff-coaching, and its images come from the local copies in /images/sq/.
+import body from '../tools/coaching.html?raw';
 ---
 <BaseLayout
   title="Business Coach in Nashville: Dave Delaney. - Futureforth"
@@ -8,5 +12,5 @@ import CoachingContent from '../components/CoachingContent.astro';
   path="/dave-delaney-coaching"
   image="/images/sq/73ad0d054d-ncs42024-02013.webp"
 >
-  <CoachingContent />
+  <Fragment set:html={localize(body)} />
 </BaseLayout>
