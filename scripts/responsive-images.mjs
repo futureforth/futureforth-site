@@ -60,6 +60,7 @@ await Promise.all(
 );
 
 let rewritten = 0;
+let resized = 0;
 for (const [f, html] of pages) {
   const next = html.replace(IMG, (tag) => {
     const src = srcOf(tag);
@@ -73,12 +74,24 @@ for (const [f, html] of pages) {
       if (!has('sizes')) extra += ` sizes="${DEFAULT_SIZES}"`;
     }
     if (!has('width') && !has('height')) extra += ` width="${meta.width}" height="${meta.height}"`;
+    // Width/height typed by hand that don't match the real picture make browsers draw it
+    // stretched or squished. Keep the stated width and correct the height to the true shape.
+    let fixed = tag;
+    const wAttr = tag.match(/\swidth="(\d+)"/)?.[1];
+    const hAttr = tag.match(/\sheight="(\d+)"/)?.[1];
+    if (wAttr && hAttr) {
+      const trueH = Math.round((Number(wAttr) * meta.height) / meta.width);
+      if (Math.abs(trueH - Number(hAttr)) > 1) {
+        fixed = tag.replace(/\sheight="\d+"/, ` height="${trueH}"`);
+        resized += 1;
+      }
+    }
     if (!has('loading')) extra += ' loading="lazy"';
     if (!has('decoding')) extra += ' decoding="async"';
-    if (!extra) return tag;
+    if (!extra) return fixed;
     rewritten += 1;
-    return tag.replace(/\s*\/?>$/, `${extra}>`);
+    return fixed.replace(/\s*\/?>$/, `${extra}>`);
   });
   if (next !== html) await writeFile(f, next);
 }
-console.log(`[images] ${wanted.size} images, ${made} smaller copies made, ${rewritten} <img> tags updated`);
+console.log(`[images] ${wanted.size} images, ${made} smaller copies made, ${rewritten} <img> tags updated, ${resized} mismatched sizes corrected`);
