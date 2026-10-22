@@ -250,10 +250,9 @@
 /whitelist / 301
 
 # Defaults chosen so these do not 404; Dave to confirm better targets
-/coffee /contact 301
-/letsmeet /contact 301
-/meet /contact 301
-/meeting /contact 301
+/coffee https://calendar.google.com/calendar/appointments/schedules/AcZssZ2px85X9u3EdbNLdBk3tTm4dPK4-Pqfo3dWo00x70hxzC1OaVkHhj06rqWMhimgwAFxI0BJjfqD 302
+/meet /letsmeet 301
+/meeting /letsmeet 301
 /rd https://wisesquirrels.com/rootdown 301
 /roics / 301
 
