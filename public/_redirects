@@ -254,7 +254,7 @@
 /letsmeet /contact 301
 /meet /contact 301
 /meeting /contact 301
-/rd https://wisesquirrels.com/rootdown 301
+/rd / 301
 /roics / 301
 
 # Podcast URL fixes (must stay above the patterns)
