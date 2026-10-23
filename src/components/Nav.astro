@@ -1,19 +1,10 @@
 ---
 // Primary site navigation — mirrors the original Squarespace nav structure exactly,
-// including the "Workshops" and "More" dropdown groups.
-const workshopsLinks = [
-  { href: '/workshops', label: 'Communication Workshops' },
-  { href: '/corporate-improv-training-in-nashville', label: 'Corporate Improv Training in Nashville' },
-  { href: '/grow-your-business-with-ai', label: 'Grow Your Business with AI' },
-];
-
+// Sales links (workshops, coaching, speaking) point to davedelaney.me.
 const moreLinks = [
-  { href: '/virtual-testimonials', label: 'Virtual Testimonials' },
   { href: '/freetools', label: 'Free Tools' },
   { href: '/about', label: 'About Futureforth' },
   { href: '/about#dave', label: 'About Dave Delaney' },
-  { href: '/linkedin-audit', label: 'LinkedIn Live Profile Audit' },
-  { href: '/10x-conference-coaching-for-conferences', label: '10X Conference Coaching for Conferences' },
 ];
 
 // Sibling brands under the Futureforth umbrella — each lives on its own site.
@@ -36,15 +27,8 @@ const familyLinks = [
 
     <nav id="primary-nav" class="primary-nav" aria-label="Primary">
       <ul>
-        <li class="has-dropdown">
-          <button type="button" aria-expanded="false">Workshops</button>
-          <ul class="dropdown-menu">
-            {workshopsLinks.map((l) => (
-              <li><a href={l.href}>{l.label}</a></li>
-            ))}
-          </ul>
-        </li>
-        <li><a href="/dave-delaney-coaching">Coaching</a></li>
+        <li><a href="https://davedelaney.me/workshops">Workshops</a></li>
+        <li><a href="https://davedelaney.me/coaching">Coaching</a></li>
         <li><a href="https://davedelaney.me/speaking">Presentations</a></li>
         <li><a href="/contact">Contact</a></li>
         <li class="has-dropdown">
@@ -67,7 +51,7 @@ const familyLinks = [
         </li>
       </ul>
       <div class="header-cta">
-        <a href="/10xcc" class="btn btn-primary">10X Conference Coaching</a>
+        <a href="https://davedelaney.me/speaking" class="btn btn-primary">Book Dave</a>
       </div>
     </nav>
   </div>
