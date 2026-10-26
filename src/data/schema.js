@@ -25,6 +25,7 @@ export const organizationSchema = {
     'https://linkedin.com/in/davedelaney',
     'https://instagram.com/davedelaney',
     'https://www.youtube.com/@davedelaneyspeaks',
+    'https://share.google/USR5Bjuu4k8lQQyE3',
   ],
   founder: {
     '@id': 'https://futureforth.com/about#dave',
