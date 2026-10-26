@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/responsive-images.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/sora": "^5.3.0",
+    "@fontsource/titillium-web": "^5.3.0",
     "astro": "^4.16.0",
-    "@astrojs/sitemap": "3.2.1"
+    "sharp": "^0.35.5"
   }
 }

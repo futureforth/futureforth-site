@@ -13,7 +13,7 @@ export const organizationSchema = {
   telephone: '+1-615-823-1608',
   email: 'info@futureforth.com',
   description:
-    'Futureforth is a communication and leadership consultancy founded by keynote speaker and coach Dave Delaney, offering keynote presentations, corporate workshops, and 1:1 coaching.',
+    'Futureforth is the Nashville parent company behind keynote speaker and communication coach Dave Delaney, the ADHD Wise Squirrels podcast, and 10X Conference Coaching.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '2517 Lebanon Road',
@@ -25,19 +25,20 @@ export const organizationSchema = {
     'https://linkedin.com/in/davedelaney',
     'https://instagram.com/davedelaney',
     'https://www.youtube.com/@davedelaneyspeaks',
+    'https://share.google/USR5Bjuu4k8lQQyE3',
   ],
   founder: {
-    '@id': 'https://futureforth.com/about#dave',
+    '@id': 'https://futureforth.com/#dave',
   },
 };
 
 export const daveDelaneyPersonSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': 'https://futureforth.com/about#dave',
+  '@id': 'https://futureforth.com/#dave',
   name: 'Dave Delaney',
   jobTitle: 'Keynote Speaker, Communication Strategist & Coach',
-  url: 'https://futureforth.com/about#dave',
+  url: 'https://www.davedelaney.me',
   image: 'https://futureforth.com/images/dave-headshot.jpg',
   worksFor: {
     '@id': 'https://futureforth.com/#organization',

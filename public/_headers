@@ -1,2 +1,10 @@
 /*
   X-Robots-Tag: noindex
+
+# Fingerprinted files never change, so browsers can keep them for a year.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images keep their names; a week is a safe cache.
+/images/*
+  Cache-Control: public, max-age=604800

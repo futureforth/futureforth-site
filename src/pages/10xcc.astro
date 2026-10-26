@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/titillium.css';
+import { localize } from '../lib/images.js';
+// The page body is the original Squarespace code block (its styles are scoped to #ff-10x).
+import body from '../tools/10xcc.html?raw';
+---
+<BaseLayout
+  title="10X Conference Coaching - Futureforth"
+  description="Get a real return from your next conference sponsorship, exhibit or speaking slot with a plan for before, during and after the event."
+  path="/10xcc"
+  image="/images/sq/ec1c0f0963-10x-conference-coaching-by-futureforth.webp"
+>
+  <Fragment set:html={localize(body)} />
+</BaseLayout>

@@ -6,34 +6,34 @@
 
 :root {
   /* ---- Brand colors (sampled from Dave's real logo/favicon — verify against brand guide) --- */
-  --color-navy-900: #4a1650;
-  --color-navy-800: #6c1f78;
-  --color-navy-700: #7b2382;
-  --color-navy-600: #93348f;
-  --color-accent-500: #f0801e;
-  --color-accent-600: #d66c12;
-  --color-accent-100: #fce4cc;
-  --color-cream-50: #f9f6f0;
-  --color-cream-100: #f3ede1;
-  --color-charcoal-900: #201f1d;
-  --color-charcoal-600: #4b4944;
+  --color-navy-900: #5a1360; /* Futureforth purple, dark */
+  --color-navy-800: #801c80; /* Futureforth purple (brand) */
+  --color-navy-700: #8e2a8e;
+  --color-navy-600: #9b3f9b;
+  --color-accent-500: #f26621; /* Futureforth orange (brand) */
+  --color-accent-600: #d8551a;
+  --color-accent-100: #fde3d3;
+  --color-cream-50: #f8f4f8;
+  --color-cream-100: #f3e9f4;
+  --color-charcoal-900: #1a1a1a;
+  --color-charcoal-600: #5c5c5c;
   --color-white: #ffffff;
-  --color-border: #e4ddce;
+  --color-border: #e6e1e6;
 
   /* ---- Semantic aliases ---- */
   --color-bg: var(--color-white);
   --color-bg-alt: var(--color-cream-50);
   --color-text: var(--color-charcoal-900);
   --color-text-muted: var(--color-charcoal-600);
-  --color-heading: var(--color-navy-900);
+  --color-heading: var(--color-navy-800);
   --color-primary: var(--color-navy-800);
   --color-primary-strong: var(--color-navy-900);
   --color-accent: var(--color-accent-500);
   --color-accent-strong: var(--color-accent-600);
 
   /* ---- Type scale ---- */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: 'Sora', var(--font-sans);
+  --font-sans: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Titillium Web', var(--font-sans);
 
   --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.9rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-h1 { font-size: var(--step-5); }
+h1 { font-size: var(--step-5); overflow-wrap: break-word; }
 h2 { font-size: var(--step-4); }
 h3 { font-size: var(--step-3); }
 h4 { font-size: var(--step-2); }
@@ -388,7 +388,7 @@ select:focus-visible,
   gap: var(--space-md);
 }
 
-.primary-nav ul {
+.primary-nav > ul {
   display: flex;
   align-items: center;
   gap: var(--space-md);
@@ -402,7 +402,8 @@ select:focus-visible,
   margin: 0;
 }
 
-.primary-nav a {
+/* :not(.btn) keeps these link rules off the header button, which has its own padding and hover colors */
+.primary-nav a:not(.btn) {
   color: var(--color-navy-900);
   text-decoration: none;
   font-weight: 600;
@@ -412,8 +413,8 @@ select:focus-visible,
   padding: var(--space-2xs) 0;
 }
 
-.primary-nav a:hover,
-.primary-nav a:focus-visible {
+.primary-nav a:not(.btn):hover,
+.primary-nav a:not(.btn):focus-visible {
   color: var(--color-accent-strong);
 }
 
@@ -449,6 +450,23 @@ select:focus-visible,
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Invisible bridge across the 10px gap between the menu button and its dropdown,
+   so the pointer does not leave the hover area on the way down. */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+
+/* Keep the last menu ("More") inside the viewport */
+.primary-nav > ul > li:last-child .dropdown-menu {
+  left: auto;
+  right: 0;
 }
 
 .has-dropdown:hover .dropdown-menu,
@@ -511,20 +529,26 @@ select:focus-visible,
     display: block;
   }
 
+  /* The header's backdrop-filter makes it the containing block, so the menu is
+     positioned against the header instead of the viewport. */
   .primary-nav {
-    position: fixed;
-    inset: 64px 0 0 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - 64px);
     background: var(--color-white);
     flex-direction: column;
     align-items: stretch;
     padding: var(--space-md);
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.25s ease;
+    display: none;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
   }
 
   .primary-nav.is-open {
-    transform: translateX(0);
+    display: flex;
   }
 
   .primary-nav ul {
@@ -537,11 +561,15 @@ select:focus-visible,
     border-bottom: 1px solid var(--color-border);
   }
 
-  .primary-nav a,
+  .primary-nav a:not(.btn),
   .has-dropdown > button {
     padding: var(--space-sm) 0;
     width: 100%;
     text-align: left;
+  }
+
+  .dropdown-menu::before {
+    display: none;
   }
 
   .dropdown-menu {
@@ -650,6 +678,16 @@ select:focus-visible,
   height: 100%;
 }
 
+.testimonial__logo {
+  display: block;
+  height: 3rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: var(--space-sm);
+}
+
 .testimonial blockquote {
   border: none;
   background: none;
@@ -711,6 +749,10 @@ select:focus-visible,
   padding-block: var(--space-2xl) var(--space-lg);
 }
 
+.site-footer p {
+  color: inherit; /* the global p color is dark, which was unreadable on the purple footer */
+}
+
 .site-footer a {
   color: var(--color-cream-100);
 }
@@ -761,11 +803,21 @@ select:focus-visible,
   grid-template-columns: 1fr;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: var(--space-lg);
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.site-footer__grid p {
+  margin: 0;
 }
 
 @media (min-width: 768px) {
   .site-footer__grid {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .site-footer__contact {
+    text-align: right;
   }
 }
 
@@ -820,3 +872,56 @@ select:focus-visible,
 .skip-link:focus {
   left: 0;
 }
+
+/* ---- Articles and podcast episodes ---- */
+.prose { max-width: 46rem; }
+.prose h1 { font-size: var(--step-3); margin-bottom: var(--space-md); }
+.prose h2 { font-size: var(--step-2); margin-top: var(--space-lg); }
+.prose h3 { font-size: var(--step-1); margin-top: var(--space-md); }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose figure { margin-bottom: var(--space-sm); }
+.prose ul, .prose ol { padding-left: 1.5rem; }
+.prose li > p { margin-bottom: var(--space-2xs); }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin-block: var(--space-sm); }
+.prose figure { margin-inline: 0; }
+.prose figcaption { font-size: var(--step--1); color: var(--color-text-muted); }
+.prose blockquote { border-left: 4px solid var(--color-accent); padding-left: var(--space-sm); color: var(--color-text-muted); margin-inline: 0; }
+.prose iframe { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; }
+.prose a { overflow-wrap: anywhere; }
+.episode-player { width: 100%; margin-block: var(--space-sm) var(--space-md); }
+.post-nav { display: flex; justify-content: space-between; gap: var(--space-md); margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--color-border); font-size: var(--step--1); }
+.post-nav a { flex: 1; }
+.post-nav a:last-child { text-align: right; }
+.post-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-lg); }
+.post-list__item { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-md); align-items: start; }
+.post-list__item img { width: 120px; height: 120px; object-fit: cover; border-radius: var(--radius-md); }
+.post-list__item h2 { font-size: var(--step-1); margin: 0 0 var(--space-2xs); }
+.post-list__item h2 a { text-decoration: none; color: var(--color-heading); }
+.post-list__item h2 a:hover { text-decoration: underline; }
+.post-list__date { font-size: var(--step--1); color: var(--color-text-muted); margin: 0 0 var(--space-3xs); }
+@media (max-width: 40rem) {
+  .post-list__item { grid-template-columns: 1fr; }
+  .post-nav { flex-direction: column; }
+  .post-nav a:last-child { text-align: left; }
+}
+
+@media (max-width: 30rem) {
+  h1 { font-size: 2.25rem; }
+}
+
+/* Original Squarespace code blocks (#ff-home, #ff-fcp, #ff-10x, ...) carry their own scoped
+   styles, but reuse class names this stylesheet also defines. Reset those classes inside the
+   blocks so only the block's own rules apply. The blocks' rules start with an id, so they
+   outrank this reset. scripts/check-build.py fails if a block uses a shared class not listed here. */
+[id^="ff-"] :is(.btn, .btn-ghost, .eyebrow, .hero, .card, .gallery, .gallery img, blockquote) {
+  all: revert;
+}
+[id^="ff-"] ul { list-style: none; }
+/* The site sets a display font on all headings; the blocks expect their own font throughout. */
+[id^="ff-"] :is(h1, h2, h3, h4, h5, h6) { font-family: inherit; }
+
+/* Keep anchor targets clear of the sticky header */
+html { scroll-padding-top: 5rem; }
+
+/* ---- Responsive video embed ---- */
+.video { aspect-ratio: 16 / 9; border-radius: var(--radius-md); overflow: hidden; background: #000; box-shadow: var(--shadow-md); }
+.video iframe { width: 100%; height: 100%; border: 0; display: block; }

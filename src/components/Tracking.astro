@@ -1,0 +1,49 @@
+---
+// The same tracking the live Squarespace site runs, so analytics carry on unbroken after the
+// switch: Google Tag Manager (GTM-KKX542), Google Analytics 4 (G-FG8QV9J3FD), the LinkedIn
+// Insight Tag (partner 664564) and the Meta pixel (1438455026578956).
+// It only loads on futureforth.com itself, so preview and test visits are not counted.
+// Everything loads after the page has finished loading, so it never slows the first view.
+---
+<script is:inline>
+(function () {
+  var h = location.hostname;
+  if (h !== 'futureforth.com' && h !== 'www.futureforth.com') return;
+
+  function load(src) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = src;
+    document.head.appendChild(s);
+  }
+
+  // Google Tag Manager + Google Analytics 4
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-FG8QV9J3FD');
+  dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+  // LinkedIn Insight Tag
+  window._linkedin_partner_id = '664564';
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+
+  // Meta pixel
+  if (!window.fbq) {
+    var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    window._fbq = n; n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+  }
+  fbq('init', '1438455026578956');
+  fbq('track', 'PageView');
+
+  function start() {
+    load('https://www.googletagmanager.com/gtag/js?id=G-FG8QV9J3FD');
+    load('https://www.googletagmanager.com/gtm.js?id=GTM-KKX542');
+    load('https://snap.licdn.com/li.lms-analytics/insight.min.js');
+    load('https://connect.facebook.net/en_US/fbevents.js');
+  }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();
+</script>

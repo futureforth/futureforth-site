@@ -1,0 +1,283 @@
+<div id="ff-home">
+<style>
+  #ff-home{
+    /* Futureforth brand palette */
+    --purple:#801C80;
+    --purple-dark:#5A1360;
+    --orange:#F26621;
+    --orange-dark:#D8551A;
+    --black:#000000;
+    --ink:#1A1A1A;
+    --muted:#5C5C5C;
+    --line:#E6E1E6;
+    --paper:#FFFFFF;
+    --cloud:#F8F4F8;
+    font-family:'Titillium Web',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  #ff-home *{box-sizing:border-box;}
+  #ff-home img{max-width:100%;display:block;}
+  #ff-home a{text-decoration:none;}
+  #ff-home .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  #ff-home section{padding:76px 0;}
+  #ff-home h1,#ff-home h2,#ff-home h3{color:var(--purple);font-weight:700;line-height:1.2;margin:0;}
+  #ff-home h1{font-size:46px;letter-spacing:-0.5px;}
+  #ff-home h2{font-size:32px;letter-spacing:-0.3px;}
+  #ff-home h3{font-size:20px;}
+  #ff-home p{margin:0;color:var(--muted);}
+  #ff-home .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;
+  }
+  #ff-home .btn{
+    display:inline-block;background:var(--orange);color:#fff!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+    box-shadow:0 6px 16px rgba(242,102,33,0.28);
+    transition:background .15s ease, transform .15s ease;
+  }
+  #ff-home .btn:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  #ff-home .btn-ghost{
+    display:inline-block;background:transparent;color:var(--purple)!important;
+    font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;
+    border:1.5px solid var(--line);
+  }
+  #ff-home .btn-ghost:hover{border-color:var(--purple);}
+  #ff-home .btn-white{
+    display:inline-block;background:#fff;color:var(--purple-dark)!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+  }
+  #ff-home .btn-white:hover{background:#F3E9F4;}
+
+  /* HERO */
+  #ff-home .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+    padding:92px 0 76px;
+  }
+  #ff-home .hero .eyebrow{color:#F2C9F1;}
+  #ff-home .hero h1{color:#fff;max-width:780px;}
+  #ff-home .hero p.lead{color:#EAD9EB;font-size:19px;max-width:660px;margin-top:20px;}
+  #ff-home .hero .cta-row{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  #ff-home .hero .btn-ghost{border-color:rgba(255,255,255,0.28);color:#fff!important;}
+  #ff-home .hero .btn-ghost:hover{border-color:#fff;}
+
+  /* TRUST STRIP */
+  #ff-home .trust{background:var(--cloud);border-bottom:1px solid var(--line);padding:34px 0;}
+  #ff-home .trust .trust-label{
+    text-align:center;font-size:16px;font-weight:700;letter-spacing:1.4px;
+    text-transform:uppercase;color:var(--muted);margin-bottom:28px;
+  }
+  #ff-home .trust .logos{
+    display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+  }
+  #ff-home .trust .logos img{height:72px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(100%);opacity:0.85;}
+
+
+  /* FINAL CTA */
+  #ff-home .final{background:linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);}
+  #ff-home .final .wrap{max-width:680px;text-align:center;}
+  #ff-home .final .eyebrow{color:#FFE4D1;}
+  #ff-home .final h2{color:#fff;}
+  #ff-home .final p{color:#FFEDE1;font-size:17px;margin-top:14px;}
+  #ff-home .final .cta-row{margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  #ff-home .final .btn-ghost{border-color:rgba(255,255,255,0.4);color:#fff!important;}
+  #ff-home .final .btn-ghost:hover{border-color:#fff;}
+
+  
+  /* BRANDS */
+  #ff-home .brands .head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  #ff-home .brands .head p{margin-top:14px;font-size:16.5px;}
+  #ff-home .brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  #ff-home .brand-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(90,19,96,0.05);
+  }
+  #ff-home .brand-card .art{height:190px;background:var(--cloud);}
+  #ff-home .brand-card .art img{width:100%;height:100%;object-fit:cover;}
+  #ff-home .brand-card .art.ws{background:#FFDE59;}
+  #ff-home .brand-card .art.ws img{object-fit:contain;}
+  #ff-home .brand-card .body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  #ff-home .brand-card .tag{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--orange-dark);text-transform:uppercase;}
+  #ff-home .brand-card p{font-size:14.5px;flex:1;}
+  #ff-home .brand-card .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+  #ff-home .brand-card .btn{padding:11px 20px;font-size:14px;box-shadow:none;}
+  #ff-home .brand-card .btn-ghost{padding:10px 18px;font-size:14px;}
+
+  /* FREE TOOLS */
+  #ff-home .tools{background:var(--cloud);}
+  #ff-home .tools .head{max-width:680px;margin:0 auto 40px;text-align:center;}
+  #ff-home .tools .head p{margin-top:12px;font-size:16.5px;}
+  #ff-home .tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  #ff-home .tool-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:34px;
+    display:flex;flex-direction:column;gap:12px;align-items:flex-start;
+  }
+  #ff-home .tool-card .tool-num{font-size:14px;font-weight:800;letter-spacing:1.5px;color:var(--orange-dark);}
+  #ff-home .tool-card p{font-size:15px;flex:1;}
+  #ff-home .tool-card .btn{margin-top:6px;padding:12px 24px;font-size:14px;box-shadow:none;}
+  #ff-home .brand-card .text-link{flex-basis:100%;font-size:14px;font-weight:700;color:var(--purple);margin-top:4px;}
+  #ff-home .brand-card .text-link:hover{color:var(--purple-dark);}
+
+  #ff-home .google-rating{
+    display:flex;width:max-content;max-width:100%;margin:30px auto 0;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 20px;
+    font-size:14.5px;font-weight:700;color:var(--purple);
+  }
+  #ff-home .google-rating:hover{border-color:var(--purple);}
+  #ff-home .google-rating .stars{color:#F5A623;font-size:17px;letter-spacing:1px;}
+
+  /* HERO LOGO (no site nav on this page) */
+  #ff-home .hero-logo{display:block;width:max-content;margin-bottom:40px;}
+  #ff-home .hero-logo img{height:72px;width:auto;}
+
+  @media (max-width:900px){
+    #ff-home h1{font-size:32px;}
+    #ff-home h2{font-size:26px;}
+    #ff-home .brand-grid,#ff-home .tool-grid{grid-template-columns:1fr;}
+    #ff-home .trust .logos{gap:26px;}
+    #ff-home .trust .logos img{height:48px;}
+    #ff-home section{padding:52px 0;}
+  }
+</style>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <a class="hero-logo" href="/" aria-label="Futureforth home"><img src="/images/Futureforth_h_white.png" alt="Futureforth" width="228" height="72"></a>
+      <div class="eyebrow">Helping teams and leaders communicate with clarity, confidence, and connection.</div>
+      <h1>Communication isn't a soft skill. It's a superpower.</h1>
+      <p class="lead">Futureforth is the Nashville company behind keynote speaker and communication coach Dave Delaney, the ADHD Wise Squirrels podcast, and 10X Conference Coaching. Since 2013, we've helped people say what they mean, get heard, and build real connections.</p>
+      <div class="cta-row">
+        <a class="btn" href="#brands">Explore our brands</a>
+        <a class="btn-ghost" href="/contact">Contact Futureforth</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust">
+    <div class="wrap">
+      <div class="trust-label">Trusted by teams at</div>
+      <div class="logos">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106963602-X5EBBQ5RMOFH5L81HRX4/download-4.png" alt="Google">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106946227-H558ONE4O1TBPPBS4VPZ/download-3.png" alt="LinkedIn">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767220919154-DEMJNEHECMSOG81VZOD1/fedex+new.png" alt="FedEx">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106988525-RH58U2O91JTF179AJCQG/download-5.png" alt="HCA Healthcare">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767108205665-F3NNB6W27M1F46HO4ARJ/download.png" alt="UPS">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107005825-IDYR4ZG2LQU7KHES7SKM/image.jpg" alt="Asurion">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107024038-7GO9YNATHN4IHZ4BUPTG/NTCA%2B.png" alt="NTCA">
+      </div>
+      <a class="google-rating" href="https://share.google/USR5Bjuu4k8lQQyE3" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>Rated 5.0 on Google · Read our reviews →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- BRANDS -->
+  <section class="brands" id="brands">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">The Futureforth family</div>
+        <h2>One company. Three ways we help people connect.</h2>
+        <p>Each brand has its own home. Pick the one that fits what you need.</p>
+      </div>
+      <div class="brand-grid">
+
+        <div class="brand-card">
+          <div class="art"><img src="/images/home-keynote.webp" alt="Dave Delaney, Nashville keynote speaker, on stage with an audience" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Keynotes · Workshops · Coaching</span>
+            <h3>Dave Delaney</h3>
+            <p>TEDx speaker, communication coach, and author of <em>New Business Networking</em>. Book a keynote for your event, bring a hands-on workshop to your team, or start one-on-one coaching.</p>
+            <div class="links">
+              <a class="btn" href="https://davedelaney.me">Visit davedelaney.me</a>
+              <a class="btn-ghost" href="https://davedelaney.me/speaking">Book Dave</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="art ws"><img src="/images/brands-wise-squirrels.webp" alt="ADHD Wise Squirrels podcast cover art, with Dave Delaney" width="400" height="400" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">ADHD Podcast · Sponsorships</span>
+            <h3>ADHD Wise Squirrels</h3>
+            <p>Named a Best of ADHD Adults Podcast 2026 by PodRanker. Candid conversations for late-diagnosed adults learning to understand their brains and thrive on their own terms. Reach an engaged audience with 4,200+ downloads per episode.</p>
+            <div class="links">
+              <a class="btn" href="https://wisesquirrels.com">Listen</a>
+              <a class="btn-ghost" href="https://wisesquirrels.com/wisesponsor">Sponsor the show</a>
+              <a class="text-link" href="https://wisesquirrels.com/mediakit">View the media kit →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="art"><img src="/images/sq/ec1c0f0963-10x-conference-coaching-by-futureforth.webp" alt="10X Conference Coaching by Futureforth" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Conference ROI</span>
+            <h3>10X Conference Coaching</h3>
+            <p>Sponsoring, exhibiting, or speaking at a conference? Get a plan for before, during, and after the event, so the investment shows up as real pipeline, not a stack of business cards.</p>
+            <div class="links">
+              <a class="btn" href="/10xcc">Explore 10X</a>
+              <a class="btn-ghost" href="/conference-calculator">Free calculator</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE TOOLS -->
+  <section class="tools" id="tools">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Free from Futureforth</div>
+        <h2>Free tools to help your team communicate better</h2>
+        <p>No sign-up required. Use any tool instantly.</p>
+      </div>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="tool-num">01</span>
+          <h3>Conference Sponsorship Calculator</h3>
+          <p>Discover how much a conference or tradeshow sponsorship actually costs, before you sign the contract.</p>
+          <a class="btn" href="/conference-calculator">Run the numbers</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-num">02</span>
+          <h3>Employee Churn Calculator</h3>
+          <p>Understand the true cost of losing employees. It's much more than you think.</p>
+          <a class="btn" href="/churn-calculator">Calculate your cost</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-num">03</span>
+          <h3>AI Skills Assessment</h3>
+          <p>Discover your team's readiness for the AI-powered future and spot the gaps in how you use AI at work.</p>
+          <a class="btn" href="/ai-quiz">Take the quiz</a>
+        </div>
+        <div class="tool-card">
+          <span class="tool-num">04</span>
+          <h3>DISC Strengths Assessment</h3>
+          <p>Uncover your communication and leadership style, and learn how to collaborate and connect better as a team.</p>
+          <a class="btn" href="/disc-test">Start the assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <div class="eyebrow">Not sure where to start?</div>
+      <h2>Tell us what you need</h2>
+      <p>Whether it's a keynote, a workshop, coaching, a podcast sponsorship, or a conference coming up, we'll point you in the right direction. The first conversation is free.</p>
+      <div class="cta-row">
+        <a class="btn-white" href="/contact">Contact Futureforth</a>
+      </div>
+    </div>
+  </section>
+
+</div>

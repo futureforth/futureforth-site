@@ -1,0 +1,571 @@
+<div id="ff-10x">
+<style>
+  #ff-10x{
+    /* Futureforth brand palette */
+    --purple:#801C80;
+    --purple-dark:#5A1360;
+    --orange:#F26621;
+    --orange-dark:#D8551A;
+    --black:#000000;
+    --ink:#1A1A1A;
+    --muted:#5C5C5C;
+    --line:#E6E1E6;
+    --paper:#FFFFFF;
+    --cloud:#F8F4F8;
+    font-family:'Titillium Web',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  #ff-10x *{box-sizing:border-box;}
+  #ff-10x img{max-width:100%;display:block;}
+  #ff-10x a{text-decoration:none;}
+  #ff-10x .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  #ff-10x section{padding:72px 0;}
+  #ff-10x h1,#ff-10x h2,#ff-10x h3{color:var(--purple);font-weight:700;line-height:1.2;margin:0;}
+  #ff-10x h1{font-size:44px;letter-spacing:-0.5px;}
+  #ff-10x h2{font-size:32px;letter-spacing:-0.3px;}
+  #ff-10x h3{font-size:19px;}
+  #ff-10x p{margin:0;color:var(--muted);}
+  #ff-10x .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;
+  }
+  #ff-10x .btn{
+    display:inline-block;background:var(--orange);color:#fff!important;
+    font-weight:700;font-size:15px;padding:16px 32px;border-radius:6px;
+    box-shadow:0 6px 16px rgba(15,139,141,0.28);
+    transition:background .15s ease, transform .15s ease;
+  }
+  #ff-10x .btn:hover{background:var(--orange-dark);transform:translateY(-1px);}
+  #ff-10x .btn-ghost{
+    display:inline-block;background:transparent;color:var(--purple)!important;
+    font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;
+    border:1.5px solid var(--line);
+  }
+  #ff-10x .btn-ghost:hover{border-color:var(--purple);}
+
+  /* HERO */
+  #ff-10x .hero{
+    background:linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+    padding:88px 0 80px;
+  }
+  #ff-10x .hero .eyebrow{color:#FBC08A;}
+  #ff-10x .hero h1{color:#fff;max-width:760px;}
+  #ff-10x .hero h1 span{color:#FBC08A;}
+  #ff-10x .hero p.lead{color:#E7D6E9;font-size:19px;max-width:620px;margin-top:18px;}
+  #ff-10x .hero .cta-row{margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  #ff-10x .hero .cta-note{color:#C7A9CA;font-size:13px;}
+  #ff-10x .hero .btn-ghost{border-color:rgba(255,255,255,0.25);color:#fff!important;}
+  #ff-10x .hero .btn-ghost:hover{border-color:#fff;}
+
+  /* CALCULATOR */
+  #ff-10x .calc{padding:56px 0 72px;background:var(--cloud);}
+  #ff-10x .calc .head{max-width:640px;margin:0 auto 36px;text-align:center;}
+  #ff-10x .calc-card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:36px;box-shadow:0 16px 40px rgba(90,19,96,0.08);
+  }
+  #ff-10x .calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;}
+  #ff-10x .calc-field label{
+    display:block;font-size:13px;font-weight:700;color:var(--purple);
+    margin-bottom:6px;letter-spacing:0.2px;
+  }
+  #ff-10x .calc-field select{
+    width:100%;padding:11px 12px;font-size:14.5px;color:var(--ink);
+    border:1.5px solid var(--line);border-radius:6px;background:#fff;
+    font-family:inherit;appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%23801C80' stroke-width='2' fill='none' fill-rule='evenodd'/></svg>");
+    background-repeat:no-repeat;background-position:right 12px center;
+  }
+  #ff-10x .calc-field select:focus{outline:none;border-color:var(--purple);}
+  #ff-10x .calc-actions{margin-top:28px;text-align:center;}
+  #ff-10x .calc-btn{
+    display:inline-block;background:var(--purple);color:#fff!important;
+    font-weight:700;font-size:15px;padding:15px 36px;border-radius:6px;border:none;
+    cursor:pointer;transition:background .15s ease, transform .15s ease;
+    font-family:inherit;
+  }
+  #ff-10x .calc-btn:hover{background:var(--purple-dark);transform:translateY(-1px);}
+  #ff-10x .calc-result{
+    display:none;margin-top:28px;padding:24px;border-radius:10px;
+    background:var(--cloud);border:1px solid var(--line);text-align:center;
+  }
+  #ff-10x .calc-result.is-visible{display:block;}
+  #ff-10x .calc-result .total-label{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+  #ff-10x .calc-result .total-value{font-size:34px;font-weight:800;color:var(--purple);margin-top:6px;}
+  #ff-10x .calc-roi{margin-top:22px;padding-top:22px;border-top:1px solid var(--line);}
+  #ff-10x .calc-roi label{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  #ff-10x .calc-roi select{
+    width:100%;max-width:280px;padding:11px 12px;font-size:14.5px;color:var(--ink);
+    border:1.5px solid var(--line);border-radius:6px;background:#fff;font-family:inherit;
+  }
+  #ff-10x .calc-final-msg{margin-top:16px;font-size:15px;color:var(--ink);}
+  #ff-10x .calc-final-msg a{color:var(--orange);font-weight:700;text-decoration:underline;}
+  #ff-10x .calc-note{margin-top:18px;font-size:13px;color:var(--muted);text-align:center;}
+  #ff-10x .calc-note a{color:var(--purple);font-weight:600;}
+  #ff10x-confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;}
+
+  /* STAT BAR */
+  #ff-10x .statbar{background:var(--cloud);border-bottom:1px solid var(--line);padding:28px 0;}
+  #ff-10x .statbar .wrap{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;}
+  #ff-10x .stat{flex:1;min-width:180px;}
+  #ff-10x .stat .num{font-size:26px;font-weight:800;color:var(--purple);}
+  #ff-10x .stat .lbl{font-size:13.5px;color:var(--muted);margin-top:2px;}
+
+  /* PROBLEM */
+  #ff-10x .problem .wrap{max-width:780px;text-align:center;}
+  #ff-10x .problem h2{margin-bottom:18px;}
+  #ff-10x .problem p{font-size:17px;}
+  #ff-10x .problem p+p{margin-top:14px;}
+
+  /* FRAMEWORK */
+  #ff-10x .framework{background:var(--cloud);}
+  #ff-10x .framework .head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  #ff-10x .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  #ff-10x .card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:32px 28px;position:relative;
+  }
+  #ff-10x .card .tag{
+    display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;
+    color:var(--orange-dark);text-transform:uppercase;margin-bottom:10px;
+  }
+  #ff-10x .card h3{margin-bottom:10px;}
+  #ff-10x .card p{font-size:14.5px;}
+  #ff-10x .card .num{
+    position:absolute;top:24px;right:24px;font-size:34px;font-weight:800;
+    color:var(--line);
+  }
+
+  /* CREDIBILITY */
+  #ff-10x .credibility .grid{
+    display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;
+  }
+  #ff-10x .credibility img{border-radius:10px;box-shadow:0 12px 30px rgba(15,42,71,0.14);}
+  #ff-10x .credibility .eyebrow{margin-bottom:12px;}
+  #ff-10x .credibility p{font-size:16px;margin-top:14px;}
+  #ff-10x .credibility ul{margin:22px 0 0;padding:0;list-style:none;}
+  #ff-10x .credibility li{
+    display:flex;gap:10px;font-size:15px;color:var(--ink);padding:9px 0;
+    border-top:1px solid var(--line);
+  }
+  #ff-10x .credibility li:first-child{border-top:none;}
+  #ff-10x .credibility li .dot{color:var(--orange);font-weight:800;}
+
+  /* BOOTS */
+  #ff-10x .boots{background:var(--black);}
+  #ff-10x .boots .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  #ff-10x .boots .eyebrow{color:var(--orange);}
+  #ff-10x .boots h2{color:#fff;max-width:480px;}
+  #ff-10x .boots p{color:#C9C9C9;margin-top:12px;max-width:480px;}
+  #ff-10x .boots .btn{background:var(--orange);box-shadow:0 6px 16px rgba(242,102,33,0.3);}
+  #ff-10x .boots .btn:hover{background:var(--orange-dark);}
+
+  /* TESTIMONIALS */
+  #ff-10x .testimonials .head{max-width:600px;margin:0 auto 48px;text-align:center;}
+  #ff-10x .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  #ff-10x .t-card{
+    background:var(--cloud);border-radius:10px;padding:28px;border:1px solid var(--line);
+  }
+  #ff-10x .t-card .quote{font-size:15px;color:var(--ink);}
+  #ff-10x .t-card .who{margin-top:16px;font-size:13px;color:var(--muted);font-weight:600;}
+
+  /* GALLERY */
+  #ff-10x .gallery .strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  }
+  #ff-10x .gallery img{border-radius:6px;height:150px;width:100%;object-fit:cover;}
+
+  /* FINAL CTA */
+  #ff-10x .final{background:linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);}
+  #ff-10x .final .wrap{max-width:680px;text-align:center;}
+  #ff-10x .final .eyebrow{color:#FFE4D1;}
+  #ff-10x .final h2{color:#fff;}
+  #ff-10x .final p{color:#FFEDE1;font-size:17px;margin-top:14px;}
+  #ff-10x .final .btn{background:#fff;color:var(--orange-dark)!important;margin-top:26px;}
+  #ff-10x .final .btn:hover{background:#FFF3EA;}
+  #ff-10x .final .fineprint{color:#FFDFC5;font-size:13px;margin-top:16px;}
+
+  @media (max-width:860px){
+    #ff-10x h1{font-size:32px;}
+    #ff-10x h2{font-size:26px;}
+    #ff-10x .cards{grid-template-columns:1fr;}
+    #ff-10x .calc-grid{grid-template-columns:1fr;}
+    #ff-10x .calc-card{padding:24px;}
+    #ff-10x .t-grid{grid-template-columns:1fr;}
+    #ff-10x .credibility .grid{grid-template-columns:1fr;}
+    #ff-10x .credibility img{max-width:280px;margin:0 auto;}
+    #ff-10x .gallery .strip{grid-template-columns:repeat(2,1fr);}
+    #ff-10x .boots .wrap{text-align:center;justify-content:center;}
+    #ff-10x .boots p{margin-left:auto;margin-right:auto;}
+    #ff-10x section{padding:52px 0;}
+  }
+</style>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Futureforth · 10X Conference Coaching</div>
+      <h1>You paid for the booth, the badge, and the flight. <span>Let's make sure it pays you back.</span></h1>
+      <p class="lead">Most companies walk away from a conference sponsorship with a stack of business cards and no real return. 10X Conference Coaching gives you a plan for what to do before, during, and after your next event, so the investment actually shows up in your pipeline.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://calendar.app.google/K7DD96z1gYrfjKQM8" target="_blank" rel="noopener">Book Your Free Session</a>
+        <a class="btn-ghost" href="#framework">See how it works</a>
+      </div>
+      <div class="cta-note">No pitch. Just a straight conversation about your next event and what's holding your ROI back.</div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  
+  <section class="calc">
+    <a id="calc"></a> 
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Free Tool</div>
+        <h2>Conference Calculator</h2>
+        <p style="margin-top:10px;font-size:16px;">Sponsorship fees, booth build, travel, hotel, and meals add up fast. Estimate your total spend below, then find out how to get a real return on it.</p>
+      </div>
+      <div class="calc-card">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="ff10x-calc-sponsorship">Sponsorship fee</label>
+            <select id="ff10x-calc-sponsorship">
+              <option value="1000">Small: $1,000 &ndash; $2,500</option>
+              <option value="5000">Medium: $2,500 &ndash; $5,000</option>
+              <option value="15000">Large: $5,000 &ndash; $15,000</option>
+              <option value="30000">Premium: $15,000 &ndash; $30,000</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-booth">Booth setup &amp; design</label>
+            <select id="ff10x-calc-booth">
+              <option value="500">Basic: $500 &ndash; $1,000</option>
+              <option value="2500">Medium: $1,000 &ndash; $2,500</option>
+              <option value="5000">Large: $2,500 &ndash; $5,000</option>
+              <option value="10000">Premium: $5,000 &ndash; $10,000</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-shipping">Shipping booth materials</label>
+            <select id="ff10x-calc-shipping">
+              <option value="100">Local: $100 &ndash; $300</option>
+              <option value="500">National: $300 &ndash; $500</option>
+              <option value="1000">International: $500 &ndash; $1,000</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-travel">Travel per person</label>
+            <select id="ff10x-calc-travel">
+              <option value="200">Local: $100 &ndash; $200</option>
+              <option value="500">National: $200 &ndash; $500</option>
+              <option value="1500">International: $500 &ndash; $1,500</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-team">Team members attending</label>
+            <select id="ff10x-calc-team">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-hotel">Hotel, per night</label>
+            <select id="ff10x-calc-hotel">
+              <option value="100">Budget: $100 &ndash; $150</option>
+              <option value="200">Standard: $150 &ndash; $200</option>
+              <option value="400">Luxury: $200 &ndash; $400</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-nights">Number of nights</label>
+            <select id="ff10x-calc-nights">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-meals">Meals, per day per person</label>
+            <select id="ff10x-calc-meals">
+              <option value="30">Basic: $30 &ndash; $50</option>
+              <option value="80">Mid-range: $50 &ndash; $80</option>
+              <option value="150">Premium: $80 &ndash; $150</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-presentation">Presentation prep</label>
+            <select id="ff10x-calc-presentation">
+              <option value="500">Basic: $500 &ndash; $1,000</option>
+              <option value="2500">Moderate: $1,000 &ndash; $2,500</option>
+              <option value="5000">High-end: $2,500 &ndash; $5,000</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="ff10x-calc-networking">Networking &amp; mixer events</label>
+            <select id="ff10x-calc-networking">
+              <option value="100">Basic: $100 &ndash; $300</option>
+              <option value="500">Standard: $300 &ndash; $500</option>
+              <option value="1000">VIP: $500 &ndash; $1,000</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-actions">
+          <button type="button" class="calc-btn" id="ff10x-calc-btn">Calculate Estimated Cost</button>
+        </div>
+
+        <div class="calc-result" id="ff10x-calc-result">
+          <div class="total-label">Estimated total cost</div>
+          <div class="total-value" id="ff10x-calc-total">$0</div>
+
+          <div class="calc-roi">
+            <label for="ff10x-calc-roi">Want to make sure that investment pays you back?</label>
+            <select id="ff10x-calc-roi">
+              <option value="">Select an option</option>
+              <option value="yes">Yes, help me maximize ROI</option>
+              <option value="no">Not right now</option>
+            </select>
+            <div class="calc-final-msg" id="ff10x-calc-final-msg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <canvas id="ff10x-confetti"></canvas>
+
+  <!-- STAT BAR -->
+  <div class="statbar">
+    <div class="wrap">
+      <div class="stat"><div class="num">Google</div><div class="lbl">Featured speaker for Grow with Google for six years</div></div>
+      <div class="stat"><div class="num">100s</div><div class="lbl">Keynote presentations delivered across the US &amp; Canada</div></div>
+      <div class="stat"><div class="num">Author</div><div class="lbl">"New Business Networking" (Pearson/Que Publishing)</div></div>
+      <div class="stat"><div class="num">Since 2013</div><div class="lbl">Coaching exhibitors, sponsors &amp; speakers</div></div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="eyebrow">The problem</div>
+      <h2>Sponsoring a conference is expensive. Not having a plan is more expensive.</h2>
+      <p>Booth space, travel, swag, sponsorship fees, staff time, and demo prep add up fast. And yet most exhibitors show up with no real strategy for turning booth traffic into pipeline, no plan for the hallway conversations that actually move deals, and no follow-up system once the show ends.</p>
+      <p>The result: a lot of spend, a stack of scanned badges, and very little to show for it. That's the gap 10X Conference Coaching closes.</p>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section class="framework" id="framework">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">The approach</div>
+        <h2>A plan for before, during, and after your event</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <span class="tag">Before</span>
+          <h3>Walk in with a plan, not just a booth</h3>
+          <p>Define your goals, sharpen your pitch, prep your team, and build a pre-event outreach plan so the right people already know to find you.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <span class="tag">During</span>
+          <h3>Turn foot traffic into real conversations</h3>
+          <p>Booth engagement tactics, presentation and demo coaching, and networking strategy that gets you in front of the people who actually buy.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <span class="tag">After</span>
+          <h3>Make the follow-up actually happen</h3>
+          <p>A structured follow-up system so leads don't go cold the week you get back to the office, turning contacts into pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <section class="credibility">
+    <div class="wrap">
+      <div class="grid">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/8ca9d576-2da5-4a61-99e8-b054562369f1/NBN+Book+Cover.png" alt="New Business Networking, book by Dave Delaney">
+        <div>
+          <div class="eyebrow">Who's coaching you</div>
+          <h2>Dave Delaney has been on both sides of the booth</h2>
+          <p>Dave is a veteran digital marketing professional, a featured speaker for Grow with Google, and the published author of <em>New Business Networking</em>. He's delivered hundreds of presentations across the US and Canada, and spent years exhibiting, sponsoring, and speaking at conferences himself, which means the strategies he teaches have been tested at his own booth, not just in a slide deck.</p>
+          <ul>
+            <li><span class="dot">✓</span> Combines storytelling, slide design, and body language into practical presentation coaching</li>
+            <li><span class="dot">✓</span> Hands-on booth and networking strategy, not generic sales training</li>
+            <li><span class="dot">✓</span> Works directly with your team, not a franchised program or a canned course</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOTS ON THE GROUND -->
+  <section class="boots">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Done-for-you option</div>
+        <h2>Want Dave there in person? Ask about Boots on the Ground.</h2>
+        <p>For teams who want more than coaching, Dave can attend your event, speak, and network on your company's behalf, bringing the strategy to life on-site.</p>
+      </div>
+      <a class="btn" href="https://calendar.app.google/K7DD96z1gYrfjKQM8" target="_blank" rel="noopener">Ask About This Option</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">What clients say</div>
+        <h2>Trusted by teams who take their events seriously</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card">
+          <div class="quote">"People love his workshop facilitation. He knows his stuff. If you have an opportunity to work together, it will be worth it."</div>
+          <div class="who">Speaker Manager &amp; Lead Educator, Grow with Google</div>
+        </div>
+        <div class="t-card">
+          <div class="quote">"Dave is the real deal. His approach and knowledge made the time and investment pay off immediately. We give him as many thumbs up as we possibly can."</div>
+          <div class="who">Former SVP of Culture &amp; Communications, Southwest Airlines</div>
+        </div>
+        <div class="t-card">
+          <div class="quote">"He was connecting in a very meaningful way. I wish I'd learned Dave's networking insights ten years ago. He's a master communicator and storyteller with infectious energy."</div>
+          <div class="who">President, Nashville Technology Council</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="wrap">
+      <div class="strip">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1696591539131-OFPXBM02SZPRW2LFWKI6/dave+delaney+keynote+speaker+STAN+MURZYN.jpg" alt="Dave Delaney speaking at a conference">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1701266464085-LZNUBFLM4LFXDEEBSKIM/workshop%2Bon%2Bconference%2Bnetworking%2Bdave%2Bdelaney%2Bfutureforth.png" alt="Conference networking workshop led by Dave Delaney">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1696591372407-U5PFI6R8JSZKT5JR97CL/GrowWithGoogle-162.jpg" alt="Dave Delaney presenting for Grow with Google">
+        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1696591661901-PJTSJGI0X805PYTKREAR/5DS_6901.jpg" alt="Dave Delaney coaching a conference audience">
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="ff10x-final">
+    <div class="wrap">
+      <div class="eyebrow">Get started</div>
+      <h2>Book your free "Good Fit" coaching session</h2>
+      <p>In one conversation, Dave will share his Three Ups of Effective Networking and how to apply them before your next event, plus give you a straight read on whether coaching is the right fit. Your first session is free.</p>
+      <a class="btn" id="ff10x-final-cta" href="https://calendar.app.google/K7DD96z1gYrfjKQM8" target="_blank" rel="noopener">Book Your Free Session</a>
+      <div class="fineprint">No obligation. If it's not a fit, you'll still leave with something useful.</div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var root = document.getElementById('ff-10x');
+    if(!root) return;
+    var $ = function(id){ return document.getElementById(id); };
+    var fmt = new Intl.NumberFormat('en-US', { maximumFractionDigits:0 });
+
+    var btn = $('ff10x-calc-btn');
+    if(btn){
+      btn.addEventListener('click', function(){
+        var val = function(id){ return parseInt($(id).value, 10) || 0; };
+        var sponsorship = val('ff10x-calc-sponsorship');
+        var booth = val('ff10x-calc-booth');
+        var shipping = val('ff10x-calc-shipping');
+        var travel = val('ff10x-calc-travel');
+        var team = val('ff10x-calc-team');
+        var hotel = val('ff10x-calc-hotel');
+        var nights = val('ff10x-calc-nights');
+        var meals = val('ff10x-calc-meals');
+        var presentation = val('ff10x-calc-presentation');
+        var networking = val('ff10x-calc-networking');
+
+        var travelTotal = travel * team;
+        var hotelTotal = hotel * nights * team;
+        var mealsTotal = meals * nights * team;
+        var total = sponsorship + booth + shipping + travelTotal + hotelTotal + mealsTotal + presentation + networking;
+
+        $('ff10x-calc-total').textContent = '$' + fmt.format(total);
+        $('ff10x-calc-result').classList.add('is-visible');
+        $('ff10x-calc-result').scrollIntoView({ behavior:'smooth', block:'nearest' });
+      });
+    }
+
+    var roi = $('ff10x-calc-roi');
+    if(roi){
+      roi.addEventListener('change', function(){
+        var msg = $('ff10x-calc-final-msg');
+        if(this.value === 'yes'){
+          msg.innerHTML = '🎯 Let\'s make sure that spend pays off. Scrolling you down to book your free session.';
+          launchConfetti();
+          setTimeout(function(){
+            var target = $('ff10x-final');
+            if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+          }, 900);
+        } else if(this.value === 'no'){
+          msg.innerHTML = 'No worries. If you change your mind, <a href="#ff10x-final">book a free session</a> any time.';
+        } else {
+          msg.innerHTML = '';
+        }
+      });
+    }
+
+    function launchConfetti(){
+      var canvas = $('ff10x-confetti');
+      if(!canvas) return;
+      var ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.display = 'block';
+      var colors = ['#801C80','#F26621','#5A1360','#D8551A','#FFFFFF'];
+      var pieces = [];
+      for(var i=0; i<120; i++){
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 8 + 4,
+          speed: Math.random() * 3 + 2,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          spin: Math.random() * 6 - 3
+        });
+      }
+      var start = Date.now();
+      function frame(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(function(p){
+          p.y += p.speed;
+          p.rotation += p.spin;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation * Math.PI / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+          ctx.restore();
+        });
+        if(Date.now() - start < 2200){
+          requestAnimationFrame(frame);
+        } else {
+          canvas.style.display = 'none';
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      frame();
+    }
+  })();
+  </script>
+</div>
+<!-- ============================================================ END 10X Conference Coaching block ============================================================ -->

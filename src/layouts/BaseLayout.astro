@@ -1,6 +1,13 @@
 ---
 import Nav from '../components/Nav.astro';
+import Tracking from '../components/Tracking.astro';
 import Footer from '../components/Footer.astro';
+// Brand font (Futureforth brand assets): Titillium Web, served from this site, latin subset only.
+import '@fontsource/titillium-web/latin-300.css';
+import '@fontsource/titillium-web/latin-400.css';
+import '@fontsource/titillium-web/latin-600.css';
+import '@fontsource/titillium-web/latin-700.css';
+import '@fontsource/titillium-web/latin-900.css';
 import '../styles/global.css';
 
 interface Props {
@@ -9,6 +16,7 @@ interface Props {
   path: string; // e.g. "/workshops"
   image?: string; // absolute or root-relative path to social share image
   noindex?: boolean;
+  hideNav?: boolean; // homepage: no top nav bar, logo sits in the hero instead
   jsonLd?: object | object[];
 }
 
@@ -18,6 +26,7 @@ const {
   path,
   image = '/images/og-default.jpg',
   noindex = false,
+  hideNav = false,
   jsonLd,
 } = Astro.props as Props;
 
@@ -56,13 +65,9 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Fonts: self-hosted-friendly Google Fonts load with font-display swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <Tracking />
+
+    <slot name="head" />
 
     {jsonLdArray.map((entry) => (
       <script type="application/ld+json" set:html={JSON.stringify(entry)} />
@@ -70,7 +75,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
-    <Nav />
+    {!hideNav && <Nav />}
     <main id="main">
       <slot />
     </main>

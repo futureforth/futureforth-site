@@ -1,0 +1,202 @@
+<style>
+    #ms1 *, ::after, ::before { box-sizing: border-box; }
+    #ms1 { line-height: 1.5; font-family: inherit; }
+
+    #ms1 .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin: 0 auto;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #171717;
+      text-align: left;
+    }
+
+    #ms1 label {
+      display: inline-block;
+      margin-bottom: .5rem;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #ms1 .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    #ms1 .col-md-12, #ms1 .col-md-6 {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    #ms1 .form-group { margin-bottom: 1rem; }
+
+    #ms1 .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem .375rem 1.5rem;
+      font-size: 16px;
+      font-weight: 400;
+      color: #36393B;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 0;
+      border-bottom: 2px solid #801c80;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    #ms1 .form-control:focus { outline: none; }
+
+    #ms1 .text-center { text-align: center !important; }
+
+    #ms1 .cl-wrapper {
+      position: relative;
+      border: 1px solid #e1e1e1;
+      border-radius: 29px 29px 0 25px;
+      background: #801c80;
+      box-shadow: rgba(0,0,0,.25) 0 3px 11px 0!important;
+    }
+
+    #ms1 .cl-left-div {
+      padding: 2rem 4rem !important;
+      background: #ffffff;
+      border: none;
+      border-bottom: 3px solid #801c80;
+      border-radius: 25px 25px 0 25px;
+    }
+
+    #ms1 .cl-right-div {
+      padding: 2rem 4rem !important;
+      color: #000;
+      background: transparent;
+      border-radius: 0 0 0 25px;
+    }
+
+    @media (max-width: 768px) {
+      #ms1 .cl-left-div { padding: 1rem 2rem !important; }
+      #ms1 .cl-right-div { padding: 2rem !important; }
+      #ms1 .form-control { height: auto; }
+      #ms1 label { font-size: 14px; }
+    }
+
+    @media (min-width: 576px) {
+      #ms1 .container { max-width: 540px; }
+    }
+    @media (min-width: 768px) {
+      #ms1 .container { max-width: 100%; }
+      #ms1 .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+      #ms1 .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    }
+    @media (min-width: 992px),
+    @media (min-width: 1200px) {
+      #ms1 .container { max-width: 600px; }
+    }
+
+    #ms1 .rs-title {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    #ms1 .rs-value {
+      color: #f26621;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    #ms1 .prepend-text {
+      font-size: 16px;
+      position: absolute;
+      bottom: 6px;
+      left: 20px;
+      color: #000;
+    }
+
+    #ms1 .pt6 { padding-top: 6px; }
+  </style>
+
+  <p id="calc">
+    <h2>The cost of losing talent adds up quickly.</h2>
+  </p>
+
+  <div class="ms-cl" id="ms1">
+    <div class="container cl-wrapper">
+      <div class="row">
+        <div class="col-md-12 cl-left-div">
+          <div class="row">
+            <div class="col-md-6 pt6">
+              <label for="in_1"><b>EMPLOYEE SALARY</b></label>
+            </div>
+            <div class="col-md-6" style="position: relative;">
+              <input type="text" name="in_1" class="form-control" id="in_1" autocomplete="off" />
+              <span class="prepend-text">$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 cl-right-div">
+          <h3 class="rs-title text-center">
+            It will cost* between <span class="rs-value" id="rs_1">$0.00</span> and <span class="rs-value" id="rs_2">$0.00</span> to replace this employee if they quit.
+          </h3>
+          <div style="text-align: center; margin-top: 20px;">
+  <a href="/workshops" 
+     style="
+       display: inline-block;
+       padding: 12px 24px;
+       font-size: 16px;
+       font-weight: 600;
+       color: #000;
+       background-color: #fff;
+       border: 2px solid #000;
+       border-radius: 6px;
+       text-decoration: none;
+       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+       transition: all 0.2s ease-in-out;
+     "
+     onmouseover="this.style.backgroundColor='#f4f4f4'"
+     onmouseout="this.style.backgroundColor='#fff'">
+    WANT TO SAVE THIS MONEY?
+  </a>
+</div>
+
+          </p>
+          <br>
+          <font size="1" color="white">
+            *Approximate figures based on a study by SHRM (Society for Human Resource Management).
+          </font>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculator Script (after jQuery) -->
+  <script>
+  // Same arithmetic as the original (6 to 9 months of salary), without the jQuery dependency.
+  (function () {
+    var nft = Intl.NumberFormat('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    var input = document.getElementById('in_1');
+    var low = document.getElementById('rs_1');
+    var high = document.getElementById('rs_2');
+    function calc() {
+      var salary = Number(input.value.replace(/[^0-9.]/g, ''));
+      if (salary) {
+        low.textContent = '$' + nft.format((salary / 12) * 6);
+        high.textContent = '$' + nft.format((salary / 12) * 9);
+      } else {
+        low.textContent = high.textContent = '$0.00';
+      }
+    }
+    input.addEventListener('input', function () {
+      var value = Number(input.value.replace(/[^0-9.]/g, ''));
+      input.value = value ? nft.format(value) : '';
+      calc();
+    });
+  })();
+</script>
+
