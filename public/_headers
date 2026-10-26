@@ -1,4 +1,8 @@
-/*
+# Keep the preview addresses out of search engines. futureforth.com itself must stay indexable.
+https://futureforth-site.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.futureforth-site.pages.dev/*
   X-Robots-Tag: noindex
 
 # Fingerprinted files never change, so browsers can keep them for a year.
