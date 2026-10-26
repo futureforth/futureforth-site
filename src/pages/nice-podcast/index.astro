@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArchiveNotice from '../../components/ArchiveNotice.astro';
 import { img } from '../../lib/images.js';
 import episodes from '../../data/podcast.json';
 import { FEED_URL } from '../../lib/podcast-audio.js';
@@ -22,6 +23,7 @@ const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { year
   </section>
   <section class="section">
     <div class="container">
+      <ArchiveNotice what="podcast" />
       <ul class="post-list">
         {episodes.map((e) => (
           <li class="post-list__item">
