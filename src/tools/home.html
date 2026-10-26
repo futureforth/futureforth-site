@@ -82,17 +82,6 @@
   }
   #ff-home .trust .more a:hover{color:var(--purple-dark);}
 
-  /* PROBLEM */
-  #ff-home .problem .head{max-width:680px;margin:0 auto 44px;text-align:center;}
-  #ff-home .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  #ff-home .problem-card{
-    background:var(--cloud);border:1px solid var(--line);border-radius:10px;padding:28px;
-  }
-  #ff-home .problem-card h3{margin-bottom:10px;}
-  #ff-home .problem-card p{font-size:14.5px;}
-
-  /* SERVICES */
-  #ff-home .services{background:var(--cloud);}
   /* Added in the move: the other sections center their heading and leave space below it; this one had no rule. */
   #ff-home .services .head{max-width:680px;margin:0 auto 44px;text-align:center;}
   #ff-home .services .head .eyebrow{font-size:16px;}
@@ -109,51 +98,6 @@
   #ff-home .service-card p{font-size:14.5px;flex:1;}
   #ff-home .service-card .btn-ghost{align-self:flex-start;padding:10px 20px;font-size:14px;margin-top:4px;}
 
-  /* 10X FEATURE */
-  #ff-home .featured10x{background:var(--black);}
-  #ff-home .featured10x .grid{
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;
-  }
-  #ff-home .featured10x .eyebrow{color:var(--orange);}
-  #ff-home .featured10x h2{color:#fff;max-width:520px;}
-  #ff-home .featured10x p{color:#C9C9C9;margin-top:16px;font-size:16px;max-width:520px;}
-  #ff-home .featured10x .steps{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
-  #ff-home .featured10x .steps li{
-    display:flex;gap:12px;font-size:14.5px;color:#E4E4E4;align-items:baseline;
-  }
-  #ff-home .featured10x .steps .step-tag{
-    font-size:11px;font-weight:800;letter-spacing:1px;color:var(--orange);
-    text-transform:uppercase;min-width:64px;
-  }
-  #ff-home .featured10x .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
-  #ff-home .featured10x .btn-ghost{border-color:rgba(255,255,255,0.28);color:#fff!important;}
-  #ff-home .featured10x .btn-ghost:hover{border-color:#fff;}
-  #ff-home .featured10x .visual{
-    background:linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
-    border-radius:14px;padding:32px;
-  }
-  #ff-home .featured10x .visual img{border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,0.4);}
-  #ff-home .featured10x .visual .stat{margin-top:20px;color:#fff;}
-  #ff-home .featured10x .visual .stat .n{font-size:28px;font-weight:800;}
-  #ff-home .featured10x .visual .stat .l{font-size:13px;color:#E7D0E8;margin-top:2px;}
-
-  /* TESTIMONIALS */
-  #ff-home .testimonials .head{max-width:600px;margin:0 auto 44px;text-align:center;}
-  #ff-home .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  #ff-home .t-card{
-    background:var(--cloud);border-radius:10px;padding:26px;border:1px solid var(--line);
-  }
-  #ff-home .t-card .quote{font-size:14.5px;color:var(--ink);}
-  #ff-home .t-card .who{margin-top:14px;font-size:13px;color:var(--muted);font-weight:600;}
-
-  /* FAMILY STRIP */
-  #ff-home .family{background:var(--cloud);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;}
-  #ff-home .family .wrap{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center;}
-  #ff-home .family .family-label{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:0.4px;}
-  #ff-home .family .family-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;}
-  #ff-home .family a{font-size:13.5px;font-weight:700;color:var(--purple);}
-  #ff-home .family a:hover{color:var(--purple-dark);}
-
   /* FINAL CTA */
   #ff-home .final{background:linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);}
   #ff-home .final .wrap{max-width:680px;text-align:center;}
@@ -164,14 +108,43 @@
   #ff-home .final .btn-ghost{border-color:rgba(255,255,255,0.4);color:#fff!important;}
   #ff-home .final .btn-ghost:hover{border-color:#fff;}
 
+  
+  /* BRANDS */
+  #ff-home .brands .head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  #ff-home .brands .head p{margin-top:14px;font-size:16.5px;}
+  #ff-home .brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  #ff-home .brand-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(90,19,96,0.05);
+  }
+  #ff-home .brand-card .art{height:190px;background:var(--cloud);}
+  #ff-home .brand-card .art img{width:100%;height:100%;object-fit:cover;}
+  #ff-home .brand-card .art.ws{background:#FFDE59;}
+  #ff-home .brand-card .art.ws img{object-fit:contain;}
+  #ff-home .brand-card .body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  #ff-home .brand-card .tag{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--orange-dark);text-transform:uppercase;}
+  #ff-home .brand-card p{font-size:14.5px;flex:1;}
+  #ff-home .brand-card .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;}
+  #ff-home .brand-card .btn{padding:11px 20px;font-size:14px;box-shadow:none;}
+  #ff-home .brand-card .btn-ghost{padding:10px 18px;font-size:14px;}
+
+  /* RESOURCES */
+  #ff-home .resources{background:var(--cloud);}
+  #ff-home .resources .head{max-width:680px;margin:0 auto 40px;text-align:center;}
+  #ff-home .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  #ff-home .res-card{
+    display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  #ff-home .res-card:hover{border-color:var(--purple);transform:translateY(-2px);}
+  #ff-home .res-card h3{margin-bottom:8px;}
+  #ff-home .res-card p{font-size:14.5px;}
+  #ff-home .res-card .go{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--orange-dark);}
+
   @media (max-width:900px){
     #ff-home h1{font-size:32px;}
     #ff-home h2{font-size:26px;}
-    #ff-home .problem-grid{grid-template-columns:1fr;}
-    #ff-home .service-grid{grid-template-columns:1fr;}
-    #ff-home .t-grid{grid-template-columns:1fr;}
-    #ff-home .featured10x .grid{grid-template-columns:1fr;}
-    #ff-home .featured10x .visual{order:-1;}
+    #ff-home .brand-grid,#ff-home .res-grid{grid-template-columns:1fr;}
     #ff-home .trust .logos{gap:26px;}
     #ff-home .trust .logos img{height:48px;}
     #ff-home section{padding:52px 0;}
@@ -183,10 +156,10 @@
     <div class="wrap">
       <div class="eyebrow">Helping teams and leaders communicate with clarity, confidence, and connection.</div>
       <h1>Communication isn't a soft skill. It's a superpower.</h1>
-      <p class="lead">When people can't get their point across, deals stall, good ideas die in the room, and conferences turn into an expensive stack of business cards. Based in Nashville, we help leaders and teams nationwide say what they mean, get heard, and turn that clarity into results.</p>
+      <p class="lead">Futureforth is the Nashville company behind keynote speaker and communication coach Dave Delaney, the ADHD Wise Squirrels podcast, and 10X Conference Coaching. Since 2013, we've helped people say what they mean, get heard, and build real connections.</p>
       <div class="cta-row">
-        <a class="btn" href="/contact">Get in touch</a>
-        <a class="btn-ghost" href="#services">See how we help</a>
+        <a class="btn" href="#brands">Explore our brands</a>
+        <a class="btn-ghost" href="/contact">Contact Futureforth</a>
       </div>
     </div>
   </section>
@@ -213,141 +186,94 @@
     </div>
   </div>
 
-  <!-- PROBLEM -->
-  <section class="problem">
+  <!-- BRANDS -->
+  <section class="brands" id="brands">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">Sound familiar?</div>
-        <h2>Unclear communication is costing you more than you think</h2>
+        <div class="eyebrow">The Futureforth family</div>
+        <h2>One company. Three ways we help people connect.</h2>
+        <p>Each brand has its own home. Pick the one that fits what you need.</p>
       </div>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <h3>Your pitch doesn't land</h3>
-          <p>Great ideas get lost in confusing slides, rambling meetings, and pitches that lose the room in the first thirty seconds.</p>
+      <div class="brand-grid">
+
+        <div class="brand-card">
+          <div class="art"><img src="/images/home-keynote.webp" alt="Dave Delaney, Nashville keynote speaker, on stage with an audience" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Keynotes · Workshops · Coaching</span>
+            <h3>Dave Delaney</h3>
+            <p>TEDx speaker, communication coach, and author of <em>New Business Networking</em>. Book a keynote for your event, bring a hands-on workshop to your team, or start one-on-one coaching.</p>
+            <div class="links">
+              <a class="btn" href="https://davedelaney.me">Visit davedelaney.me</a>
+              <a class="btn-ghost" href="https://davedelaney.me/speaking">Book Dave</a>
+            </div>
+          </div>
         </div>
-        <div class="problem-card">
-          <h3>Your team goes quiet</h3>
-          <p>When people don't feel heard, they stop raising their hands. Engagement drops, good ideas go unsaid, and your best people start looking elsewhere.</p>
+
+        <div class="brand-card">
+          <div class="art ws"><img src="/images/brands-wise-squirrels.webp" alt="ADHD Wise Squirrels podcast cover art, with Dave Delaney" width="400" height="400" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">ADHD Podcast · Sponsorships</span>
+            <h3>ADHD Wise Squirrels</h3>
+            <p>Named a Best of ADHD Adults Podcast 2026 by PodRanker. Candid conversations for late-diagnosed adults learning to understand their brains and thrive on their own terms. Reach an engaged audience with 4,200+ downloads per episode.</p>
+            <div class="links">
+              <a class="btn" href="https://wisesquirrels.com">Listen</a>
+              <a class="btn-ghost" href="https://wisesquirrels.com/wisesponsor">Sponsor the show</a>
+            </div>
+          </div>
         </div>
-        <div class="problem-card">
-          <h3>Your events don't pay off</h3>
-          <p>You sponsor the booth, staff it, and fly the team out, then come home with a stack of scanned badges and no real pipeline to show for it.</p>
+
+        <div class="brand-card">
+          <div class="art"><img src="/images/sq/ec1c0f0963-10x-conference-coaching-by-futureforth.webp" alt="10X Conference Coaching by Futureforth" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Conference ROI</span>
+            <h3>10X Conference Coaching</h3>
+            <p>Sponsoring, exhibiting, or speaking at a conference? Get a plan for before, during, and after the event, so the investment shows up as real pipeline, not a stack of business cards.</p>
+            <div class="links">
+              <a class="btn" href="/10xcc">Explore 10X</a>
+              <a class="btn-ghost" href="/conference-calculator">Free calculator</a>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
+  <!-- RESOURCES -->
+  <section class="resources">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">What we offer</div>
-        <h2>Three ways to build a team that communicates like it means it</h2>
+        <div class="eyebrow">Free from Futureforth</div>
+        <h2>Ideas and tools to help you communicate better</h2>
       </div>
-      <div class="service-grid">
-        <div class="service-card">
-          <img src="/images/home-keynote.webp" alt="Dave Delaney, Nashville keynote speaker, leading an interactive communication workshop">
-          <div class="body">
-            <span class="tag">Keynote Presentations</span>
-            <h3>Give your event a talk people actually remember</h3>
-            <p>Our keynotes enlighten your audience with practical communication skills, empower them to use what they learn immediately, and entertain them with real stories, not recycled slides.</p>
-            <a class="btn-ghost" href="https://davedelaney.me/speaking">Inquire About a Keynote</a>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1694174027773-EWKFKJJ233D99IVSBFSZ/230130.13h.09m_STAN+MURZYN_X-T4-3.jpg" alt="Nashville corporate communication workshop in progress">
-          <div class="body">
-            <span class="tag">Team Workshops</span>
-            <h3>Build real skill, not just awareness</h3>
-            <p>Interactive, hands-on sessions where your team practices storytelling, presenting under pressure, and active listening until it sticks, in person or virtual.</p>
-            <a class="btn-ghost" href="/workshops">See Workshop Options</a>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="/images/home-coaching.webp" alt="Dave Delaney coaching a leader on executive communication skills">
-          <div class="body">
-            <span class="tag">Professional Coaching</span>
-            <h3>Grow your business and your career</h3>
-            <p>One-on-one coaching for leaders who want to grow their business, sharpen how they show up, and communicate with the confidence their role demands. Your first session is free.</p>
-            <a class="btn-ghost" href="/contact">Schedule a Good Fit Session</a>
-          </div>
-        </div>
+      <div class="res-grid">
+        <a class="res-card" href="/nice-blog">
+          <h3>The Nice Blog</h3>
+          <p>Practical articles on communication, networking, and leadership.</p>
+          <span class="go">Read the blog →</span>
+        </a>
+        <a class="res-card" href="/nice-podcast">
+          <h3>The Nice Podcast</h3>
+          <p>Conversations with people who lead with kindness and get results.</p>
+          <span class="go">Listen now →</span>
+        </a>
+        <a class="res-card" href="/freetools">
+          <h3>Free Tools</h3>
+          <p>Calculators, quizzes, and assessments you can use with your team today.</p>
+          <span class="go">Try the tools →</span>
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- 10X CONFERENCE COACHING -->
-  <section class="featured10x">
-    <div class="wrap">
-      <div class="grid">
-        <div>
-          <div class="eyebrow">Sponsoring or exhibiting at a conference?</div>
-          <h2>Turn your next conference into a pipeline, not just a stack of business cards</h2>
-          <p>10X Conference Coaching gives your team a plan for what to do before, during, and after your next sponsorship, exhibit, or speaking slot, so the investment actually shows up in your revenue.</p>
-          <ul class="steps">
-            <li><span class="step-tag">Before</span> Walk in with clear goals, a sharpened pitch, and a team that's ready.</li>
-            <li><span class="step-tag">During</span> Turn booth traffic and hallway conversations into real pipeline.</li>
-            <li><span class="step-tag">After</span> A follow-up system so leads don't go cold the week you get home.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="btn" href="/10xcc">Explore 10X Conference Coaching</a>
-            <a class="btn-ghost" href="/10xcc">Try the Free Conference Calculator</a>
-          </div>
-        </div>
-        <div class="visual">
-          <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1696591539131-OFPXBM02SZPRW2LFWKI6/dave+delaney+keynote+speaker+STAN+MURZYN.jpg" alt="Dave Delaney, Nashville-based keynote speaker, coaching a team ahead of a conference">
-          <div class="stat">
-            <div class="n">Since 2013</div>
-            <div class="l">Coaching exhibitors, sponsors, and speakers</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">What clients say</div>
-        <h2>Teams who took communication seriously, and saw the results</h2>
-      </div>
-      <div class="t-grid">
-        <div class="t-card">
-          <div class="quote">"People love his workshop facilitation. He knows his stuff. If you have an opportunity to work together, it will be worth it."</div>
-          <div class="who">Speaker Manager &amp; Lead Educator, Grow with Google</div>
-        </div>
-        <div class="t-card">
-          <div class="quote">"The real deal. The approach and knowledge made the time and investment pay off immediately. We give as many thumbs up as we possibly can."</div>
-          <div class="who">Former SVP of Culture &amp; Communications, Southwest Airlines</div>
-        </div>
-        <div class="t-card">
-          <div class="quote">"Connecting in a very meaningful way. I wish I'd learned these networking insights ten years ago. A master communicator and storyteller with infectious energy."</div>
-          <div class="who">President, Nashville Technology Council</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAMILY STRIP -->
-  <div class="family">
-    <div class="wrap">
-      <div class="family-label">Part of the Futureforth family</div>
-      <div class="family-links">
-        <a href="https://www.davedelaney.me" target="_blank" rel="noopener">Dave Delaney, Nashville Keynote Speaker →</a>
-        <a href="https://wisesquirrels.com" target="_blank" rel="noopener">Wise Squirrels, ADHD Podcast →</a>
-      </div>
-    </div>
-  </div>
 
   <!-- FINAL CTA -->
   <section class="final">
     <div class="wrap">
-      <div class="eyebrow">Ready to talk?</div>
-      <h2>Let's change how your team communicates</h2>
-      <p>Whether it's a keynote, a workshop, coaching, or a conference coming up, the first conversation is free and there's no pressure to book.</p>
+      <div class="eyebrow">Not sure where to start?</div>
+      <h2>Tell us what you need</h2>
+      <p>Whether it's a keynote, a workshop, coaching, a podcast sponsorship, or a conference coming up, we'll point you in the right direction. The first conversation is free.</p>
       <div class="cta-row">
-        <a class="btn-white" href="/contact">Contact Us</a>
+        <a class="btn-white" href="/contact">Contact Futureforth</a>
       </div>
     </div>
   </section>
