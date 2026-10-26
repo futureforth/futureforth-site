@@ -1,16 +1,9 @@
 ---
-// Primary site navigation — mirrors the original Squarespace nav structure exactly,
-// Sales links (workshops, coaching, speaking) point to davedelaney.me.
-const moreLinks = [
-  { href: '/freetools', label: 'Free Tools' },
-  { href: '/about', label: 'About Futureforth' },
-  { href: '/about#dave', label: 'About Dave Delaney' },
-];
-
-// Sibling brands under the Futureforth umbrella — each lives on its own site.
-const familyLinks = [
-  { href: 'https://www.davedelaney.me', label: 'Dave Delaney — Keynote Speaker' },
-  { href: 'https://wisesquirrels.com', label: 'Wise Squirrels — ADHD Podcast' },
+// Parent-company navigation: Futureforth presents its brands; each brand's sales pages live on its own site.
+const brandLinks = [
+  { href: 'https://www.davedelaney.me', label: 'Dave Delaney', external: true },
+  { href: 'https://wisesquirrels.com', label: 'ADHD Wise Squirrels', external: true },
+  { href: '/10xcc', label: '10X Conference Coaching', external: false },
 ];
 ---
 <header class="site-header">
@@ -27,31 +20,28 @@ const familyLinks = [
 
     <nav id="primary-nav" class="primary-nav" aria-label="Primary">
       <ul>
-        <li><a href="https://davedelaney.me/workshops">Workshops</a></li>
-        <li><a href="https://davedelaney.me/coaching">Coaching</a></li>
-        <li><a href="https://davedelaney.me/speaking">Presentations</a></li>
-        <li><a href="/contact">Contact</a></li>
         <li class="has-dropdown">
-          <button type="button" aria-expanded="false">More</button>
+          <button type="button" aria-expanded="false">Our Brands</button>
           <ul class="dropdown-menu">
-            {moreLinks.map((l) => (
-              <li><a href={l.href}>{l.label}</a></li>
-            ))}
-            <li role="separator" class="dropdown-menu__divider" aria-hidden="true"></li>
-            <li class="dropdown-menu__label" aria-hidden="true">Our Family of Brands</li>
-            {familyLinks.map((l) => (
+            {brandLinks.map((l) => (
               <li>
-                <a href={l.href} target="_blank" rel="noopener noreferrer">
-                  {l.label} <span aria-hidden="true">↗</span>
-                  <span class="visually-hidden"> (opens in a new tab)</span>
-                </a>
+                {l.external ? (
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label} <span aria-hidden="true">↗</span>
+                    <span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                ) : (
+                  <a href={l.href}>{l.label}</a>
+                )}
               </li>
             ))}
           </ul>
         </li>
+        <li><a href="/freetools">Free Tools</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
       <div class="header-cta">
-        <a href="https://davedelaney.me/speaking" class="btn btn-primary">Book Dave</a>
+        <a href="/contact" class="btn btn-primary">Contact</a>
       </div>
     </nav>
   </div>
