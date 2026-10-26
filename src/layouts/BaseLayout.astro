@@ -18,6 +18,7 @@ interface Props {
   path: string; // e.g. "/workshops"
   image?: string; // absolute or root-relative path to social share image
   noindex?: boolean;
+  hideNav?: boolean; // homepage: no top nav bar, logo sits in the hero instead
   jsonLd?: object | object[];
 }
 
@@ -27,6 +28,7 @@ const {
   path,
   image = '/images/og-default.jpg',
   noindex = false,
+  hideNav = false,
   jsonLd,
 } = Astro.props as Props;
 
@@ -75,7 +77,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
-    <Nav />
+    {!hideNav && <Nav />}
     <main id="main">
       <slot />
     </main>
