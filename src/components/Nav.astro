@@ -1,82 +1,17 @@
 ---
-// Parent-company navigation: Futureforth presents its brands; each brand's sales pages live on its own site.
-const brandLinks = [
-  { href: 'https://www.davedelaney.me', label: 'Dave Delaney', external: true },
-  { href: 'https://wisesquirrels.com', label: 'ADHD Wise Squirrels', external: true },
-  { href: '/10xcc', label: '10X Conference Coaching', external: false },
-];
+// Site header: no navigation, just the white Futureforth logo (brand-approved monochrome
+// version) on brand purple, linking home. The homepage hides this and shows a larger logo in its hero.
 ---
-<header class="site-header">
-  <div class="container site-header__inner">
-    <a href="/" class="site-logo" aria-label="Futureforth home">
-      <img src="/images/Futureforth_h.png" alt="Futureforth" width="127" height="40" />
+<header class="site-brandbar">
+  <div class="container">
+    <a href="/" class="site-brandbar__logo" aria-label="Futureforth home">
+      <img src="/images/Futureforth_h_white.png" alt="Futureforth" width="127" height="40" />
     </a>
-
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-    </button>
-
-    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-      <ul>
-        <li class="has-dropdown">
-          <button type="button" aria-expanded="false">Our Brands</button>
-          <ul class="dropdown-menu">
-            {brandLinks.map((l) => (
-              <li>
-                {l.external ? (
-                  <a href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label} <span aria-hidden="true">↗</span>
-                    <span class="visually-hidden"> (opens in a new tab)</span>
-                  </a>
-                ) : (
-                  <a href={l.href}>{l.label}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </li>
-        <li><a href="/freetools">Free Tools</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-      <div class="header-cta">
-        <a href="/contact" class="btn btn-primary">Contact</a>
-      </div>
-    </nav>
   </div>
 </header>
 
-<script>
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('primary-nav');
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = nav?.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(!!isOpen));
-  });
-
-  document.querySelectorAll('.has-dropdown > button').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const parent = btn.closest('.has-dropdown');
-      const willOpen = !parent?.classList.contains('is-open');
-
-      document.querySelectorAll('.has-dropdown.is-open').forEach((el) => {
-        el.classList.remove('is-open');
-        el.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
-      });
-
-      if (willOpen) {
-        parent?.classList.add('is-open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    if (!target.closest('.has-dropdown')) {
-      document.querySelectorAll('.has-dropdown.is-open').forEach((el) => el.classList.remove('is-open'));
-    }
-  });
-</script>
+<style>
+  .site-brandbar { background: var(--color-navy-800); padding-block: 14px; }
+  .site-brandbar__logo { display: inline-block; }
+  .site-brandbar__logo img { display: block; height: 40px; width: auto; }
+</style>
