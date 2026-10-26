@@ -9,6 +9,18 @@
 /grow-your-business-with-ai https://davedelaney.me/workshops 301
 /virtual-testimonials https://davedelaney.me/testimonials 301
 
+# Pages cut to keep the site small (Oct 2026)
+/about / 301
+/about/ / 301
+/freetools /#tools 301
+/freetools/ /#tools 301
+/10x-conference-coaching-for-conferences /10xcc 301
+/10x-conference-coaching-for-conferences/ /10xcc 301
+/linkedin-audit / 301
+/linkedin-audit/ / 301
+/new-business-networking https://davedelaney.me/nbnbook 301
+/new-business-networking/ https://davedelaney.me/nbnbook 301
+
 # Short links
 /15 /contact 301
 /30 /contact 301
@@ -16,7 +28,7 @@
 /60 /contact 301
 /add /conference-calculator 301
 /ai / 301
-/bio /about#dave 301
+/bio https://davedelaney.me/planners 301
 /c https://davedelaney.me/coaching 301
 /calc /nice-blog/the-great-resignation-calculation-what-will-this-cost 301
 /ebook https://davedelaney.gumroad.com/l/nicemethod 301
@@ -77,11 +89,11 @@
 /4HR / 301
 /4hr / 301
 /5-linkedin-mistakes /nice-blog 301
-/PBWC /linkedin-audit 301
-/about-dave-delaney /about#dave 301
-/about/dave-delaney /about#dave 301
-/aboutdave /about#dave 301
-/aboutus /about 301
+/PBWC / 301
+/about-dave-delaney https://www.davedelaney.me 301
+/about/dave-delaney https://www.davedelaney.me 301
+/aboutdave https://www.davedelaney.me 301
+/aboutus / 301
 /advising-to-acquisition /nice-blog 301
 /aicontent / 301
 /airealestate / 301
@@ -98,8 +110,8 @@
 /comp-coaching https://davedelaney.me/coaching 301
 /custom-linkedin-connection-requests /nice-blog 301
 /custom-linkedin-connection-requests/feed /nice-blog 301
-/dave-delaney /about#dave 301
-/for-conference-planners /10x-conference-coaching-for-conferences 301
+/dave-delaney https://www.davedelaney.me 301
+/for-conference-planners /10xcc 301
 /four-secret-linkedin-tips-maximize-time /nice-blog 301
 /futureforth-leadership-communication-professional-development-training /nice-blog/the-great-resignation-calculation-what-will-this-cost 301
 /getcoaching https://davedelaney.me/coaching 301
@@ -116,13 +128,13 @@
 /linkedin-acquires-lynda /nice-blog 301
 /linkedin-audits-for-severances / 301
 /linkedin-profile-audit /nice-blog 301
-/linkedin-profile-audit-special /linkedin-audit 301
+/linkedin-profile-audit-special / 301
 /linkedin-profile-tips-guide / 301
-/live-linkedin-audit /linkedin-audit 301
-/live-linkedin-sale /linkedin-audit 301
+/live-linkedin-audit / 301
+/live-linkedin-sale / 301
 /management /nice-blog 301
 /more-than-a-tree https://wisesquirrels.com/rootdown 301
-/nbnbook /new-business-networking 301
+/nbnbook https://davedelaney.me/nbnbook 301
 /neurodiversity-at-work https://wisesquirrels.com/rootdown 301
 /new-blog /nice-blog 301
 /new-blog-post/funny-cat-with-screwdriver /nice-blog 301
@@ -143,7 +155,7 @@
 /nicemethod-workshops https://davedelaney.me/workshops 301
 /nowherebutup / 301
 /packages / 301
-/pbwc-special /linkedin-audit 301
+/pbwc-special / 301
 /personal-coaching https://davedelaney.me/coaching 301
 /presentations-1 / 301
 /reach / 301
@@ -182,7 +194,7 @@
 /workshop-testimonials_ https://davedelaney.me/workshops 301
 /dave-delaney-keynote-speaker https://davedelaney.me/speaking 301
 /radical-retention https://davedelaney.me/speaking 301
-/books /new-business-networking 301
+/books https://davedelaney.me/nbnbook 301
 /nicepodcast /nice-podcast 301
 /podcast-subscriptions /nice-podcast 301
 /bring-the-nice /nice-blog 301
@@ -218,14 +230,14 @@
 /gears https://davedelaney.me/coaching 301
 /getstarted https://davedelaney.me/coaching 301
 /google-photos / 301
-/google-strategy /linkedin-audit 301
+/google-strategy / 301
 /healthcare https://davedelaney.me/workshops 301
 /hi-neighbor / 301
 /home-archive / 301
 /hometest / 301
 /improv https://davedelaney.me/workshops 301
-/linkedin-for-business /linkedin-audit 301
-/live-linkedin-audit-second-harvest /linkedin-audit 301
+/linkedin-for-business / 301
+/live-linkedin-audit-second-harvest / 301
 /logo / 301
 /logos / 301
 /ltc / 301
