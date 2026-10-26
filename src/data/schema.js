@@ -28,17 +28,17 @@ export const organizationSchema = {
     'https://share.google/USR5Bjuu4k8lQQyE3',
   ],
   founder: {
-    '@id': 'https://futureforth.com/about#dave',
+    '@id': 'https://futureforth.com/#dave',
   },
 };
 
 export const daveDelaneyPersonSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': 'https://futureforth.com/about#dave',
+  '@id': 'https://futureforth.com/#dave',
   name: 'Dave Delaney',
   jobTitle: 'Keynote Speaker, Communication Strategist & Coach',
-  url: 'https://futureforth.com/about#dave',
+  url: 'https://www.davedelaney.me',
   image: 'https://futureforth.com/images/dave-headshot.jpg',
   worksFor: {
     '@id': 'https://futureforth.com/#organization',
