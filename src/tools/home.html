@@ -74,29 +74,7 @@
     display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
   }
   #ff-home .trust .logos img{height:72px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(100%);opacity:0.85;}
-  #ff-home .trust .more{
-    text-align:center;margin-top:26px;
-  }
-  #ff-home .trust .more a{
-    font-size:13.5px;font-weight:700;color:var(--purple);
-  }
-  #ff-home .trust .more a:hover{color:var(--purple-dark);}
 
-  /* Added in the move: the other sections center their heading and leave space below it; this one had no rule. */
-  #ff-home .services .head{max-width:680px;margin:0 auto 44px;text-align:center;}
-  #ff-home .services .head .eyebrow{font-size:16px;}
-  #ff-home .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  #ff-home .service-card{
-    background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
-    display:flex;flex-direction:column;
-  }
-  #ff-home .service-card img{width:100%;height:170px;object-fit:cover;}
-  #ff-home .service-card .body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1;}
-  #ff-home .service-card .tag{
-    font-size:12px;font-weight:800;letter-spacing:1px;color:var(--orange-dark);text-transform:uppercase;
-  }
-  #ff-home .service-card p{font-size:14.5px;flex:1;}
-  #ff-home .service-card .btn-ghost{align-self:flex-start;padding:10px 20px;font-size:14px;margin-top:4px;}
 
   /* FINAL CTA */
   #ff-home .final{background:linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);}
@@ -143,6 +121,14 @@
   #ff-home .brand-card .text-link{flex-basis:100%;font-size:14px;font-weight:700;color:var(--purple);margin-top:4px;}
   #ff-home .brand-card .text-link:hover{color:var(--purple-dark);}
 
+  #ff-home .google-rating{
+    display:flex;width:max-content;max-width:100%;margin:30px auto 0;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 20px;
+    font-size:14.5px;font-weight:700;color:var(--purple);
+  }
+  #ff-home .google-rating:hover{border-color:var(--purple);}
+  #ff-home .google-rating .stars{color:#F5A623;font-size:17px;letter-spacing:1px;}
+
   /* HERO LOGO (no site nav on this page) */
   #ff-home .hero-logo{display:block;width:max-content;margin-bottom:40px;}
   #ff-home .hero-logo img{height:44px;width:auto;filter:brightness(0) invert(1);}
@@ -184,6 +170,11 @@
         <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107005825-IDYR4ZG2LQU7KHES7SKM/image.jpg" alt="Asurion">
         <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107024038-7GO9YNATHN4IHZ4BUPTG/NTCA%2B.png" alt="NTCA">
       </div>
+      <a class="google-rating" href="https://share.google/USR5Bjuu4k8lQQyE3" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>Rated 5.0 on Google · Read our reviews →</span>
+      </a>
+    </div>
   </div>
 
   <!-- BRANDS -->
