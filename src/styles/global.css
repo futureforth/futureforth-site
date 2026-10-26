@@ -6,34 +6,34 @@
 
 :root {
   /* ---- Brand colors (sampled from Dave's real logo/favicon — verify against brand guide) --- */
-  --color-navy-900: #4a1650;
-  --color-navy-800: #6c1f78;
-  --color-navy-700: #7b2382;
-  --color-navy-600: #93348f;
-  --color-accent-500: #f0801e;
-  --color-accent-600: #d66c12;
-  --color-accent-100: #fce4cc;
-  --color-cream-50: #f9f6f0;
-  --color-cream-100: #f3ede1;
-  --color-charcoal-900: #201f1d;
-  --color-charcoal-600: #4b4944;
+  --color-navy-900: #5a1360; /* Futureforth purple, dark */
+  --color-navy-800: #801c80; /* Futureforth purple (brand) */
+  --color-navy-700: #8e2a8e;
+  --color-navy-600: #9b3f9b;
+  --color-accent-500: #f26621; /* Futureforth orange (brand) */
+  --color-accent-600: #d8551a;
+  --color-accent-100: #fde3d3;
+  --color-cream-50: #f8f4f8;
+  --color-cream-100: #f3e9f4;
+  --color-charcoal-900: #1a1a1a;
+  --color-charcoal-600: #5c5c5c;
   --color-white: #ffffff;
-  --color-border: #e4ddce;
+  --color-border: #e6e1e6;
 
   /* ---- Semantic aliases ---- */
   --color-bg: var(--color-white);
   --color-bg-alt: var(--color-cream-50);
   --color-text: var(--color-charcoal-900);
   --color-text-muted: var(--color-charcoal-600);
-  --color-heading: var(--color-navy-900);
+  --color-heading: var(--color-navy-800);
   --color-primary: var(--color-navy-800);
   --color-primary-strong: var(--color-navy-900);
   --color-accent: var(--color-accent-500);
   --color-accent-strong: var(--color-accent-600);
 
   /* ---- Type scale ---- */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: 'Sora', var(--font-sans);
+  --font-sans: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Titillium Web', var(--font-sans);
 
   --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.9rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
