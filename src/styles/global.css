@@ -596,6 +596,14 @@ select:focus-visible,
   padding-block: var(--space-2xl);
 }
 
+.hero--compact {
+  padding-block: var(--space-xl) var(--space-lg);
+}
+
+.section--tight-top {
+  padding-top: var(--space-sm);
+}
+
 .hero h1,
 .hero p {
   color: var(--color-white);
