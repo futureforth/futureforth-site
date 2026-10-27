@@ -597,11 +597,12 @@ select:focus-visible,
 }
 
 .hero--compact {
-  padding-block: var(--space-xl) var(--space-lg);
+  padding-block: var(--space-md) var(--space-lg);
 }
 
 .section--tight-top {
   padding-top: var(--space-sm);
+  padding-bottom: var(--space-md);
 }
 
 .hero h1,
