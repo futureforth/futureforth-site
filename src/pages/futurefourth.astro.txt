@@ -1,0 +1,15 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Futurefouth? - Futureforth" description="Right site, wrong name." path="/FF" noindex>
+  <section class="section">
+    <div class="container prose">
+
+      <h1>😉 Right Site, Wrong Name.</h1>
+      <p>You found Future<i>forth</i>, but found us the wrong way.</p>
+<p> Luckily, we also own future<i>fourth</i>.com. 
+      <p><a href="/" class="btn btn-primary">Let's get you back on track</a></p>
+    </div>
+  </section>
+</BaseLayout>
