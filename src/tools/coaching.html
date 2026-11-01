@@ -70,10 +70,15 @@
     text-align:center;font-size:16px;font-weight:700;letter-spacing:1.4px;
     text-transform:uppercase;color:var(--muted);margin-bottom:28px;
   }
-  #ff-coaching .trust .logos{
-    display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+  #ff-coaching .trust .clients{
+    list-style:none;margin:0 auto;padding:0;max-width:980px;
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;row-gap:14px;
   }
-  #ff-coaching .trust .logos img{height:72px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(100%);opacity:0.85;}
+  #ff-coaching .trust .clients li{
+    font-size:22px;font-weight:700;color:var(--purple);letter-spacing:-0.2px;white-space:nowrap;
+  }
+  #ff-coaching .trust .clients li:not(:last-child)::after{content:"\00B7";color:var(--orange);margin:0 18px;}
+  #ff-coaching .trust .clients sup{font-size:0.5em;font-weight:600;vertical-align:super;margin-left:1px;}
   #ff-coaching .trust .more{
     text-align:center;margin-top:26px;
   }
@@ -174,8 +179,8 @@
     #ff-coaching .t-grid{grid-template-columns:1fr;}
     #ff-coaching .featured10x .grid{grid-template-columns:1fr;}
     #ff-coaching .featured10x .visual{order:-1;}
-    #ff-coaching .trust .logos{gap:26px;}
-    #ff-coaching .trust .logos img{height:48px;}
+    #ff-coaching .trust .clients li{font-size:17px;}
+    #ff-coaching .trust .clients li:not(:last-child)::after{margin:0 10px;}
     #ff-coaching section{padding:52px 0;}
   }
 </style>
@@ -196,15 +201,15 @@
   <!-- TRUST STRIP -->
   <div class="trust">
     <div class="wrap">
-      <div class="trust-label">Trusted by leaders at</div>
-      <div class="logos">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106963602-X5EBBQ5RMOFH5L81HRX4/download-4.png" alt="Google">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106946227-H558ONE4O1TBPPBS4VPZ/download-3.png" alt="LinkedIn">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767220919154-DEMJNEHECMSOG81VZOD1/fedex+new.png" alt="FedEx">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106988525-RH58U2O91JTF179AJCQG/download-5.png" alt="HCA Healthcare">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767108205665-F3NNB6W27M1F46HO4ARJ/download.png" alt="UPS">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107005825-IDYR4ZG2LQU7KHES7SKM/image.jpg" alt="Asurion">
-      </div>
+      <div class="trust-label">Clients include:</div>
+      <ul class="clients">
+        <li>Google<sup>®</sup></li>
+        <li>LinkedIn<sup>®</sup></li>
+        <li>FedEx<sup>®</sup></li>
+        <li>HCA Healthcare<sup>®</sup></li>
+        <li>UPS<sup>®</sup></li>
+        <li>Asurion<sup>®</sup></li>
+      </ul>
       <div class="more">
         <a href="https://davedelaney.me/testimonials" target="_blank" rel="noopener">Read client stories &amp; endorsements →</a>
       </div>
