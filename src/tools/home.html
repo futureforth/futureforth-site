@@ -70,10 +70,15 @@
     text-align:center;font-size:16px;font-weight:700;letter-spacing:1.4px;
     text-transform:uppercase;color:var(--muted);margin-bottom:28px;
   }
-  #ff-home .trust .logos{
-    display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+  #ff-home .trust .clients{
+    list-style:none;margin:0 auto;padding:0;max-width:980px;
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;row-gap:14px;
   }
-  #ff-home .trust .logos img{height:72px;width:auto;max-width:220px;object-fit:contain;filter:grayscale(100%);opacity:0.85;}
+  #ff-home .trust .clients li{
+    font-size:22px;font-weight:700;color:var(--purple);letter-spacing:-0.2px;white-space:nowrap;
+  }
+  #ff-home .trust .clients li:not(:last-child)::after{content:"\00B7";color:var(--orange);margin:0 18px;}
+  #ff-home .trust .clients sup{font-size:0.5em;font-weight:600;vertical-align:super;margin-left:1px;}
 
 
   /* FINAL CTA */
@@ -137,8 +142,8 @@
     #ff-home h1{font-size:32px;}
     #ff-home h2{font-size:26px;}
     #ff-home .brand-grid,#ff-home .tool-grid{grid-template-columns:1fr;}
-    #ff-home .trust .logos{gap:26px;}
-    #ff-home .trust .logos img{height:48px;}
+    #ff-home .trust .clients li{font-size:17px;}
+    #ff-home .trust .clients li:not(:last-child)::after{margin:0 10px;}
     #ff-home section{padding:52px 0;}
   }
 </style>
@@ -160,16 +165,16 @@
   <!-- TRUST STRIP -->
   <div class="trust">
     <div class="wrap">
-      <div class="trust-label">Trusted by teams at</div>
-      <div class="logos">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106963602-X5EBBQ5RMOFH5L81HRX4/download-4.png" alt="Google">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106946227-H558ONE4O1TBPPBS4VPZ/download-3.png" alt="LinkedIn">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767220919154-DEMJNEHECMSOG81VZOD1/fedex+new.png" alt="FedEx">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767106988525-RH58U2O91JTF179AJCQG/download-5.png" alt="HCA Healthcare">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767108205665-F3NNB6W27M1F46HO4ARJ/download.png" alt="UPS">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107005825-IDYR4ZG2LQU7KHES7SKM/image.jpg" alt="Asurion">
-        <img src="https://images.squarespace-cdn.com/content/v1/55673b0ee4b0b18473b61633/1767107024038-7GO9YNATHN4IHZ4BUPTG/NTCA%2B.png" alt="NTCA">
-      </div>
+      <div class="trust-label">Clients include:</div>
+      <ul class="clients">
+        <li>Google<sup>®</sup></li>
+        <li>LinkedIn<sup>®</sup></li>
+        <li>FedEx<sup>®</sup></li>
+        <li>HCA Healthcare<sup>®</sup></li>
+        <li>UPS<sup>®</sup></li>
+        <li>Asurion<sup>®</sup></li>
+        <li>NTCA<sup>®</sup></li>
+      </ul>
       <a class="google-rating" href="https://share.google/USR5Bjuu4k8lQQyE3" target="_blank" rel="noopener">
         <span class="stars" aria-hidden="true">★★★★★</span>
         <span>Rated 5.0 on Google · Read our reviews →</span>
